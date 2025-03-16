@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="线性表 线性表（linear list）：具有相同性质的数据元素&#x3D;&#x3D;顺序排列&#x3D;&#x3D;形成的优先序列  由于顺序存储结构存在以下问题：  存储空间分配不灵活 运算的空间复杂度高  因此，链式存储结构更佳 顺序表——线性表的顺序存储方式 顺序表有以下特点：数据元素依次顺序存储在一组&#x3D;&#x3D;连续的存储单元&#x3D;&#x3D;中，知道某个元素的位置就">
+    <meta name="description" content="线性表 线性表（linear list）：具有相同性质的数据元素顺序排列形成的优先序列  由于顺序存储结构存在以下问题：  存储空间分配不灵活 运算的空间复杂度高  因此，链式存储结构更佳 顺序表——线性表的顺序存储方式 顺序表有以下特点：数据元素依次顺序存储在一组连续的存储单元中，知道某个元素的位置就可以计算其他元素，获得任意元素的复杂度为O(1)数据元素的物理存放顺序与其逻辑顺序一致  顺序表">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LinearList">
 <meta property="og:url" content="http://example.com/2025/03/17/LinearList/index.html">
 <meta property="og:site_name" content="TTTb">
-<meta property="og:description" content="线性表 线性表（linear list）：具有相同性质的数据元素&#x3D;&#x3D;顺序排列&#x3D;&#x3D;形成的优先序列  由于顺序存储结构存在以下问题：  存储空间分配不灵活 运算的空间复杂度高  因此，链式存储结构更佳 顺序表——线性表的顺序存储方式 顺序表有以下特点：数据元素依次顺序存储在一组&#x3D;&#x3D;连续的存储单元&#x3D;&#x3D;中，知道某个元素的位置就">
+<meta property="og:description" content="线性表 线性表（linear list）：具有相同性质的数据元素顺序排列形成的优先序列  由于顺序存储结构存在以下问题：  存储空间分配不灵活 运算的空间复杂度高  因此，链式存储结构更佳 顺序表——线性表的顺序存储方式 顺序表有以下特点：数据元素依次顺序存储在一组连续的存储单元中，知道某个元素的位置就可以计算其他元素，获得任意元素的复杂度为O(1)数据元素的物理存放顺序与其逻辑顺序一致  顺序表">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2025/03/17/LinearList/%E9%A1%BA%E5%BA%8F%E8%A1%A8%E6%9F%A5%E6%89%BE%E7%9A%84ASL.png">
 <meta property="og:image" content="http://example.com/2025/03/17/LinearList/%E9%A1%BA%E5%BA%8F%E8%A1%A8%E6%8F%92%E5%85%A5%E7%9A%84%E6%9C%9F%E6%9C%9B.png">
@@ -39,7 +39,7 @@
 <meta property="og:image" content="http://example.com/2025/03/17/LinearList/%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8%E7%9A%84%E6%8F%92%E5%85%A5.png">
 <meta property="og:image" content="http://example.com/2025/03/17/LinearList/%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8%E7%9A%84%E5%88%A0%E9%99%A4.png">
 <meta property="article:published_time" content="2025-03-16T16:41:13.000Z">
-<meta property="article:modified_time" content="2025-03-16T16:46:11.806Z">
+<meta property="article:modified_time" content="2025-03-16T17:03:44.417Z">
 <meta property="article:author" content="Jeffery Tang">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/2025/03/17/LinearList/%E9%A1%BA%E5%BA%8F%E8%A1%A8%E6%9F%A5%E6%89%BE%E7%9A%84ASL.png">
@@ -221,7 +221,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2025-03-17 00:41:13 / Modified: 00:46:11" itemprop="dateCreated datePublished" datetime="2025-03-17T00:41:13+08:00">2025-03-17</time>
+      <time title="Created: 2025-03-17 00:41:13 / Modified: 01:03:44" itemprop="dateCreated datePublished" datetime="2025-03-17T00:41:13+08:00">2025-03-17</time>
     </span>
 
   
@@ -234,7 +234,7 @@
     
     
     <div class="post-body" itemprop="articleBody"><h1 id="线性表"><a href="#线性表" class="headerlink" title="线性表"></a>线性表</h1><blockquote>
-<p>线性表（linear list）：具有相同性质的数据元素&#x3D;&#x3D;顺序排列&#x3D;&#x3D;形成的优先序列</p>
+<p>线性表（linear list）：具有相同性质的数据元素<mark>顺序排列</mark>形成的优先序列</p>
 </blockquote>
 <p>由于顺序存储结构存在以下问题：</p>
 <ul>
@@ -243,9 +243,9 @@
 </ul>
 <p><strong>因此，链式存储结构更佳</strong></p>
 <h2 id="顺序表——线性表的顺序存储方式"><a href="#顺序表——线性表的顺序存储方式" class="headerlink" title="顺序表——线性表的顺序存储方式"></a>顺序表——线性表的顺序存储方式</h2><blockquote>
-<p><strong>顺序表有以下特点</strong>：<br>数据元素依次顺序存储在一组&#x3D;&#x3D;连续的存储单元&#x3D;&#x3D;中，知道某个元素的位置就可以计算其他元素，获得任意元素的复杂度为O(1)<br>数据元素的&#x3D;&#x3D;物理存放顺序与其逻辑顺序一致&#x3D;&#x3D;</p>
+<p><strong>顺序表有以下特点</strong>：<br>数据元素依次顺序存储在一组<mark>连续的存储单元</mark>中，知道某个元素的位置就可以计算其他元素，获得任意元素的复杂度为O(1)<br>数据元素的<mark>物理存放顺序与其逻辑顺序一致</mark></p>
 </blockquote>
-<h3 id="顺序表的查找操作"><a href="#顺序表的查找操作" class="headerlink" title="顺序表的查找操作"></a>顺序表的查找操作</h3><p>顺序查找的ASL（&#x3D;&#x3D;Average Search Length&#x3D;&#x3D;）<br><img src="/2025/03/17/LinearList/%E9%A1%BA%E5%BA%8F%E8%A1%A8%E6%9F%A5%E6%89%BE%E7%9A%84ASL.png" alt="alt text"><br>假设每个元素查找的概率相等：P<del>i</del> &#x3D; 1&#x2F;n<br>则ASL &#x3D;（1 + 2 + 3 +…+n）&#x2F; n &#x3D; (n + 1) &#x2F; 2<br><em><strong>时间复杂度为O（n）</strong></em></p>
+<h3 id="顺序表的查找操作"><a href="#顺序表的查找操作" class="headerlink" title="顺序表的查找操作"></a>顺序表的查找操作</h3><p>顺序查找的ASL（<mark>Average Search Length</mark>）<br><img src="/2025/03/17/LinearList/%E9%A1%BA%E5%BA%8F%E8%A1%A8%E6%9F%A5%E6%89%BE%E7%9A%84ASL.png" alt="alt text"><br>假设每个元素查找的概率相等：P<del>i</del> &#x3D; 1&#x2F;n<br>则ASL &#x3D;（1 + 2 + 3 +…+n）&#x2F; n &#x3D; (n + 1) &#x2F; 2<br><em><strong>时间复杂度为O（n）</strong></em></p>
 <h3 id="顺序表的插入操作"><a href="#顺序表的插入操作" class="headerlink" title="顺序表的插入操作"></a>顺序表的插入操作</h3><p><strong>算法步骤</strong>：</p>
 <ol>
 <li>判断插入位置是否合法</li>
@@ -274,12 +274,12 @@
 <li>则期望为：<br><img src="/2025/03/17/LinearList/%E9%A1%BA%E5%BA%8F%E8%A1%A8%E5%88%A0%E9%99%A4%E7%9A%84%E6%9C%9F%E6%9C%9B.png" alt="alt text"><br><em><strong>删除一个元素的平均时间复杂度为O（n）</strong></em></li>
 </ol>
 <h3 id="顺序表的优缺点"><a href="#顺序表的优缺点" class="headerlink" title="顺序表的优缺点"></a>顺序表的优缺点</h3><ul>
-<li>可以&#x3D;&#x3D;直接访问&#x3D;&#x3D;表中的元素</li>
-<li>插入&#x2F;删除操作设计&#x3D;&#x3D;大量元素移动&#x3D;&#x3D;，复杂度高</li>
-<li>静态存储，&#x3D;&#x3D;不可扩充&#x3D;&#x3D;</li>
+<li>可以<mark>直接访问</mark>表中的元素</li>
+<li>插入&#x2F;删除操作设计<mark>大量元素移动</mark>，复杂度高</li>
+<li>静态存储，<mark>不可扩充</mark></li>
 </ul>
 <h2 id="单向链表——线性表的链式存储方式"><a href="#单向链表——线性表的链式存储方式" class="headerlink" title="单向链表——线性表的链式存储方式"></a>单向链表——线性表的链式存储方式</h2><blockquote>
-<p><strong>单向链表表有以下特点</strong>：<br>存储单元<strong>可以不连续</strong><br>用&#x3D;&#x3D;额外的存储空间&#x3D;&#x3D;存放数据元素的逻辑位置<br>采用&#x3D;&#x3D;指针链接&#x3D;&#x3D;逻辑相邻的元素</p>
+<p><strong>单向链表表有以下特点</strong>：<br>存储单元<strong>可以不连续</strong><br>用<mark>额外的存储空间</mark>存放数据元素的逻辑位置<br>采用<mark>指针链接</mark>逻辑相邻的元素</p>
 </blockquote>
 <h3 id="在链表中插入新节点"><a href="#在链表中插入新节点" class="headerlink" title="在链表中插入新节点"></a>在链表中插入新节点</h3><p><img src="/2025/03/17/LinearList/%E5%8D%95%E5%90%91%E9%93%BE%E8%A1%A8%E7%9A%84%E6%8F%92%E5%85%A5.png" alt="alt text"><br><strong>步骤</strong>：</p>
 <ol>
@@ -298,27 +298,27 @@
 <h3 id="Slicing-Problem-对象切割问题"><a href="#Slicing-Problem-对象切割问题" class="headerlink" title="Slicing Problem 对象切割问题"></a>Slicing Problem 对象切割问题</h3><blockquote>
 <p><strong>产生原因</strong>：</p>
 <ul>
-<li>当&#x3D;&#x3D;把一个派生类对象赋给一个基类对象&#x3D;&#x3D;时（并不是使用父类指针或引用接收子类对象），会发生对象切割。(另外用&#x3D;&#x3D;基类对象强制转换派生类对象&#x3D;&#x3D;也会)<br><img src="/2025/03/17/LinearList/%E5%AF%B9%E8%B1%A1%E5%88%87%E5%89%B2%E5%8E%9F%E5%9B%A01.png" alt="alt text"><br></li>
+<li>当<mark>把一个派生类对象赋给一个基类对象</mark>时（并不是使用父类指针或引用接收子类对象），会发生对象切割。(另外用<mark>基类对象强制转换派生类对象</mark>也会)<br><img src="/2025/03/17/LinearList/%E5%AF%B9%E8%B1%A1%E5%88%87%E5%89%B2%E5%8E%9F%E5%9B%A01.png" alt="alt text"><br></li>
 </ul>
 </blockquote>
 <blockquote>
 <ul>
-<li>接收&#x3D;&#x3D;值传递&#x3D;&#x3D;的返回值时，发生的拷贝构造也会发生对象切割<br><img src="/2025/03/17/LinearList/%E5%AF%B9%E8%B1%A1%E5%88%87%E5%89%B2%E5%8E%9F%E5%9B%A02.png" alt="alt text"></li>
+<li>接收<mark>值传递</mark>的返回值时，发生的拷贝构造也会发生对象切割<br><img src="/2025/03/17/LinearList/%E5%AF%B9%E8%B1%A1%E5%88%87%E5%89%B2%E5%8E%9F%E5%9B%A02.png" alt="alt text"></li>
 </ul>
 </blockquote>
 <p><em><strong>发生对象切片后派生类的覆盖部分就被切掉了，所以调用的方法将会是父类方法</strong></em></p>
 <p>与对象切割类似的，还有<strong>静态联编</strong>问题：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="comment">//基类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	 <span class="function"><span class="type">void</span> <span class="title">printError</span><span class="params">()</span></span>&#123;  <span class="comment">//使用virtual关键字声明函数，将其变为虚函数，即可使用多态</span></span><br><span class="line">	 cout &lt;&lt; <span class="string">&quot;基类方法!&quot;</span> &lt;&lt; endl;</span><br><span class="line">	 &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//派生类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Derived</span> : <span class="keyword">public</span> Base&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	 <span class="function"><span class="type">void</span> <span class="title">printError</span><span class="params">()</span></span>&#123;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;派生类方法!&quot;</span> &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;	</span><br><span class="line">	Base *ex = <span class="keyword">new</span> <span class="built_in">Derived</span>(); <span class="comment">//静态联编导致子类对象调用基类方法，而不是子类方法</span></span><br><span class="line">	ex-&gt;<span class="built_in">printError</span>(); <span class="comment">//输出基类方法！</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="built_in">test</span>();</span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p><strong>静态联编</strong>行为：<br>当基类函数&#x3D;&#x3D;未声明为virtual&#x3D;&#x3D;时，编译器根据指针&#x2F;引用的&#x3D;&#x3D;静态类型（声明类型）&#x3D;&#x3D;<br>决定调用哪个函数。<br>示例中<code>Base* ex</code>的静态类型是<code>Base*</code>，因此<code>ex-&gt;printError()</code>直接调用<code>Base::printError()</code>，即使对象实际是Derived类型。</p>
+<p><strong>静态联编</strong>行为：<br>当基类函数<mark>未声明为virtual</mark>时，编译器根据指针&#x2F;引用的<mark>静态类型（声明类型）</mark><br>决定调用哪个函数。<br>示例中<code>Base* ex</code>的静态类型是<code>Base*</code>，因此<code>ex-&gt;printError()</code>直接调用<code>Base::printError()</code>，即使对象实际是Derived类型。</p>
 </blockquote>
 <p><strong>单向链表的特点</strong>：</p>
 <ol>
-<li>可以&#x3D;&#x3D;灵活改变长度&#x3D;&#x3D;</li>
-<li>插入&#x2F;删除&#x3D;&#x3D;无需移动&#x3D;&#x3D;大量数据</li>
-<li>通过&#x3D;&#x3D;指针&#x3D;&#x3D;表示数据间的顺序关系</li>
-<li>表长需要&#x3D;&#x3D;遍历&#x3D;&#x3D;获取</li>
-<li>插入&#x2F;删除操作中寻找&#x3D;&#x3D;相应位置的复杂度高&#x3D;&#x3D;<br></li>
+<li>可以<mark>灵活改变长度</mark></li>
+<li>插入&#x2F;删除<mark>无需移动</mark>大量数据</li>
+<li>通过<mark>指针</mark>表示数据间的顺序关系</li>
+<li>表长需要<mark>遍历</mark>获取</li>
+<li>插入&#x2F;删除操作中寻找<mark>相应位置的复杂度高</mark><br></li>
 </ol>
 <h2 id="双向链表——增加前驱指针的单向链表"><a href="#双向链表——增加前驱指针的单向链表" class="headerlink" title="双向链表——增加前驱指针的单向链表"></a>双向链表——增加前驱指针的单向链表</h2><p><img src="/2025/03/17/LinearList/%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8.png" alt="alt text"><br>对于单向链表，想要获取后继元素，复杂度为O(1),但是想要获取前驱元素，需要遍历，复杂度为O(n)<br><strong>双向链表使得两个操作的复杂度都为O(1)</strong></p>
 <h3 id="双向链表的插入操作"><a href="#双向链表的插入操作" class="headerlink" title="双向链表的插入操作"></a>双向链表的插入操作</h3><p><img src="/2025/03/17/LinearList/%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8%E7%9A%84%E6%8F%92%E5%85%A5.png" alt="alt text"></p>
