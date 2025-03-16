@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zn-CN">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"tttb0521.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"tttb0521.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"সার্চ করা হচ্ছে...","empty":"আমরা উক্ত অনুসন্ধানের জন্য কোন ফলাফল খুঁজে পাইনি: ${query}","hits_time":"${hits} টি ফলাফল ${time} মিলিসেকেন্ড এ পাওয়া গেছে","hits":"${hits} টি ফলাফল পাওয়া গেছে"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="数据结构与算法——线性表">
 <meta property="og:type" content="article">
@@ -25,7 +25,7 @@
 <meta property="og:url" content="https://tttb0521.github.io/2025/03/17/LinearList/index.html">
 <meta property="og:site_name" content="TTTb">
 <meta property="og:description" content="数据结构与算法——线性表">
-<meta property="og:locale" content="en_US">
+<meta property="og:locale" content="zn_CN">
 <meta property="og:image" content="https://tttb0521.github.io/2025/03/17/LinearList/%E9%A1%BA%E5%BA%8F%E8%A1%A8%E6%9F%A5%E6%89%BE%E7%9A%84ASL.png">
 <meta property="og:image" content="https://tttb0521.github.io/2025/03/17/LinearList/%E9%A1%BA%E5%BA%8F%E8%A1%A8%E6%8F%92%E5%85%A5%E7%9A%84%E6%9C%9F%E6%9C%9B.png">
 <meta property="og:image" content="https://tttb0521.github.io/2025/03/17/LinearList/%E9%A1%BA%E5%BA%8F%E8%A1%A8%E5%88%A0%E9%99%A4%E7%9A%84%E6%9C%9F%E6%9C%9B.png">
@@ -48,7 +48,7 @@
 <link rel="canonical" href="https://tttb0521.github.io/2025/03/17/LinearList/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://tttb0521.github.io/2025/03/17/LinearList/","path":"2025/03/17/LinearList/","title":"LinearList"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zn-CN","comments":true,"permalink":"https://tttb0521.github.io/2025/03/17/LinearList/","path":"2025/03/17/LinearList/","title":"LinearList"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>LinearList | TTTb</title>
@@ -73,7 +73,7 @@
     <div class="column">
       <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    <div class="toggle" aria-label="নেভিগেশন বারের দৃশ্যমানতা টগল করুন" role="button">
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
@@ -87,10 +87,11 @@
       <p class="site-title">TTTb</p>
       <i class="logo-line"></i>
     </a>
+      <p class="site-subtitle" itemprop="description">日拱一卒，功不唐捐</p>
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    <div class="toggle popup-trigger" aria-label="সার্চ" role="button">
         <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
@@ -99,9 +100,9 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>হোম পেজ</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>ট্যাগ এর তালিকা</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>ক্যাটাগরি এর তালিকা</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>আর্কাইভ এর তালিকা</a></li>
       <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>সার্চ
         </a>
       </li>
   </ul>
@@ -117,7 +118,7 @@
         </span>
         <div class="search-input-container">
           <input autocomplete="off" autocapitalize="off" maxlength="80"
-                placeholder="Searching..." spellcheck="false"
+                placeholder="সার্চ করা হচ্ছে..." spellcheck="false"
                 type="search" class="search-input">
         </div>
         <span class="popup-btn-close" role="button">
@@ -140,10 +141,10 @@
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
-          Table of Contents
+          সূচীপত্র
         </li>
         <li class="sidebar-nav-overview">
-          Overview
+          সারাংশ
         </li>
       </ul>
 
@@ -164,7 +165,7 @@
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
           <span class="site-state-item-count">2</span>
-          <span class="site-state-item-name">posts</span>
+          <span class="site-state-item-name">পোস্ট এর তালিকা</span>
         </a>
       </div>
   </nav>
@@ -190,7 +191,7 @@
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zn-CN">
     <link itemprop="mainEntityOfPage" href="https://tttb0521.github.io/2025/03/17/LinearList/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -218,26 +219,26 @@
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">Posted on</span>
+      <span class="post-meta-item-text">প্রকাশিত হয়েছে</span>
       
 
-      <time title="Created: 2025-03-17 00:41:13 / Modified: 01:28:10" itemprop="dateCreated datePublished" datetime="2025-03-17T00:41:13+08:00">2025-03-17</time>
+      <time title="তৈরি করা হয়েছেঃ 2025-03-17 00:41:13 / পরিমার্জন করা হয়েছেঃ 01:28:10" itemprop="dateCreated datePublished" datetime="2025-03-17T00:41:13+08:00">2025-03-17</time>
     </span>
 
   
-    <span class="post-meta-item" title="Word count in article">
+    <span class="post-meta-item" title="আর্টিকালে অক্ষর এর পরিমাণ">
       <span class="post-meta-item-icon">
         <i class="far fa-file-word"></i>
       </span>
-      <span class="post-meta-item-text">Word count in article: </span>
+      <span class="post-meta-item-text">আর্টিকালে অক্ষর এর পরিমাণঃ </span>
       <span>2.1k</span>
     </span>
-    <span class="post-meta-item" title="Reading time">
+    <span class="post-meta-item" title="পড়াতে লাগবে">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>2 mins.</span>
+      <span class="post-meta-item-text">পড়াতে লাগবে &asymp;</span>
+      <span>2 মিনিট।</span>
     </span>
 </div>
 
@@ -421,18 +422,18 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-      <span>Word count total: </span>
-    <span title="Word count total">7k</span>
+      <span>আর্টিকালে অক্ষর এর মোট পরিমাণঃ </span>
+    <span title="আর্টিকালে অক্ষর এর মোট পরিমাণ">7k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-      <span>Reading time total &asymp;</span>
-    <span title="Reading time total">6 mins.</span>
+      <span>মোট পড়াতে লাগবে &asymp;</span>
+    <span title="মোট পড়াতে লাগবে">6 মিনিট।</span>
   </span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  <div class="powered-by"><a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> এর সাহায্যে চলছে
   </div>
 
     </div>
@@ -445,7 +446,7 @@
     <span class="toggle-line"></span>
   </div>
   <div class="sidebar-dimmer"></div>
-  <div class="back-to-top" role="button" aria-label="Back to top">
+  <div class="back-to-top" role="button" aria-label="উপরে ফিরে যান">
     <i class="fa fa-arrow-up fa-lg"></i>
     <span>0%</span>
   </div>
