@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="线性表 线性表（linear list）：具有相同性质的数据元素&#x3D;&#x3D;顺序排列&#x3D;&#x3D;形成的优先序列  由于顺序存储结构存在以下问题：  存储空间分配不灵活 运算的空间复杂度高  因此，链式存储结构更佳 顺序表——线性表的顺序存储方式 顺序表有以下特点：数据元素依次顺序存储在一组&#x3D;&#x3D;连续的存储单元&#x3D;&#x3D;中，知道某个元素的位置就">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LinearList">
+<meta property="og:url" content="http://example.com/2025/03/17/LinearList/index.html">
+<meta property="og:site_name" content="TTTb">
+<meta property="og:description" content="线性表 线性表（linear list）：具有相同性质的数据元素&#x3D;&#x3D;顺序排列&#x3D;&#x3D;形成的优先序列  由于顺序存储结构存在以下问题：  存储空间分配不灵活 运算的空间复杂度高  因此，链式存储结构更佳 顺序表——线性表的顺序存储方式 顺序表有以下特点：数据元素依次顺序存储在一组&#x3D;&#x3D;连续的存储单元&#x3D;&#x3D;中，知道某个元素的位置就">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2025/03/17/LinearList/%E9%A1%BA%E5%BA%8F%E8%A1%A8%E6%9F%A5%E6%89%BE%E7%9A%84ASL.png">
+<meta property="og:image" content="http://example.com/2025/03/17/LinearList/%E9%A1%BA%E5%BA%8F%E8%A1%A8%E6%8F%92%E5%85%A5%E7%9A%84%E6%9C%9F%E6%9C%9B.png">
+<meta property="og:image" content="http://example.com/2025/03/17/LinearList/%E9%A1%BA%E5%BA%8F%E8%A1%A8%E5%88%A0%E9%99%A4%E7%9A%84%E6%9C%9F%E6%9C%9B.png">
+<meta property="og:image" content="http://example.com/2025/03/17/LinearList/%E5%8D%95%E5%90%91%E9%93%BE%E8%A1%A8%E7%9A%84%E6%8F%92%E5%85%A5.png">
+<meta property="og:image" content="http://example.com/2025/03/17/LinearList/%E5%8D%95%E5%90%91%E9%93%BE%E8%A1%A8%E7%9A%84%E5%88%A0%E9%99%A4.png">
+<meta property="og:image" content="http://example.com/2025/03/17/LinearList/%E5%AF%B9%E8%B1%A1%E5%88%87%E5%89%B2.png">
+<meta property="og:image" content="http://example.com/2025/03/17/LinearList/%E5%BC%95%E7%94%A8%E4%BC%A0%E9%80%92%E9%81%BF%E5%85%8D%E5%AF%B9%E8%B1%A1%E5%88%87%E5%89%B2.png">
+<meta property="og:image" content="http://example.com/2025/03/17/LinearList/%E5%AF%B9%E8%B1%A1%E5%88%87%E5%89%B2%E5%8E%9F%E5%9B%A01.png">
+<meta property="og:image" content="http://example.com/2025/03/17/LinearList/%E5%AF%B9%E8%B1%A1%E5%88%87%E5%89%B2%E5%8E%9F%E5%9B%A02.png">
+<meta property="og:image" content="http://example.com/2025/03/17/LinearList/%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8.png">
+<meta property="og:image" content="http://example.com/2025/03/17/LinearList/%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8%E7%9A%84%E6%8F%92%E5%85%A5.png">
+<meta property="og:image" content="http://example.com/2025/03/17/LinearList/%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8%E7%9A%84%E5%88%A0%E9%99%A4.png">
+<meta property="article:published_time" content="2025-03-16T16:41:13.000Z">
+<meta property="article:modified_time" content="2025-03-16T16:42:56.887Z">
+<meta property="article:author" content="Jeffery Tang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2025/03/17/LinearList/%E9%A1%BA%E5%BA%8F%E8%A1%A8%E6%9F%A5%E6%89%BE%E7%9A%84ASL.png">
+
+
+<link rel="canonical" href="http://example.com/2025/03/17/LinearList/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2025/03/17/LinearList/","path":"2025/03/17/LinearList/","title":"LinearList"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>LinearList | TTTb</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">TTTb</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8"><span class="nav-number">1.</span> <span class="nav-text">线性表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%BA%E5%BA%8F%E8%A1%A8%E2%80%94%E2%80%94%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F"><span class="nav-number">1.1.</span> <span class="nav-text">顺序表——线性表的顺序存储方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%BA%E5%BA%8F%E8%A1%A8%E7%9A%84%E6%9F%A5%E6%89%BE%E6%93%8D%E4%BD%9C"><span class="nav-number">1.1.1.</span> <span class="nav-text">顺序表的查找操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%BA%E5%BA%8F%E8%A1%A8%E7%9A%84%E6%8F%92%E5%85%A5%E6%93%8D%E4%BD%9C"><span class="nav-number">1.1.2.</span> <span class="nav-text">顺序表的插入操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%BA%E5%BA%8F%E8%A1%A8%E7%9A%84%E5%88%A0%E9%99%A4%E6%93%8D%E4%BD%9C"><span class="nav-number">1.1.3.</span> <span class="nav-text">顺序表的删除操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%BA%E5%BA%8F%E8%A1%A8%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-number">1.1.4.</span> <span class="nav-text">顺序表的优缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E5%90%91%E9%93%BE%E8%A1%A8%E2%80%94%E2%80%94%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text">单向链表——线性表的链式存储方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E9%93%BE%E8%A1%A8%E4%B8%AD%E6%8F%92%E5%85%A5%E6%96%B0%E8%8A%82%E7%82%B9"><span class="nav-number">1.2.1.</span> <span class="nav-text">在链表中插入新节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E9%93%BE%E8%A1%A8%E4%B8%AD%E5%88%A0%E9%99%A4%E8%8A%82%E7%82%B9"><span class="nav-number">1.2.2.</span> <span class="nav-text">在链表中删除节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89SeqList%E5%92%8CLinkList%E5%9D%87%E7%BB%A7%E6%89%BF%E8%87%AALinearLis%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">1.2.3.</span> <span class="nav-text">定义SeqList和LinkList均继承自LinearLis出现的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Slicing-Problem-%E5%AF%B9%E8%B1%A1%E5%88%87%E5%89%B2%E9%97%AE%E9%A2%98"><span class="nav-number">1.2.4.</span> <span class="nav-text">Slicing Problem 对象切割问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8%E2%80%94%E2%80%94%E5%A2%9E%E5%8A%A0%E5%89%8D%E9%A9%B1%E6%8C%87%E9%92%88%E7%9A%84%E5%8D%95%E5%90%91%E9%93%BE%E8%A1%A8"><span class="nav-number">1.3.</span> <span class="nav-text">双向链表——增加前驱指针的单向链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8%E7%9A%84%E6%8F%92%E5%85%A5%E6%93%8D%E4%BD%9C"><span class="nav-number">1.3.1.</span> <span class="nav-text">双向链表的插入操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8%E7%9A%84%E5%88%A0%E9%99%A4%E6%93%8D%E4%BD%9C"><span class="nav-number">1.3.2.</span> <span class="nav-text">双向链表的删除操作</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Jeffery Tang</p>
+  <div class="site-description" itemprop="description">Welcome to my world!</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/17/LinearList/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeffery Tang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TTTb">
+      <meta itemprop="description" content="Welcome to my world!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="LinearList | TTTb">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          LinearList
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2025-03-17 00:41:13 / Modified: 00:42:56" itemprop="dateCreated datePublished" datetime="2025-03-17T00:41:13+08:00">2025-03-17</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="线性表"><a href="#线性表" class="headerlink" title="线性表"></a>线性表</h1><blockquote>
+<p>线性表（linear list）：具有相同性质的数据元素&#x3D;&#x3D;顺序排列&#x3D;&#x3D;形成的优先序列</p>
+</blockquote>
+<p>由于顺序存储结构存在以下问题：</p>
+<ul>
+<li>存储空间分配不灵活</li>
+<li>运算的空间复杂度高</li>
+</ul>
+<p><strong>因此，链式存储结构更佳</strong></p>
+<h2 id="顺序表——线性表的顺序存储方式"><a href="#顺序表——线性表的顺序存储方式" class="headerlink" title="顺序表——线性表的顺序存储方式"></a>顺序表——线性表的顺序存储方式</h2><blockquote>
+<p><strong>顺序表有以下特点</strong>：<br>数据元素依次顺序存储在一组&#x3D;&#x3D;连续的存储单元&#x3D;&#x3D;中，知道某个元素的位置就可以计算其他元素，获得任意元素的复杂度为O(1)<br>数据元素的&#x3D;&#x3D;物理存放顺序与其逻辑顺序一致&#x3D;&#x3D;</p>
+</blockquote>
+<h3 id="顺序表的查找操作"><a href="#顺序表的查找操作" class="headerlink" title="顺序表的查找操作"></a>顺序表的查找操作</h3><p>顺序查找的ASL（&#x3D;&#x3D;Average Search Length&#x3D;&#x3D;）<br><img src="/2025/03/17/LinearList/%E9%A1%BA%E5%BA%8F%E8%A1%A8%E6%9F%A5%E6%89%BE%E7%9A%84ASL.png" alt="alt text"><br>假设每个元素查找的概率相等：P<del>i</del> &#x3D; 1&#x2F;n<br>则ASL &#x3D;（1 + 2 + 3 +…+n）&#x2F; n &#x3D; (n + 1) &#x2F; 2<br><em><strong>时间复杂度为O（n）</strong></em></p>
+<h3 id="顺序表的插入操作"><a href="#顺序表的插入操作" class="headerlink" title="顺序表的插入操作"></a>顺序表的插入操作</h3><p><strong>算法步骤</strong>：</p>
+<ol>
+<li>判断插入位置是否合法</li>
+<li>判断顺序表的存储空间是否已满，已满则返回False</li>
+<li>空出第 i 个位置，将第 n 至第 i 位的元素依次向后移动一个位置</li>
+<li>将要插入的新元素放入第 i 个位置</li>
+<li>表长加一</li>
+</ol>
+<p><strong>复杂度分析</strong>：</p>
+<ol>
+<li>在第 i 个位置插入元素的先验概率P<del>i</del> &#x3D; 1 &#x2F; n + 1</li>
+<li>则期望为：<br><img src="/2025/03/17/LinearList/%E9%A1%BA%E5%BA%8F%E8%A1%A8%E6%8F%92%E5%85%A5%E7%9A%84%E6%9C%9F%E6%9C%9B.png" alt="alt text"></li>
+</ol>
+<p><em><strong>插入一个元素的平均时间复杂度为O（n）</strong></em></p>
+<h3 id="顺序表的删除操作"><a href="#顺序表的删除操作" class="headerlink" title="顺序表的删除操作"></a>顺序表的删除操作</h3><p><strong>算法步骤</strong>：</p>
+<ol>
+<li>判断插入位置是否合法</li>
+<li>将待删除的元素保留</li>
+<li>空出第 i + 1 个位置至第 n 位的元素依次向前移动一个位置</li>
+<li>表长减一</li>
+</ol>
+<p><strong>复杂度分析</strong>：</p>
+<ol>
+<li>在第 i 个位置删除元素的先验概率P<del>i</del> &#x3D; 1 &#x2F; n</li>
+<li>共有 n - i - 1 个元素需要移动</li>
+<li>则期望为：<br><img src="/2025/03/17/LinearList/%E9%A1%BA%E5%BA%8F%E8%A1%A8%E5%88%A0%E9%99%A4%E7%9A%84%E6%9C%9F%E6%9C%9B.png" alt="alt text"><br><em><strong>删除一个元素的平均时间复杂度为O（n）</strong></em></li>
+</ol>
+<h3 id="顺序表的优缺点"><a href="#顺序表的优缺点" class="headerlink" title="顺序表的优缺点"></a>顺序表的优缺点</h3><ul>
+<li>可以&#x3D;&#x3D;直接访问&#x3D;&#x3D;表中的元素</li>
+<li>插入&#x2F;删除操作设计&#x3D;&#x3D;大量元素移动&#x3D;&#x3D;，复杂度高</li>
+<li>静态存储，&#x3D;&#x3D;不可扩充&#x3D;&#x3D;</li>
+</ul>
+<h2 id="单向链表——线性表的链式存储方式"><a href="#单向链表——线性表的链式存储方式" class="headerlink" title="单向链表——线性表的链式存储方式"></a>单向链表——线性表的链式存储方式</h2><blockquote>
+<p><strong>单向链表表有以下特点</strong>：<br>存储单元<strong>可以不连续</strong><br>用&#x3D;&#x3D;额外的存储空间&#x3D;&#x3D;存放数据元素的逻辑位置<br>采用&#x3D;&#x3D;指针链接&#x3D;&#x3D;逻辑相邻的元素</p>
+</blockquote>
+<h3 id="在链表中插入新节点"><a href="#在链表中插入新节点" class="headerlink" title="在链表中插入新节点"></a>在链表中插入新节点</h3><p><img src="/2025/03/17/LinearList/%E5%8D%95%E5%90%91%E9%93%BE%E8%A1%A8%E7%9A%84%E6%8F%92%E5%85%A5.png" alt="alt text"><br><strong>步骤</strong>：</p>
+<ol>
+<li><code>s -&gt; next = p -&gt; next</code></li>
+<li><code>p -&gt; next = s</code></li>
+</ol>
+<p><em><strong>颠倒顺序会导致自循环</strong></em><br><br></p>
+<h3 id="在链表中删除节点"><a href="#在链表中删除节点" class="headerlink" title="在链表中删除节点"></a>在链表中删除节点</h3><p><img src="/2025/03/17/LinearList/%E5%8D%95%E5%90%91%E9%93%BE%E8%A1%A8%E7%9A%84%E5%88%A0%E9%99%A4.png" alt="alt text"><br><strong>步骤</strong>：</p>
+<ol>
+<li><code>q = p -&gt; next</code></li>
+<li><code>p -&gt; next = q -&gt; next</code></li>
+<li><code>delete q; q = null</code></li>
+</ol>
+<h3 id="定义SeqList和LinkList均继承自LinearLis出现的问题"><a href="#定义SeqList和LinkList均继承自LinearLis出现的问题" class="headerlink" title="定义SeqList和LinkList均继承自LinearLis出现的问题"></a>定义SeqList和LinkList均继承自LinearLis出现的问题</h3><p><img src="/2025/03/17/LinearList/%E5%AF%B9%E8%B1%A1%E5%88%87%E5%89%B2.png" alt="alt text"></p>
+<p>使用<strong>引用传递</strong>可以避免对象切割，防止破坏多态性：<br><img src="/2025/03/17/LinearList/%E5%BC%95%E7%94%A8%E4%BC%A0%E9%80%92%E9%81%BF%E5%85%8D%E5%AF%B9%E8%B1%A1%E5%88%87%E5%89%B2.png" alt="alt text"><br><br></p>
+<h3 id="Slicing-Problem-对象切割问题"><a href="#Slicing-Problem-对象切割问题" class="headerlink" title="Slicing Problem 对象切割问题"></a>Slicing Problem 对象切割问题</h3><blockquote>
+<p><strong>产生原因</strong>：</p>
+<ul>
+<li>当&#x3D;&#x3D;把一个派生类对象赋给一个基类对象&#x3D;&#x3D;时（并不是使用父类指针或引用接收子类对象），会发生对象切割。(另外用&#x3D;&#x3D;基类对象强制转换派生类对象&#x3D;&#x3D;也会)<br><img src="/2025/03/17/LinearList/%E5%AF%B9%E8%B1%A1%E5%88%87%E5%89%B2%E5%8E%9F%E5%9B%A01.png" alt="alt text"><br></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>接收&#x3D;&#x3D;值传递&#x3D;&#x3D;的返回值时，发生的拷贝构造也会发生对象切割<br><img src="/2025/03/17/LinearList/%E5%AF%B9%E8%B1%A1%E5%88%87%E5%89%B2%E5%8E%9F%E5%9B%A02.png" alt="alt text"></li>
+</ul>
+</blockquote>
+<p><em><strong>发生对象切片后派生类的覆盖部分就被切掉了，所以调用的方法将会是父类方法</strong></em></p>
+<p>与对象切割类似的，还有<strong>静态联编</strong>问题：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="comment">//基类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	 <span class="function"><span class="type">void</span> <span class="title">printError</span><span class="params">()</span></span>&#123;  <span class="comment">//使用virtual关键字声明函数，将其变为虚函数，即可使用多态</span></span><br><span class="line">	 cout &lt;&lt; <span class="string">&quot;基类方法!&quot;</span> &lt;&lt; endl;</span><br><span class="line">	 &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//派生类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Derived</span> : <span class="keyword">public</span> Base&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	 <span class="function"><span class="type">void</span> <span class="title">printError</span><span class="params">()</span></span>&#123;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;派生类方法!&quot;</span> &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;	</span><br><span class="line">	Base *ex = <span class="keyword">new</span> <span class="built_in">Derived</span>(); <span class="comment">//静态联编导致子类对象调用基类方法，而不是子类方法</span></span><br><span class="line">	ex-&gt;<span class="built_in">printError</span>(); <span class="comment">//输出基类方法！</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="built_in">test</span>();</span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>静态联编</strong>行为：<br>当基类函数&#x3D;&#x3D;未声明为virtual&#x3D;&#x3D;时，编译器根据指针&#x2F;引用的&#x3D;&#x3D;静态类型（声明类型）&#x3D;&#x3D;<br>决定调用哪个函数。<br>示例中<code>Base* ex</code>的静态类型是<code>Base*</code>，因此<code>ex-&gt;printError()</code>直接调用<code>Base::printError()</code>，即使对象实际是Derived类型。</p>
+</blockquote>
+<p><strong>单向链表的特点</strong>：</p>
+<ol>
+<li>可以&#x3D;&#x3D;灵活改变长度&#x3D;&#x3D;</li>
+<li>插入&#x2F;删除&#x3D;&#x3D;无需移动&#x3D;&#x3D;大量数据</li>
+<li>通过&#x3D;&#x3D;指针&#x3D;&#x3D;表示数据间的顺序关系</li>
+<li>表长需要&#x3D;&#x3D;遍历&#x3D;&#x3D;获取</li>
+<li>插入&#x2F;删除操作中寻找&#x3D;&#x3D;相应位置的复杂度高&#x3D;&#x3D;<br></li>
+</ol>
+<h2 id="双向链表——增加前驱指针的单向链表"><a href="#双向链表——增加前驱指针的单向链表" class="headerlink" title="双向链表——增加前驱指针的单向链表"></a>双向链表——增加前驱指针的单向链表</h2><p><img src="/2025/03/17/LinearList/%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8.png" alt="alt text"><br>对于单向链表，想要获取后继元素，复杂度为O(1),但是想要获取前驱元素，需要遍历，复杂度为O(n)<br><strong>双向链表使得两个操作的复杂度都为O(1)</strong></p>
+<h3 id="双向链表的插入操作"><a href="#双向链表的插入操作" class="headerlink" title="双向链表的插入操作"></a>双向链表的插入操作</h3><p><img src="/2025/03/17/LinearList/%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8%E7%9A%84%E6%8F%92%E5%85%A5.png" alt="alt text"></p>
+<p><strong>算法步骤</strong>：</p>
+<ul>
+<li><p>让前驱指向s：</p>
+</li>
+<li><p><code>p -&gt; prev -&gt; next = s</code>  </p>
+<br>
+</li>
+<li><p>以s为中心，设置它的前驱后继</p>
+</li>
+<li><p><code>s -&gt; next = p</code>          </p>
+</li>
+<li><p><code>s -&gt; prev = p -&gt; prev</code>  </p>
+<br>
+</li>
+<li><p>让后继指向s</p>
+</li>
+<li><p><code>p -&gt; prev = s</code></p>
+</li>
+</ul>
+<h3 id="双向链表的删除操作"><a href="#双向链表的删除操作" class="headerlink" title="双向链表的删除操作"></a>双向链表的删除操作</h3><p><img src="/2025/03/17/LinearList/%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8%E7%9A%84%E5%88%A0%E9%99%A4.png" alt="alt text"></p>
+<p><strong>算法步骤</strong>：</p>
+<ul>
+<li><p>让p的后继往前链接：</p>
+</li>
+<li><p><code>p -&gt; prev -&gt; next = p -&gt; next</code></p>
+<br>
+</li>
+<li><p>让p的前驱往后链接：</p>
+</li>
+<li><p><code>p -&gt; next -&gt; prev = p -&gt; prev</code></p>
+<br>
+</li>
+<li><p>删除p</p>
+</li>
+<li><p><code>delete p</code></p>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/10/27/hello-world/" rel="prev" title="Hello World">
+                  <i class="fa fa-angle-left"></i> Hello World
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Jeffery Tang</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
