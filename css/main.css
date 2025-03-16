@@ -1224,7 +1224,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #fbf;
+    background: #ebfaff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -1696,7 +1696,7 @@ pre code {
 .reading-progress-bar {
   --progress: 0;
   background: #37c6c0;
-  height: 3px;
+  height: 4px;
   position: fixed;
   z-index: 50;
   width: var(--progress);
