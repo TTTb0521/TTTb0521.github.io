@@ -68,12 +68,11 @@
 <h3 id="Slicing-Problem-对象切割问题"><a href="#Slicing-Problem-对象切割问题" class="headerlink" title="Slicing Problem 对象切割问题"></a>Slicing Problem 对象切割问题</h3><blockquote>
 <p><strong>产生原因</strong>：</p>
 <ul>
-<li>当<mark>把一个派生类对象赋给一个基类对象</mark>时（并不是使用父类指针或引用接收子类对象），会发生对象切割。(另外用<mark>基类对象强制转换派生类对象</mark>也会)<br><img src="/2025/03/17/LinearList/%E5%AF%B9%E8%B1%A1%E5%88%87%E5%89%B2%E5%8E%9F%E5%9B%A01.png" alt="alt text"><br></li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>接收<mark>值传递</mark>的返回值时，发生的拷贝构造也会发生对象切割<br><img src="/2025/03/17/LinearList/%E5%AF%B9%E8%B1%A1%E5%88%87%E5%89%B2%E5%8E%9F%E5%9B%A02.png" alt="alt text"></li>
+<li><p>当<mark>把一个派生类对象赋给一个基类对象</mark>时（并不是使用父类指针或引用接收子类对象），会发生对象切割。(另外用<mark>基类对象强制转换派生类对象</mark>也会)<br><img src="/2025/03/17/LinearList/%E5%AF%B9%E8%B1%A1%E5%88%87%E5%89%B2%E5%8E%9F%E5%9B%A01.png" alt="alt text"></p>
+<br>
+</li>
+<li><p>接收<mark>值传递</mark>的返回值时，发生的拷贝构造也会发生对象切割<br><img src="/2025/03/17/LinearList/%E5%AF%B9%E8%B1%A1%E5%88%87%E5%89%B2%E5%8E%9F%E5%9B%A02.png" alt="alt text"></p>
+</li>
 </ul>
 </blockquote>
 <p><em><strong>发生对象切片后派生类的覆盖部分就被切掉了，所以调用的方法将会是父类方法</strong></em></p>
