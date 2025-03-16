@@ -134,22 +134,23 @@
     <title>栈和队列</title>
     <url>/2025/03/17/StackAndQueue/</url>
     <content><![CDATA[<h1 id="栈和队列"><a href="#栈和队列" class="headerlink" title="栈和队列"></a>栈和队列</h1><blockquote>
-<p><strong>栈、队列、双端队列均是线性表的特殊情况（访问受限的线性表）</strong><br><img src="/2025/03/17/StackAndQueue/%E8%AE%BF%E9%97%AE%E5%8F%97%E9%99%90%E7%9A%84%E7%BA%BF%E6%80%A7%E8%A1%A8.png" alt="alt text"></p>
+<p><strong>栈、队列、双端队列均是线性表的特殊情况（访问受限的线性表）</strong></p>
+<p><img src="/2025/03/17/StackAndQueue/%E8%AE%BF%E9%97%AE%E5%8F%97%E9%99%90%E7%9A%84%E7%BA%BF%E6%80%A7%E8%A1%A8.png" alt="alt text"></p>
 </blockquote>
 <h2 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h2><ul>
-<li>允许插入、删除的一端称为&#x3D;&#x3D;栈顶(top)&#x3D;&#x3D;，另一端称为&#x3D;&#x3D;栈底(bottom)&#x3D;&#x3D;</li>
-<li>在栈顶插入元素称为&#x3D;&#x3D;入栈(push)&#x3D;&#x3D;，删除元素称为&#x3D;&#x3D;出栈(pop)&#x3D;&#x3D;</li>
+<li>允许插入、删除的一端称为<mark>栈顶(top)</mark>，另一端称为<mark>栈底(bottom)</mark></li>
+<li>在栈顶插入元素称为<mark>入栈(push)</mark>，删除元素称为<mark>出栈(pop)</mark></li>
 </ul>
 <h3 id="顺序栈——栈的顺序存储实现"><a href="#顺序栈——栈的顺序存储实现" class="headerlink" title="顺序栈——栈的顺序存储实现"></a>顺序栈——栈的顺序存储实现</h3><p><strong>顺序栈存储空间的处理</strong><br><img src="/2025/03/17/StackAndQueue/%E9%A1%BA%E5%BA%8F%E6%A0%88%E5%AD%98%E5%82%A8%E7%A9%BA%E9%97%B4%E7%9A%84%E5%A4%84%E7%90%86.png" alt="alt text"></p>
 <p><strong>顺序栈的特点</strong>：</p>
 <ol>
-<li>顺序栈的入栈和出栈、构造和销毁的&#x3D;&#x3D;复杂度都是O(1)&#x3D;&#x3D;</li>
-<li>可以采用溢出时增容，或者&#x3D;&#x3D;共享栈&#x3D;&#x3D;的方式提高空间利用率</li>
+<li>顺序栈的入栈和出栈、构造和销毁的<mark>复杂度都是O(1)</mark></li>
+<li>可以采用溢出时增容，或者<mark>共享栈</mark>的方式提高空间利用率</li>
 </ol>
 <h3 id="链式栈——栈的链式存储分配实现"><a href="#链式栈——栈的链式存储分配实现" class="headerlink" title="链式栈——栈的链式存储分配实现"></a>链式栈——栈的链式存储分配实现</h3><p><strong>链式栈的特点</strong>：</p>
 <ol>
-<li>链式栈的&#x3D;&#x3D;入栈和出栈复杂度为O(1)&#x3D;&#x3D;，&#x3D;&#x3D;构造和销毁的复杂度是O(n)<strong>(需要逐个释放&#x2F;创建)</strong>&#x3D;&#x3D;</li>
-<li>栈的长度动态变化，空间利用率高，一般&#x3D;&#x3D;无需判断溢出&#x3D;&#x3D;</li>
+<li>链式栈的<mark>入栈和出栈复杂度为O(1)</mark>，<mark>构造和销毁的复杂度是O(n)<strong>(需要逐个释放&#x2F;创建)</strong></mark></li>
+<li>栈的长度动态变化，空间利用率高，一般<mark>无需判断溢出</mark></li>
 </ol>
 <h3 id="栈的应用"><a href="#栈的应用" class="headerlink" title="栈的应用"></a>栈的应用</h3><ul>
 <li><p><strong>十进制数到二进制数的转换</strong><br><img src="/2025/03/17/StackAndQueue/%E5%8D%81%E8%BF%9B%E5%88%B6%E8%BD%AC%E4%BA%8C%E8%BF%9B%E5%88%B6.png" alt="alt text"></p>
@@ -158,11 +159,11 @@
 <li><p><strong>算术表达式求值的栈实现</strong></p>
 <p>  中缀表达式实现步骤：</p>
 <ol>
-<li>初始化:结束符‘#’入栈:Sr.Push(‘#’)</li>
-<li>如果W是操作数则入栈:Sd.Push(W)</li>
+<li>初始化:结束符‘#’入栈：<code>Sr.Push(‘#’)</code></li>
+<li>如果W是操作数则入栈：<code>Sd.Push(W)</code></li>
 <li>若W为运算符，则有以下几种情况:<ol>
-<li>若W优先级高于Sr栈顶元素则入栈:Sr.Push(W)</li>
-<li>若W优先级低于Sr栈顶元素则执行运算操作:<br> Sd.Pop(x1);Sd.Pop(x2);Sr.Pop(@);Sd.Push(x2@X1)</li>
+<li>若W优先级高于Sr栈顶元素则入栈：<code>Sr.Push(W)</code></li>
+<li>若W优先级低于Sr栈顶元素则执行运算操作:<br> <code>Sd.Pop(x1);</code><br> <code>Sd.Pop(x2);</code><br> <code>Sr.Pop(@);</code><br> <code>Sd.Push(x2@X1);</code></li>
 <li>若W等于Sr栈顶元素则弹出Sr栈顶元素</li>
 </ol>
 </li>
@@ -177,7 +178,7 @@
 </li>
 </ul>
 <h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><blockquote>
-<p>适用情况：问题可以&#x3D;&#x3D;收敛&#x3D;&#x3D;</p>
+<p><strong>适用情况：问题可以<mark>收敛</mark></strong></p>
 </blockquote>
 <ul>
 <li><p><strong>阶乘求值</strong><br><img src="/2025/03/17/StackAndQueue/%E9%98%B6%E4%B9%98%E6%B1%82%E5%80%BC.png" alt="alt text"></p>
@@ -225,28 +226,28 @@
 <br>
 <br>
 
-<h3 id="递归的消去"><a href="#递归的消去" class="headerlink" title="递归的消去"></a>递归的消去</h3><h4 id="尾递归"><a href="#尾递归" class="headerlink" title="尾递归"></a>尾递归</h4><p>定义：函数最后操作时<strong>递归调用或平凡返回</strong>（&#x3D;&#x3D;返回已经存在的值&#x3D;&#x3D;）</p>
+<h3 id="递归的消去"><a href="#递归的消去" class="headerlink" title="递归的消去"></a>递归的消去</h3><h4 id="尾递归"><a href="#尾递归" class="headerlink" title="尾递归"></a>尾递归</h4><p>定义：函数最后操作时<strong>递归调用或平凡返回</strong>（<mark>返回已经存在的值</mark>）</p>
 <blockquote>
-<p><strong>为什么需要尾递归？</strong><br>对于非尾递归来说，由于最后的返回值需要额外计算，因此&#x3D;&#x3D;经历了创建栈帧、销毁栈帧的过程，可能导致栈溢出&#x3D;&#x3D;。</p>
+<p><strong>为什么需要尾递归？</strong><br>对于非尾递归来说，由于最后的返回值需要额外计算，因此<mark>经历了创建栈帧、销毁栈帧的过程，可能导致栈溢出</mark>。</p>
 <p>以计算阶乘的普通递归实现为例:</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">factorial</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">       <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">   <span class="keyword">else</span></span><br><span class="line">       <span class="keyword">return</span> n * <span class="built_in">factorial</span>(n - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>当调用factorial(3)时，执行过程如下：</p>
-<p>调用factorial(3)，&#x3D;&#x3D;创建栈帧A&#x3D;&#x3D;，保存参数n&#x3D;3。<br>执行到return n * factorial(n - 1)时，需要先计算factorial(2)的值。</p>
-<p>调用factorial(2)，&#x3D;&#x3D;创建新的栈帧B&#x3D;&#x3D;，保存参数n&#x3D;2。<br>执行到return n * factorial(n - 1)时，需要先计算factorial(1)的值。</p>
-<p>调用factorial(1)，&#x3D;&#x3D;创建新的栈帧C&#x3D;&#x3D;，保存参数n&#x3D;1。<br>执行到return n * factorial(n - 1)时，需要先计算factorial(0)的值。</p>
-<p>调用factorial(0)，&#x3D;&#x3D;创建新的栈帧D&#x3D;&#x3D;，保存参数n&#x3D;0。<br>执行到return 1，返回值1，销毁栈帧D。</p>
-<p>栈帧C继续执行，计算1 * 1&#x3D;1，返回值1，&#x3D;&#x3D;销毁栈帧C&#x3D;&#x3D;。<br>栈帧B继续执行，计算2 * 1&#x3D;2，返回值2，&#x3D;&#x3D;销毁栈帧B&#x3D;&#x3D;。<br>栈帧A继续执行，计算3 * 2&#x3D;6，返回值6，&#x3D;&#x3D;销毁栈帧A&#x3D;&#x3D;。</p>
+<p>调用factorial(3)，<mark>创建栈帧A</mark>，保存参数n&#x3D;3。<br>执行到return n * factorial(n - 1)时，需要先计算factorial(2)的值。</p>
+<p>调用factorial(2)，<mark>创建新的栈帧B</mark>，保存参数n&#x3D;2。<br>执行到return n * factorial(n - 1)时，需要先计算factorial(1)的值。</p>
+<p>调用factorial(1)，<mark>创建新的栈帧C</mark>，保存参数n&#x3D;1。<br>执行到return n * factorial(n - 1)时，需要先计算factorial(0)的值。</p>
+<p>调用factorial(0)，<mark>创建新的栈帧D</mark>，保存参数n&#x3D;0。<br>执行到return 1，返回值1，销毁栈帧D。</p>
+<p>栈帧C继续执行，计算1 * 1&#x3D;1，返回值1，<mark>销毁栈帧C</mark>。<br>栈帧B继续执行，计算2 * 1&#x3D;2，返回值2，<mark>销毁栈帧B</mark>。<br>栈帧A继续执行，计算3 * 2&#x3D;6，返回值6，<mark>销毁栈帧A</mark>。</p>
 <p><em><strong>在这个过程中，每次递归调用都会创建新的栈帧，栈帧数量随着递归深度增加而增加，可能导致栈溢出，并且每次创建和销毁栈帧都会带来性能开销。</strong></em></p>
 </blockquote>
 <br>
 
 <p><strong>尾递归优化的执行过程：</strong></p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">factorial_tail</span><span class="params">(<span class="type">int</span> n, <span class="type">int</span> acc)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> acc;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">factorial_tail</span>(n - <span class="number">1</span>, n * acc);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>初始调用时，acc的初始值为1。例如，计算factorial_tail(3, 1)的执行过程如下：<br>调用factorial_tail(3, 1)，&#x3D;&#x3D;创建栈帧A&#x3D;&#x3D;，保存参数n&#x3D;3，acc&#x3D;1。</p>
-<p>执行到return factorial_tail(n - 1, n * acc)时，计算新的参数值n-1&#x3D;2，n * acc&#x3D;3*1&#x3D;3。<br>调用factorial_tail(2, 3)，&#x3D;&#x3D;复用栈帧A&#x3D;&#x3D;，更新参数n&#x3D;2，acc&#x3D;3。</p>
-<p>执行到return factorial_tail(n - 1, n * acc)时，计算新的参数值n-1&#x3D;1，n * acc&#x3D;2*3&#x3D;6。<br>调用factorial_tail(1, 6)，&#x3D;&#x3D;复用栈帧A&#x3D;&#x3D;，更新参数n&#x3D;1，acc&#x3D;6。</p>
-<p>执行到return factorial_tail(n - 1, n * acc)时，计算新的参数值n-1&#x3D;0，n * acc&#x3D;1*6&#x3D;6。<br>调用factorial_tail(0, 6)，&#x3D;&#x3D;复用栈帧A&#x3D;&#x3D;，更新参数n&#x3D;0，acc&#x3D;6。</p>
-<p>执行到return acc，返回值6，&#x3D;&#x3D;销毁栈帧A&#x3D;&#x3D;。</p>
+<p>初始调用时，acc的初始值为1。例如，计算factorial_tail(3, 1)的执行过程如下：<br>调用factorial_tail(3, 1)，<mark>创建栈帧A</mark>，保存参数n&#x3D;3，acc&#x3D;1。</p>
+<p>执行到return factorial_tail(n - 1, n * acc)时，计算新的参数值n-1&#x3D;2，n * acc&#x3D;3*1&#x3D;3。<br>调用factorial_tail(2, 3)，<mark>复用栈帧A</mark>，更新参数n&#x3D;2，acc&#x3D;3。</p>
+<p>执行到return factorial_tail(n - 1, n * acc)时，计算新的参数值n-1&#x3D;1，n * acc&#x3D;2*3&#x3D;6。<br>调用factorial_tail(1, 6)，<mark>复用栈帧A</mark>，更新参数n&#x3D;1，acc&#x3D;6。</p>
+<p>执行到return factorial_tail(n - 1, n * acc)时，计算新的参数值n-1&#x3D;0，n * acc&#x3D;1*6&#x3D;6。<br>调用factorial_tail(0, 6)，<mark>复用栈帧A</mark>，更新参数n&#x3D;0，acc&#x3D;6。</p>
+<p>执行到return acc，返回值6，<mark>销毁栈帧A</mark>。</p>
 <p><em><strong>在这个过程中，每次递归调用复用当前栈帧，不需要创建新的栈帧，因此栈帧数量始终保持为1，不会导致栈溢出，并且避免了创建和销毁栈帧的性能开销。</strong></em><br><br></p>
 <p><strong>底层原理</strong><br><strong>尾递归优化的关键在于编译器能够识别出尾递归调用，并将其转换为循环操作</strong>。具体来说，当编译器检测到一个函数调用是尾递归时，它会生成代码来复用当前的栈帧，而不是创建新的栈帧。这通常是通过将递归调用的参数更新到当前栈帧的变量中，并跳转到函数的开头重新执行来实现的。<br><br></p>
 <p><strong>常见简单问题的尾递归实现</strong></p>
@@ -257,8 +258,8 @@
 <h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2><blockquote>
 <p><strong>定义：限制数据一端插入，另一端删除的特殊线性表</strong></p>
 <ul>
-<li>允许插入的一端称为&#x3D;&#x3D;队尾(rear)&#x3D;&#x3D;，允许删除的一端称为&#x3D;&#x3D;队头(front)&#x3D;&#x3D;</li>
-<li>入队为&#x3D;&#x3D;Enqueue&#x3D;&#x3D;，出队为&#x3D;&#x3D;Dequeue&#x3D;&#x3D;<br></li>
+<li>允许插入的一端称为<mark>队尾(rear)</mark>，允许删除的一端称为<mark>队头(front)</mark></li>
+<li>入队为<mark>Enqueue</mark>，出队为<mark>Dequeue</mark><br></li>
 </ul>
 </blockquote>
 <h3 id="顺序队列"><a href="#顺序队列" class="headerlink" title="顺序队列"></a>顺序队列</h3><h4 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h4><p><img src="/2025/03/17/StackAndQueue/%E9%A1%BA%E5%BA%8F%E9%98%9F%E5%88%97%E7%9A%84%E5%AD%98%E5%82%A8.png" alt="alt text"><br><br></p>
@@ -287,9 +288,10 @@
 <p>此时队列： 1      （这样我们就得到了杨辉三角的第一行）</p>
 </blockquote>
 <br>
+<br>
 
 
-<p>第一步：在队尾&#x3D;&#x3D;进队一个1&#x3D;&#x3D;</p>
+<p>第一步：在队尾<mark>进队一个1</mark></p>
 <blockquote>
 <p>此时队列：1 1</p>
 </blockquote>
@@ -297,16 +299,16 @@
 <blockquote>
 <p>此时队列：1 1</p>
 </blockquote>
-<p>在队尾&#x3D;&#x3D;进队一个1&#x3D;&#x3D;</p>
+<p>在队尾<mark>进队一个1</mark></p>
 <blockquote>
 <p>1 1 1</p>
 </blockquote>
-<p>&#x3D;&#x3D;出队队头的一个1&#x3D;&#x3D;</p>
+<p><mark>出队队头的一个1</mark></p>
 <blockquote>
 <p>1 1              （这样我们就得到了杨辉三角的第二行）</p>
 </blockquote>
-<p>（这里看不懂没关系，接着看就懂了）<br><br></p>
-<p>第二步：在队尾&#x3D;&#x3D;进队一个1&#x3D;&#x3D;（与第一步中相同操作）</p>
+<p>（这里看不懂没关系，接着看就懂了）<br><br><br><br></p>
+<p>第二步：在队尾<mark>进队一个1</mark>（与第一步中相同操作）</p>
 <blockquote>
 <p>1 1 1</p>
 </blockquote>
@@ -318,18 +320,20 @@
 <blockquote>
 <p>1 1 2</p>
 </blockquote>
-<p>在队尾&#x3D;&#x3D;进队一个1&#x3D;&#x3D;（与第一步中相同操作）</p>
+<p>在队尾<mark>进队一个1</mark>（与第一步中相同操作）</p>
 <blockquote>
 <p>1 1 2 1</p>
 </blockquote>
-<p>&#x3D;&#x3D;出队队头的一个1&#x3D;&#x3D;</p>
+<p><mark>出队队头的一个1</mark></p>
 <blockquote>
 <p>1 2 1            （这样我们就得到了杨辉三角的第三行）</p>
 </blockquote>
 <br>
+<br>
+
 
 <p>第三步：</p>
-<p>在队尾&#x3D;&#x3D;进队一个1&#x3D;&#x3D;（与第一步中相同操作）</p>
+<p>在队尾<mark>进队一个1</mark>（与第一步中相同操作）</p>
 <blockquote>
 <p>1 2 1 1</p>
 </blockquote>
@@ -349,18 +353,18 @@
 <blockquote>
 <p>1 1 3 3</p>
 </blockquote>
-<p>在队尾&#x3D;&#x3D;进队一个1&#x3D;&#x3D;（与第一步中相同操作）</p>
+<p>在队尾<mark>进队一个1</mark>（与第一步中相同操作）</p>
 <blockquote>
 <p>1 1 3 3 1</p>
 </blockquote>
-<p>&#x3D;&#x3D;出队队头的一个1&#x3D;&#x3D;</p>
+<p><mark>出队队头的一个1</mark></p>
 <blockquote>
 <p>1 3 3 1           （这样我们就得到了杨辉三角的第四行）</p>
 </blockquote>
 <br>
 
 <blockquote>
-<p>经过上面的三步操作，不难看出，每一步都分为三个部分。即：<em><strong>进1；循环；进1出1</strong></em>。所以我们可以控制重复上述步骤的次数，打印出想要的杨辉三角的层数。（并且可以看出，<strong>第一步循环0次；第二步循环1次；第三步循环2次。即循环次数为步数-1</strong>）</p>
+<p>经过上面的三步操作，不难看出，每一步都分为<mark>三个部分</mark>。即：<em><strong>进1；循环；进1出1</strong></em>。所以我们可以控制重复上述步骤的次数，打印出想要的杨辉三角的层数。（并且可以看出，<strong>第一步循环0次；第二步循环1次；第三步循环2次。即循环次数为步数-1</strong>）</p>
 </blockquote>
 <br>
 
