@@ -371,4 +371,192 @@
 <h3 id="双栈实现队列"><a href="#双栈实现队列" class="headerlink" title="双栈实现队列"></a>双栈实现队列</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//TODO...</span></span><br></pre></td></tr></table></figure>
 ]]></content>
   </entry>
+  <entry>
+    <title>树与二叉树</title>
+    <url>/2025/03/29/TreeAndBinaryTree/</url>
+    <content><![CDATA[<h1 id="树与二叉树"><a href="#树与二叉树" class="headerlink" title="树与二叉树"></a>树与二叉树</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><blockquote>
+<p><em><strong>树（Tree）是n（n ≥ 0）个节点的有限集</strong></em></p>
+</blockquote>
+<h3 id="树的基本概念"><a href="#树的基本概念" class="headerlink" title="树的基本概念"></a>树的基本概念</h3><ul>
+<li>节点的度：每个节点拥有子树的数目（后继的个数）</li>
+<li>叶子节点：度为0的节点（没有后继的节点）</li>
+<li>父节点：具有相同的父节点的节点</li>
+<li>路径：任意两个节点是父子关系</li>
+<li>树的度：树中<strong>节点度最大的值</strong></li>
+<li>树的深度：树中<strong>节点的最大层次</strong></li>
+<li>祖先节点：某节点到根节点的路径上所有的节点都是该节点的祖先节点</li>
+<li>森林：m（m ≥ 0）课<strong>互不相交树</strong>的集合<br><img src="/2025/03/29/TreeAndBinaryTree/%E6%A0%91%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.jpg" alt="alt text"></li>
+</ul>
+<h3 id="树的基本性质"><a href="#树的基本性质" class="headerlink" title="树的基本性质"></a>树的基本性质</h3><ul>
+<li>性质一：节点数等于节点的度的总和加一<br></li>
+<li>性质二：度为 <em>k</em> 的树，第 <em>i</em> 层至多有 <em>k^i-1^</em> 个节点<br></li>
+<li>性质三：度为 <em>k</em> 且深度为 <em>h</em> 的树至多有 <em>(k^h^ - 1)&#x2F;(k - 1)</em> 个节点<br></li>
+<li>性质四：具有 <em>n</em> 个节点的度为 <em>k</em> 的树的最小深度为 [ <em>log<del>k</del>(n(k -1) + 1)</em> ] (向上取整)</li>
+</ul>
+<h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><h2 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h2><blockquote>
+<p><em><strong>二叉树（Binary Tree）是n（n ≥ 0）个节点的有限集</strong></em></p>
+<p>有且只有一个根节点，L称为左子树，R称为右子树，两者不能互换位置。<br>二叉树每个节点最多有两个孩子<br>二叉树仅有五种基本形态：<br><img src="/2025/03/29/TreeAndBinaryTree/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%BA%94%E7%A7%8D%E5%9F%BA%E6%9C%AC%E5%BD%A2%E6%80%81.png" alt="alt text"></p>
+</blockquote>
+<blockquote>
+<p><font size="4"><em><strong>注意：二叉树并不是树的特殊情况，两者是并列的</strong></em></font></p>
+</blockquote>
+<h3 id="二叉树的基本性质"><a href="#二叉树的基本性质" class="headerlink" title="二叉树的基本性质"></a>二叉树的基本性质</h3><ul>
+<li>性质一：第 <em>i</em> 层至多有 <em>2^i-1^</em> 个节点<br></li>
+<li>性质二：深度为 <em>h</em> 的二叉树至多有 <em>2^h^</em>-1 个节点(跟<strong>树的性质三</strong>类似)<blockquote>
+<p><em><strong>满二叉树和完全二叉树</strong></em></p>
+<p><img src="/2025/03/29/TreeAndBinaryTree/%E6%BB%A1%E4%BA%8C%E5%8F%89%E6%A0%91%E5%92%8C%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91.png" alt="alt text"><br><br></p>
+</blockquote>
+</li>
+<li>性质三：任何非空二叉树，叶子节点数为 <em>n<del>0</del></em> ,度为 2 的节点数为 <em>n<del>2</del></em> ，则一定有：<em>n<del>0</del></em> &#x3D; <em>n<del>2</del></em> + 1 <br></li>
+<li>性质四：具有 <em>n</em> 个节点的完全二叉树的深度为 <em>[ log<del>2</del>(n + 1) ]</em> (向上取整)(跟<strong>树的性质四</strong>类似)<br> <em><strong>节点数相同的二叉树中，完全二叉树具有最小深度</strong></em><br></li>
+<li>性质五：对具有 <em>n</em> 个节点的完全二叉树的节点进行自上而下，每层自左向右的编号0,1,2,…,<em>n-1</em>,则有：<br><img src="/2025/03/29/TreeAndBinaryTree/%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%80%A7%E8%B4%A8.png" alt="alt text"></li>
+</ul>
+<h2 id="二叉树的存储结构"><a href="#二叉树的存储结构" class="headerlink" title="二叉树的存储结构"></a>二叉树的存储结构</h2><h3 id="顺序存储"><a href="#顺序存储" class="headerlink" title="顺序存储"></a>顺序存储</h3><ul>
+<li>对二叉树节点从上到下，每层从左到右顺序编号</li>
+<li>按照编号顺序将节点数据元素放入数组<br><img src="/2025/03/29/TreeAndBinaryTree/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8.png" alt="alt text"></li>
+</ul>
+<p>特点：</p>
+<ul>
+<li>节点间关系蕴含在其存储位置中</li>
+<li>浪费空间，更用于满二叉树和完全二叉树。仅有 <em>h</em> 个节点的深度为 <em>h</em> 的二叉树空间利用率最低：*h&#x2F;(2^h^ - 1)</li>
+</ul>
+<h3 id="链式存储"><a href="#链式存储" class="headerlink" title="链式存储"></a>链式存储</h3><ul>
+<li><p>二叉链表：每个节点包含数据域，左孩子指针域和右孩子指针域<br><img src="/2025/03/29/TreeAndBinaryTree/%E4%BA%8C%E5%8F%89%E9%93%BE%E8%A1%A8%E8%A1%A8%E7%A4%BA.png" alt="alt text"></p>
+</li>
+<li><p>三叉链表：节点增加一个存放指向父节点的指针<br><img src="/2025/03/29/TreeAndBinaryTree/%E4%B8%89%E5%8F%89%E9%93%BE%E8%A1%A8%E8%A1%A8%E7%A4%BA.png" alt="alt text"></p>
+</li>
+</ul>
+<h2 id="二叉树的遍历"><a href="#二叉树的遍历" class="headerlink" title="二叉树的遍历"></a>二叉树的遍历</h2><p><img src="/2025/03/29/TreeAndBinaryTree/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86.png" alt="alt text"><br><br></p>
+<p>遍历规则：</p>
+<ul>
+<li>前序遍历:D-&gt;L-&gt;R –&gt; <strong>根 左 右</strong></li>
+<li>中序遍历:L-&gt;D-&gt;R –&gt; <strong>左 根 右</strong></li>
+<li>后序遍历:L-&gt;R-&gt;D –&gt; <strong>左 右 根</strong></li>
+<li>层序遍历:从低到高逐层遍历</li>
+</ul>
+<p>技巧：</p>
+<ul>
+<li>对于前序，在左上方做标记</li>
+<li>对于中序，在正下方做标记</li>
+<li>对于后序，在右上方做标记</li>
+</ul>
+<p><em><strong>所有序列都逆时针遍历，根据标记可以得到遍历结果</strong></em><br><br></p>
+<p><img src="/2025/03/29/TreeAndBinaryTree/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86%E6%8A%80%E5%B7%A7.png" alt="alt text"></p>
+<h2 id="二叉树遍历的递归实现"><a href="#二叉树遍历的递归实现" class="headerlink" title="二叉树遍历的递归实现"></a>二叉树遍历的递归实现</h2><p>递归工作栈<strong>最大深度和树的深度一致</strong></p>
+<ul>
+<li>最好情况，空间复杂度为O(log<del>2</del>n)</li>
+<li>最坏情况，空间复杂度为O(n)</li>
+</ul>
+<p>前序遍历的代码实现：</p>
+<ul>
+<li><mark>入栈前访问</mark></li>
+<li>如果右孩子为空，则弹出栈顶元素（相当于回溯到父节点）<mark>Pop函数是弹出栈顶元素并赋值</mark><br></li>
+</ul>
+<p><img src="/2025/03/29/TreeAndBinaryTree/%E5%89%8D%E5%BA%8F%E9%81%8D%E5%8E%86%E5%AE%9E%E7%8E%B0.png" alt="alt text"><br><br></p>
+<p>中序遍历的代码实现：</p>
+<ul>
+<li><mark>出栈后访问</mark><br></li>
+</ul>
+<p><img src="/2025/03/29/TreeAndBinaryTree/%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86%E5%AE%9E%E7%8E%B0.png" alt="alt text"><br><br></p>
+<p>后序遍历的代码实现：<br>节点没有右孩子，或者右孩子刚被访问，则访问父节点<br><br></p>
+<p><img src="/2025/03/29/TreeAndBinaryTree/%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86%E5%AE%9E%E7%8E%B01.png" alt="alt text"><br><img src="/2025/03/29/TreeAndBinaryTree/%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86%E5%AE%9E%E7%8E%B02.png" alt="alt text"><br><br></p>
+<p>层序遍历的代码实现：</p>
+<ul>
+<li>使用了队列去实现<br></li>
+</ul>
+<p><img src="/2025/03/29/TreeAndBinaryTree/%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86%E5%AE%9E%E7%8E%B01.png" alt="alt text"><br><br></p>
+<blockquote>
+<p><strong>重要结论：</strong><br>已知前序遍历序列和中序遍历序列，可以唯一确定一棵二又树。<br>已知后序遍历序列和中序遍历序列，可以唯一确定一棵二叉树。<br>但是已知前序遍历序列和后序遍历序列，是不能确定一棵二又树的。<br><br><br><strong>why?</strong><br>前序遍历：第一个是根节点；后序遍历：最后一个是根节点<br>中序遍历：根节点在中间，左边是左子树右边是右子树<br><br><br><img src="/2025/03/29/TreeAndBinaryTree/%E4%BA%8C%E5%8F%89%E6%A0%91%E6%9E%84%E9%80%A0%E8%A7%84%E5%BE%8B.png" alt="alt text"></p>
+</blockquote>
+<h2 id="二叉树的应用"><a href="#二叉树的应用" class="headerlink" title="二叉树的应用"></a>二叉树的应用</h2><h3 id="哈夫曼树"><a href="#哈夫曼树" class="headerlink" title="哈夫曼树"></a>哈夫曼树</h3><h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4><blockquote>
+<p><strong>伟大始于渺小</strong></p>
+<p><img src="/2025/03/29/TreeAndBinaryTree/%E6%9C%80%E4%BC%98%E4%BA%8C%E5%8F%89%E6%A0%91.png" alt="alt text"><br><br></p>
+</blockquote>
+<p>路径和路径长度<br><img src="/2025/03/29/TreeAndBinaryTree/%E8%B7%AF%E5%BE%84%E5%92%8C%E8%B7%AF%E5%BE%84%E9%95%BF%E5%BA%A6.png" alt="alt text"></p>
+<p>树的路径长度：从根到叶子节点的所有路径长度之和<br><em><strong><mark>节点数目相同</mark>的二叉树中，<mark>完全二叉树</mark>是路径长度最短的二叉树</strong></em><br><img src="/2025/03/29/TreeAndBinaryTree/%E6%A0%91%E7%9A%84%E8%B7%AF%E5%BE%84%E9%95%BF%E5%BA%A6.png" alt="alt text"><br><br></p>
+<p>树的带权路径长度：所有根到叶子节点带权路径长度之和<br><img src="/2025/03/29/TreeAndBinaryTree/%E6%A0%91%E7%9A%84%E5%B8%A6%E6%9D%83%E8%B7%AF%E5%BE%84%E9%95%BF%E5%BA%A6.png" alt="alt text"></p>
+<h4 id="最优二叉树的构造"><a href="#最优二叉树的构造" class="headerlink" title="最优二叉树的构造"></a>最优二叉树的构造</h4><p>较为简单<br><img src="/2025/03/29/TreeAndBinaryTree/%E6%9C%80%E4%BC%98%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9E%84%E9%80%A0.png" alt="alt text"></p>
+<h4 id="哈夫曼编码"><a href="#哈夫曼编码" class="headerlink" title="哈夫曼编码"></a>哈夫曼编码</h4><p>优点：</p>
+<ul>
+<li>概率大的路径短，概率小的路径长，使得树的带权路径长度短</li>
+<li>任何字符编码都不是其他编码前缀，不会出现歧义<br><img src="/2025/03/29/TreeAndBinaryTree/%E5%93%88%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81.png" alt="alt text"></li>
+</ul>
+<h3 id="二叉搜索树"><a href="#二叉搜索树" class="headerlink" title="二叉搜索树"></a>二叉搜索树</h3><blockquote>
+<p><strong>特点：</strong></p>
+<ul>
+<li>左子树小于根节点，右子树大于根节点</li>
+<li><strong>中序遍历二叉搜索树可以得到递增数列</strong></li>
+<li>查找的复杂度可能会**从O(log<del>2</del>n)退化为O(n)**（不平衡的情况）<br></li>
+</ul>
+</blockquote>
+<p><em><strong><mark>中序遍历结果相同的二叉搜索树不唯一</mark></strong></em><br><img src="/2025/03/29/TreeAndBinaryTree/%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86%E7%BB%93%E6%9E%9C.png" alt="alt text"></p>
+<h4 id="二叉搜索树的删除"><a href="#二叉搜索树的删除" class="headerlink" title="二叉搜索树的删除"></a>二叉搜索树的删除</h4><p>用节点的<mark>中序遍历</mark>的前驱&#x2F;后继代替<br>e.g.<br><img src="/2025/03/29/TreeAndBinaryTree/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E5%88%A0%E9%99%A4.png" alt="alt text"></p>
+<h3 id="AVL树"><a href="#AVL树" class="headerlink" title="AVL树"></a>AVL树</h3><blockquote>
+<p><strong>特点：</strong></p>
+<ul>
+<li>真正的“平衡树”</li>
+<li>树的深度为 log<del>2</del>n</li>
+<li>节点需要额外存储平衡因子</li>
+<li>插入&#x2F;删除会导致旋转操作以维持平衡</li>
+</ul>
+</blockquote>
+<h4 id="平衡因子"><a href="#平衡因子" class="headerlink" title="平衡因子"></a>平衡因子</h4><p>节点的平衡因子是其左子树深度减去右子树深度，平衡因子绝对值越小，树越对称<br><em><strong>AVL树所有节点的平衡因子取值只能是-1,0,1</strong></em><br><img src="/2025/03/29/TreeAndBinaryTree/%E5%B9%B3%E8%A1%A1%E5%9B%A0%E5%AD%90.png" alt="alt text"></p>
+<h4 id="旋转操作"><a href="#旋转操作" class="headerlink" title="旋转操作"></a>旋转操作</h4><p>右旋转<br>代码实现：<br><img src="/2025/03/29/TreeAndBinaryTree/%E5%8F%B3%E6%97%8B%E8%BD%AC%E4%BB%A3%E7%A0%81.png" alt="alt text"><br>步骤：</p>
+<ul>
+<li>根节点的父亲指向子节点</li>
+<li>子节点的右孩子成为根节点的左孩子</li>
+<li>“交换父子关系”：根节点成为子节点的右孩子<br><img src="/2025/03/29/TreeAndBinaryTree/%E5%8F%B3%E6%97%8B%E8%BD%AC%E5%9B%BE%E8%A7%A3.png" alt="alt text"><br></li>
+</ul>
+<p>左旋转<br>代码实现：<br><img src="/2025/03/29/TreeAndBinaryTree/%E5%B7%A6%E6%97%8B%E8%BD%AC%E4%BB%A3%E7%A0%81.png" alt="alt text"><br>步骤：</p>
+<ul>
+<li>根节点的父亲指向子节点</li>
+<li>子节点的左孩子成为根节点的右孩子</li>
+<li>“交换父子关系”：根节点成为子节点的左孩子<br><img src="/2025/03/29/TreeAndBinaryTree/%E5%B7%A6%E6%97%8B%E8%BD%AC%E5%9B%BE%E8%A7%A3.png" alt="alt text"></li>
+</ul>
+<h4 id="节点插入"><a href="#节点插入" class="headerlink" title="节点插入"></a>节点插入</h4><p>节点插入会破坏树的平衡性，需要进行旋转达到平衡</p>
+<p>插入“18”，根节点的<strong>平衡因子变为2</strong>，因此需要进行旋转<br><img src="/2025/03/29/TreeAndBinaryTree/%E8%8A%82%E7%82%B9%E6%8F%92%E5%85%A5.png" alt="alt text"></p>
+<p>不能随意旋转，最终还是要看是否所有平衡因子达到要求<br><img src="/2025/03/29/TreeAndBinaryTree/%E8%8A%82%E7%82%B9%E6%8F%92%E5%85%A52.png" alt="alt text"><br>可进行多次旋转<br><img src="/2025/03/29/TreeAndBinaryTree/%E8%8A%82%E7%82%B9%E6%8F%92%E5%85%A53.png" alt="alt text"><br><img src="/2025/03/29/TreeAndBinaryTree/%E8%8A%82%E7%82%B9%E6%8F%92%E5%85%A54.png" alt="alt text"></p>
+<h3 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h3><blockquote>
+<p><strong>特点：</strong></p>
+<ul>
+<li>一种“自平衡”的二叉查找树，可以应对极端情况O(N)</li>
+<li>复杂度介于 O(log<del>2</del>N)和O(N)</li>
+<li>是一种接近平衡的二叉树</li>
+</ul>
+</blockquote>
+<p>红黑树保证最长路径不超过最短路径的二倍，因而近似平衡（<mark>最短路径就是全黑节点，最长路径就是一个红节点一个黑节点，当从根节点到叶子节点的路径上黑色节点相同时，最长路径刚好是最短路径的两倍</mark>）。它同时满足以下特性：</p>
+<ol>
+<li>节点是红色或黑色</li>
+<li>根是黑色</li>
+<li>叶子节点（外部节点，空节点）都是黑色，这里的叶子节点指的是最底层的空节点（外部节点），下图中的那些null节点才是叶子节点，null节点的父节点在红黑树里不将其看作叶子节点</li>
+<li>红色节点的子节点都是黑色;红色节点的父节点都是黑色;从根节点到叶子节点的所有路径上不能有 2 个连续的红色节点</li>
+<li>从任一节点到叶子节点的所有路径都包含相同数目的黑色节点</li>
+</ol>
+<p>e.g.<br><img src="/2025/03/29/TreeAndBinaryTree/%E7%BA%A2%E9%BB%91%E6%A0%91%E5%88%A4%E6%96%AD.png" alt="alt text"><br>上面这棵树首先很容易就能知道是满足性质1-4条的，关键在于第5条性质，可能乍一看好像也是符合第5条的，但实际就会陷入一个误区，直接将图上的最后一层的节点看作叶子节点，这样看的话每一条从根节点到叶子结点的路径确实都经过了3个黑节点。</p>
+<p>但实际上，<em><strong>在红黑树中真正被定义为叶子结点的，是那些空节点</strong></em>，如下图。<br><img src="/2025/03/29/TreeAndBinaryTree/%E7%BA%A2%E9%BB%91%E6%A0%91%E5%88%A4%E6%96%AD2.png" alt="alt text"><br>这样一来，路径1有4个黑色节点（算上空节点），路径2只有3个黑色节点，这样性质5就不满足了，<strong>所以这棵树并不是一个红黑树节点</strong>。</p>
+<h4 id="效率"><a href="#效率" class="headerlink" title="效率"></a>效率</h4><p><mark>红黑树的查找，插入和删除操作，时间复杂度都是O(logN)</mark>。</p>
+<p><strong>查找</strong>操作时，它和普通的相对平衡的二叉搜索树的效率相同，<strong>都是通过相同的方式来查找的，没有用到红黑树特有的特性</strong>。</p>
+<p>但如果<strong>插入</strong>的时候是<strong>有序数据</strong>，那么红黑树的查询效率就比二叉搜索树要高了，因为**此时二叉搜索树不是平衡树，它的时间复杂度O(N)**。</p>
+<p>插入和删除操作时，由于红黑树的每次操作平均要旋转一次和变换颜色，所以它比普通的二叉搜索树效率要低一点，不过时间复杂度仍然是O(logN)。***<mark>总之，红黑树的优点就是对有序数据的查询操作不会慢到O(logN)的时间复杂度</mark>***。</p>
+<h4 id="与AVL树的比较"><a href="#与AVL树的比较" class="headerlink" title="与AVL树的比较"></a>与AVL树的比较</h4><ol>
+<li>AVL树的时间复杂度虽然优于红黑树，但是对于现在的计算机，cpu太快，可以忽略性能差异</li>
+<li>红黑树的<strong>插入和删除操作</strong>比AVL树更便于控制操作</li>
+<li>红黑树整体性能略优于AVL树（红黑树旋转情况少于AVL树）<ol>
+<li>对于AVL树来说，搜索、添加、删除都是 O(logn) 复杂度，其中<strong>添加仅需 O(1) 次旋转调整、删除最多需要 O(logn) 次旋转调整</strong></li>
+<li>对于红黑树来说，搜索、添加、删除都是 O(logn) 复杂度，其中<strong>添加、删除都仅需 O(1) 次旋转调整</strong></li>
+<li>AVL树通过严格的平衡条件确保树的高度始终接近理论下限。这使得<mark>搜索操作更快，因为路径更短</mark>。</li>
+<li>红黑树通过颜色标记和宽松的平衡规则（如根到叶子的最长路径不超过最短路径的两倍）。虽然<mark>搜索效率略低于AVL树，但插入和删除操作更高效</mark></li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<p><strong>如何选择？</strong></p>
+<ul>
+<li><strong>搜索的次数远远大于插入和删除</strong>，选择AVL树；搜索、插入、删除次数几乎差不多，选择红黑树</li>
+<li>相对于AVL树来说，红黑树牺牲了部分平衡性以换取插入&#x2F;删除操作时少量的旋转操作，整体来说性能要优于AVL树</li>
+<li>红黑树的<strong>平均统计性能优于AVL树</strong>，实际应用中更多选择使用红黑树</li>
+</ul>
+</blockquote>
+]]></content>
+  </entry>
 </search>
