@@ -40,6 +40,7 @@
 <meta property="og:image" content="https://tttb0521.github.io/2025/03/17/StackAndQueue/%E4%BA%92%E9%80%92%E5%BD%92.png">
 <meta property="og:image" content="https://tttb0521.github.io/2025/03/17/StackAndQueue/%E6%B1%89%E8%AF%BA%E5%A1%94.png">
 <meta property="og:image" content="https://tttb0521.github.io/2025/03/17/StackAndQueue/%E6%B1%89%E8%AF%BA%E5%A1%94%E5%AE%9E%E7%8E%B0.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/03/17/StackAndQueue/%E6%B1%89%E8%AF%BA%E5%A1%94%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90.png">
 <meta property="og:image" content="https://tttb0521.github.io/2025/03/17/StackAndQueue/%E9%A1%BA%E5%BA%8F%E9%98%9F%E5%88%97%E7%9A%84%E5%AD%98%E5%82%A8.png">
 <meta property="og:image" content="https://tttb0521.github.io/2025/03/17/StackAndQueue/%E9%A1%BA%E5%BA%8F%E9%98%9F%E5%88%97%E7%9A%84%E6%93%8D%E4%BD%9C.png">
 <meta property="og:image" content="https://tttb0521.github.io/2025/03/17/StackAndQueue/%E9%A1%BA%E5%BA%8F%E9%98%9F%E5%88%97%E7%9A%84%E6%93%8D%E4%BD%9C2.png">
@@ -50,7 +51,7 @@
 <meta property="og:image" content="https://tttb0521.github.io/2025/03/17/StackAndQueue/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97.png">
 <meta property="og:image" content="https://tttb0521.github.io/2025/03/17/StackAndQueue/%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92.png">
 <meta property="article:published_time" content="2025-03-16T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-03-16T18:05:12.534Z">
+<meta property="article:modified_time" content="2025-03-30T08:35:30.741Z">
 <meta property="article:author" content="Jeffery Tang">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://tttb0521.github.io/2025/03/17/StackAndQueue/%E8%AE%BF%E9%97%AE%E5%8F%97%E9%99%90%E7%9A%84%E7%BA%BF%E6%80%A7%E8%A1%A8.png">
@@ -231,9 +232,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2025-03-17 00:00:00 / 修改时间：02:05:12" itemprop="dateCreated datePublished" datetime="2025-03-17T00:00:00+08:00">2025-03-17</time>
+      <time title="创建时间：2025-03-17 00:00:00" itemprop="dateCreated datePublished" datetime="2025-03-17T00:00:00+08:00">2025-03-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-30 16:35:30" itemprop="dateModified" datetime="2025-03-30T16:35:30+08:00">2025-03-30</time>
     </span>
 
   
@@ -249,7 +256,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>3.8k</span>
+      <span>3.6k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -269,13 +276,13 @@
     
     <div class="post-body" itemprop="articleBody"><h1 id="栈和队列"><a href="#栈和队列" class="headerlink" title="栈和队列"></a>栈和队列</h1><blockquote>
 <p><strong>栈、队列、双端队列均是线性表的特殊情况（访问受限的线性表）</strong></p>
-<p><img src="/2025/03/17/StackAndQueue/%E8%AE%BF%E9%97%AE%E5%8F%97%E9%99%90%E7%9A%84%E7%BA%BF%E6%80%A7%E8%A1%A8.png" alt="alt text"></p>
+<p><img src="/2025/03/17/StackAndQueue/访问受限的线性表.png" alt="alt text"></p>
 </blockquote>
 <h2 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h2><ul>
 <li>允许插入、删除的一端称为<mark>栈顶(top)</mark>，另一端称为<mark>栈底(bottom)</mark></li>
 <li>在栈顶插入元素称为<mark>入栈(push)</mark>，删除元素称为<mark>出栈(pop)</mark></li>
 </ul>
-<h3 id="顺序栈——栈的顺序存储实现"><a href="#顺序栈——栈的顺序存储实现" class="headerlink" title="顺序栈——栈的顺序存储实现"></a>顺序栈——栈的顺序存储实现</h3><p><strong>顺序栈存储空间的处理</strong><br><img src="/2025/03/17/StackAndQueue/%E9%A1%BA%E5%BA%8F%E6%A0%88%E5%AD%98%E5%82%A8%E7%A9%BA%E9%97%B4%E7%9A%84%E5%A4%84%E7%90%86.png" alt="alt text"></p>
+<h3 id="顺序栈——栈的顺序存储实现"><a href="#顺序栈——栈的顺序存储实现" class="headerlink" title="顺序栈——栈的顺序存储实现"></a>顺序栈——栈的顺序存储实现</h3><p><strong>顺序栈存储空间的处理</strong><br><img src="/2025/03/17/StackAndQueue/顺序栈存储空间的处理.png" alt="alt text"></p>
 <p><strong>顺序栈的特点</strong>：</p>
 <ol>
 <li>顺序栈的入栈和出栈、构造和销毁的<mark>复杂度都是O(1)</mark></li>
@@ -283,12 +290,11 @@
 </ol>
 <h3 id="链式栈——栈的链式存储分配实现"><a href="#链式栈——栈的链式存储分配实现" class="headerlink" title="链式栈——栈的链式存储分配实现"></a>链式栈——栈的链式存储分配实现</h3><p><strong>链式栈的特点</strong>：</p>
 <ol>
-<li>链式栈的<mark>入栈和出栈复杂度为O(1)</mark>，<mark>构造和销毁的复杂度是O(n)<strong>(需要逐个释放&#x2F;创建)</strong></mark></li>
+<li>链式栈的<mark>入栈和出栈复杂度为O(1)</mark>，<mark>构造和销毁的复杂度是O(n)<strong>(需要逐个释放/创建)</strong></mark></li>
 <li>栈的长度动态变化，空间利用率高，一般<mark>无需判断溢出</mark></li>
 </ol>
 <h3 id="栈的应用"><a href="#栈的应用" class="headerlink" title="栈的应用"></a>栈的应用</h3><ul>
-<li><p><strong>十进制数到二进制数的转换</strong><br><img src="/2025/03/17/StackAndQueue/%E5%8D%81%E8%BF%9B%E5%88%B6%E8%BD%AC%E4%BA%8C%E8%BF%9B%E5%88%B6.png" alt="alt text"></p>
-<br>
+<li><p><strong>十进制数到二进制数的转换</strong><br><img src="/2025/03/17/StackAndQueue/十进制转二进制.png" alt="alt text"><br><br></p>
 </li>
 <li><p><strong>算术表达式求值的栈实现</strong></p>
 <p>  中缀表达式实现步骤：</p>
@@ -301,13 +307,14 @@
 <li>若W等于Sr栈顶元素则弹出Sr栈顶元素</li>
 </ol>
 </li>
-<li>Sd即为运算结果  <br></li>
+<li><p>Sd即为运算结果<br><br></p>
+<p>中缀转后缀表达式：<br>维护两个栈：运算符(OP)和结果栈(R)</p>
+</li>
 </ol>
-<p>  中缀转后缀表达式：<br>  维护两个栈：运算符(OP)和结果栈(R)</p>
 <ul>
 <li>扫描到操作数，R入栈;扫描到’(‘，OP入栈</li>
 <li>扫描到运算符:<br>  当前运算符优先级高于OP栈顶元紊优先级，OP入栈<br>  否则，则OP栈出栈，R栈入栈</li>
-<li>扫描到’)’，OP出栈，到pop出’)’为止。如果pop出的元素不是’(‘或’)’，则将元素压入R<br>  <img src="/2025/03/17/StackAndQueue/%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F.png" alt="alt text"></li>
+<li>扫描到’)’，OP出栈，到pop出’)’为止。如果pop出的元素不是’(‘或’)’，则将元素压入R<br><img src="/2025/03/17/StackAndQueue/后缀表达式.png" alt="alt text"></li>
 </ul>
 </li>
 </ul>
@@ -315,116 +322,78 @@
 <p><strong>适用情况：问题可以<mark>收敛</mark></strong></p>
 </blockquote>
 <ul>
-<li><p><strong>阶乘求值</strong><br><img src="/2025/03/17/StackAndQueue/%E9%98%B6%E4%B9%98%E6%B1%82%E5%80%BC.png" alt="alt text"></p>
-<br>
-<br>
+<li><p><strong>阶乘求值</strong><br><img src="/2025/03/17/StackAndQueue/阶乘求值.png" alt="alt text"><br><br><br><br></p>
 </li>
-<li><p><strong>阿克曼函数</strong><br>特点：随着输入值的增加，函数的值<strong>增长得非常快</strong><br>定义如下：<br><img src="/2025/03/17/StackAndQueue/%E9%98%BF%E5%85%8B%E6%9B%BC%E5%87%BD%E6%95%B0%E5%AE%9A%E4%B9%89.png" alt="alt text"><br>  递归实现：</p>
+<li><p><strong>阿克曼函数</strong><br>特点：随着输入值的增加，函数的值<strong>增长得非常快</strong><br>定义如下：<br><img src="/2025/03/17/StackAndQueue/阿克曼函数定义.png" alt="alt text"><br>  递归实现：</p>
   <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">c</span><span class="params">(<span class="type">int</span> m, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(m == <span class="number">0</span>) <span class="keyword">return</span> n + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(n == <span class="number">0</span> &amp;&amp; m &gt; <span class="number">0</span>) <span class="keyword">return</span> <span class="built_in">c</span>(m - <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">if</span>(m &gt; <span class="number">0</span> &amp;&amp; n &gt; <span class="number">0</span>)<span class="keyword">return</span> <span class="built_in">c</span>(m - <span class="number">1</span>, <span class="built_in">c</span>(m, n - <span class="number">1</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> a, b;</span><br><span class="line">    cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">c</span>(a, b);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<br>
-<br>
+<p><br><br><br></p>
 </li>
-<li><p><strong>斐波那契数列</strong><br>递归定义：<br><img src="/2025/03/17/StackAndQueue/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E5%AE%9A%E4%B9%89.png" alt="alt text"></p>
-<br>
-
-<p>  递归实现：<br>  <img src="/2025/03/17/StackAndQueue/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E5%AE%9E%E7%8E%B0.png" alt="alt text"><br>  F(5)的栈调用情况：<br>  <img src="/2025/03/17/StackAndQueue/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%A0%88%E8%B0%83%E7%94%A8.png" alt="alt text"></p>
+<li><p><strong>斐波那契数列</strong><br>递归定义：<br><img src="/2025/03/17/StackAndQueue/斐波那契定义.png" alt="alt text"><br><br></p>
+<p>  递归实现：<br>  <img src="/2025/03/17/StackAndQueue/斐波那契实现.png" alt="alt text"><br>  F(5)的栈调用情况：<br>  <img src="/2025/03/17/StackAndQueue/斐波那契栈调用.png" alt="alt text"><br><br><br><br></p>
 </li>
-</ul>
-<br>
-<br>
-
-<ul>
-<li><strong>最大公约数</strong><br>定义：可以同时除尽两个正整数的最大的正整数<br><img src="/2025/03/17/StackAndQueue/%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0.png" alt="alt text"><br>
-
-  递归实现：  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">long</span> <span class="title">gcd</span><span class="params">(<span class="type">unsigned</span> <span class="type">long</span> a,<span class="type">unsigned</span> <span class="type">long</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> r = a % b;</span><br><span class="line">    <span class="keyword">if</span>(r != <span class="number">0</span>) <span class="keyword">return</span> <span class="built_in">gcd</span>(b，r);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<br>
-<br>
-
-<ul>
-<li><p><strong>互递归</strong><br>定义：一种非直接递归，两个函数互相借助对方定义<br>示例：<br><img src="/2025/03/17/StackAndQueue/%E4%BA%92%E9%80%92%E5%BD%92.png" alt="alt text"></p>
-<br>
-<br>
+<li><p><strong>最大公约数</strong><br>定义：可以同时除尽两个正整数的最大的正整数<br><img src="/2025/03/17/StackAndQueue/最大公约数.png" alt="alt text"><br><br></p>
+<p>  递归实现：</p>
+  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">long</span> <span class="title">gcd</span><span class="params">(<span class="type">unsigned</span> <span class="type">long</span> a,<span class="type">unsigned</span> <span class="type">long</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> r = a % b;</span><br><span class="line">    <span class="keyword">if</span>(r != <span class="number">0</span>) <span class="keyword">return</span> <span class="built_in">gcd</span>(b，r);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br><br><br></p>
 </li>
-<li><p><strong>汉诺塔问题</strong><br>递归步骤：<br><img src="/2025/03/17/StackAndQueue/%E6%B1%89%E8%AF%BA%E5%A1%94.png" alt="alt text"></p>
-<br>
-
-<p>  递归实现：<br>  <img src="/2025/03/17/StackAndQueue/%E6%B1%89%E8%AF%BA%E5%A1%94%E5%AE%9E%E7%8E%B0.png" alt="alt text"><br>  <em><strong>先把 n - 1 个移动到y，然后移动最底下的到z，然后把 n - 1 个从y移动到z</strong></em></p>
+<li><p><strong>互递归</strong><br>定义：一种非直接递归，两个函数互相借助对方定义<br>示例：<br><img src="/2025/03/17/StackAndQueue/互递归.png" alt="alt text"><br><br><br><br></p>
+</li>
+<li><p><strong>汉诺塔问题</strong><br>递归步骤：<br><img src="/2025/03/17/StackAndQueue/汉诺塔.png" alt="alt text"><br><br></p>
+<p>  递归实现：<br>  <img src="/2025/03/17/StackAndQueue/汉诺塔实现.png" alt="alt text"><br>  <strong><em>先把 n - 1 个移动到y，然后移动最底下的到z，然后把 n - 1 个从y移动到z</em></strong><br><br></p>
+<p>  复杂度分析：<br>  <img src="/2025/03/17/StackAndQueue/汉诺塔复杂度分析.png" alt="alt text"><br><br><br><br></p>
 </li>
 </ul>
-<br>
-
-<pre><code>复杂度分析：
-![alt text](StackAndQueue/汉诺塔复杂度分析.png)
-</code></pre>
-<br>
-<br>
-
 <h3 id="递归的消去"><a href="#递归的消去" class="headerlink" title="递归的消去"></a>递归的消去</h3><h4 id="尾递归"><a href="#尾递归" class="headerlink" title="尾递归"></a>尾递归</h4><p>定义：函数最后操作时<strong>递归调用或平凡返回</strong>（<mark>返回已经存在的值</mark>）</p>
 <blockquote>
 <p><strong>为什么需要尾递归？</strong><br>对于非尾递归来说，由于最后的返回值需要额外计算，因此<mark>经历了创建栈帧、销毁栈帧的过程，可能导致栈溢出</mark>。</p>
-<p>以计算阶乘的普通递归实现为例:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">factorial</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">       <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">   <span class="keyword">else</span></span><br><span class="line">       <span class="keyword">return</span> n * <span class="built_in">factorial</span>(n - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>当调用factorial(3)时，执行过程如下：</p>
-<p>调用factorial(3)，<mark>创建栈帧A</mark>，保存参数n&#x3D;3。<br>执行到return n * factorial(n - 1)时，需要先计算factorial(2)的值。</p>
-<p>调用factorial(2)，<mark>创建新的栈帧B</mark>，保存参数n&#x3D;2。<br>执行到return n * factorial(n - 1)时，需要先计算factorial(1)的值。</p>
-<p>调用factorial(1)，<mark>创建新的栈帧C</mark>，保存参数n&#x3D;1。<br>执行到return n * factorial(n - 1)时，需要先计算factorial(0)的值。</p>
-<p>调用factorial(0)，<mark>创建新的栈帧D</mark>，保存参数n&#x3D;0。<br>执行到return 1，返回值1，销毁栈帧D。</p>
-<p>栈帧C继续执行，计算1 * 1&#x3D;1，返回值1，<mark>销毁栈帧C</mark>。<br>栈帧B继续执行，计算2 * 1&#x3D;2，返回值2，<mark>销毁栈帧B</mark>。<br>栈帧A继续执行，计算3 * 2&#x3D;6，返回值6，<mark>销毁栈帧A</mark>。</p>
-<p><em><strong>在这个过程中，每次递归调用都会创建新的栈帧，栈帧数量随着递归深度增加而增加，可能导致栈溢出，并且每次创建和销毁栈帧都会带来性能开销。</strong></em></p>
+<p>以计算阶乘的普通递归实现为例:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">factorial</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">       <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">   <span class="keyword">else</span></span><br><span class="line">       <span class="keyword">return</span> n * <span class="built_in">factorial</span>(n - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>当调用factorial(3)时，执行过程如下：</p>
+<p>调用factorial(3)，<mark>创建栈帧A</mark>，保存参数n=3。<br>执行到return n * factorial(n - 1)时，需要先计算factorial(2)的值。</p>
+<p>调用factorial(2)，<mark>创建新的栈帧B</mark>，保存参数n=2。<br>执行到return n * factorial(n - 1)时，需要先计算factorial(1)的值。</p>
+<p>调用factorial(1)，<mark>创建新的栈帧C</mark>，保存参数n=1。<br>执行到return n * factorial(n - 1)时，需要先计算factorial(0)的值。</p>
+<p>调用factorial(0)，<mark>创建新的栈帧D</mark>，保存参数n=0。<br>执行到return 1，返回值1，销毁栈帧D。</p>
+<p>栈帧C继续执行，计算1 <em> 1=1，返回值1，<mark>销毁栈帧C</mark>。<br>栈帧B继续执行，计算2 </em> 1=2，返回值2，<mark>销毁栈帧B</mark>。<br>栈帧A继续执行，计算3 * 2=6，返回值6，<mark>销毁栈帧A</mark>。</p>
+<p><strong><em>在这个过程中，每次递归调用都会创建新的栈帧，栈帧数量随着递归深度增加而增加，可能导致栈溢出，并且每次创建和销毁栈帧都会带来性能开销。</em></strong></p>
 </blockquote>
-<br>
-
-<p><strong>尾递归优化的执行过程：</strong></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">factorial_tail</span><span class="params">(<span class="type">int</span> n, <span class="type">int</span> acc)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> acc;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">factorial_tail</span>(n - <span class="number">1</span>, n * acc);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>初始调用时，acc的初始值为1。例如，计算factorial_tail(3, 1)的执行过程如下：<br>调用factorial_tail(3, 1)，<mark>创建栈帧A</mark>，保存参数n&#x3D;3，acc&#x3D;1。</p>
-<p>执行到return factorial_tail(n - 1, n * acc)时，计算新的参数值n-1&#x3D;2，n * acc&#x3D;3*1&#x3D;3。<br>调用factorial_tail(2, 3)，<mark>复用栈帧A</mark>，更新参数n&#x3D;2，acc&#x3D;3。</p>
-<p>执行到return factorial_tail(n - 1, n * acc)时，计算新的参数值n-1&#x3D;1，n * acc&#x3D;2*3&#x3D;6。<br>调用factorial_tail(1, 6)，<mark>复用栈帧A</mark>，更新参数n&#x3D;1，acc&#x3D;6。</p>
-<p>执行到return factorial_tail(n - 1, n * acc)时，计算新的参数值n-1&#x3D;0，n * acc&#x3D;1*6&#x3D;6。<br>调用factorial_tail(0, 6)，<mark>复用栈帧A</mark>，更新参数n&#x3D;0，acc&#x3D;6。</p>
+<p><br></p>
+<p><strong>尾递归优化的执行过程：</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">factorial_tail</span><span class="params">(<span class="type">int</span> n, <span class="type">int</span> acc)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> acc;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">factorial_tail</span>(n - <span class="number">1</span>, n * acc);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>初始调用时，acc的初始值为1。例如，计算factorial_tail(3, 1)的执行过程如下：<br>调用factorial_tail(3, 1)，<mark>创建栈帧A</mark>，保存参数n=3，acc=1。</p>
+<p>执行到return factorial_tail(n - 1, n <em> acc)时，计算新的参数值n-1=2，n </em> acc=3*1=3。<br>调用factorial_tail(2, 3)，<mark>复用栈帧A</mark>，更新参数n=2，acc=3。</p>
+<p>执行到return factorial_tail(n - 1, n <em> acc)时，计算新的参数值n-1=1，n </em> acc=2*3=6。<br>调用factorial_tail(1, 6)，<mark>复用栈帧A</mark>，更新参数n=1，acc=6。</p>
+<p>执行到return factorial_tail(n - 1, n <em> acc)时，计算新的参数值n-1=0，n </em> acc=1*6=6。<br>调用factorial_tail(0, 6)，<mark>复用栈帧A</mark>，更新参数n=0，acc=6。</p>
 <p>执行到return acc，返回值6，<mark>销毁栈帧A</mark>。</p>
-<p><em><strong>在这个过程中，每次递归调用复用当前栈帧，不需要创建新的栈帧，因此栈帧数量始终保持为1，不会导致栈溢出，并且避免了创建和销毁栈帧的性能开销。</strong></em><br><br></p>
+<p><strong><em>在这个过程中，每次递归调用复用当前栈帧，不需要创建新的栈帧，因此栈帧数量始终保持为1，不会导致栈溢出，并且避免了创建和销毁栈帧的性能开销。</em></strong><br><br></p>
 <p><strong>底层原理</strong><br><strong>尾递归优化的关键在于编译器能够识别出尾递归调用，并将其转换为循环操作</strong>。具体来说，当编译器检测到一个函数调用是尾递归时，它会生成代码来复用当前的栈帧，而不是创建新的栈帧。这通常是通过将递归调用的参数更新到当前栈帧的变量中，并跳转到函数的开头重新执行来实现的。<br><br></p>
-<p><strong>常见简单问题的尾递归实现</strong></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//TODO...</span></span><br></pre></td></tr></table></figure>
-<br>
-<br>
-
+<p><strong>常见简单问题的尾递归实现</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//TODO...</span></span><br></pre></td></tr></table></figure><br><br><br><br></p>
 <h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2><blockquote>
 <p><strong>定义：限制数据一端插入，另一端删除的特殊线性表</strong></p>
 <ul>
 <li>允许插入的一端称为<mark>队尾(rear)</mark>，允许删除的一端称为<mark>队头(front)</mark></li>
-<li>入队为<mark>Enqueue</mark>，出队为<mark>Dequeue</mark><br></li>
+<li>入队为<mark>Enqueue</mark>，出队为<mark>Dequeue</mark><br><br></li>
 </ul>
 </blockquote>
-<h3 id="顺序队列"><a href="#顺序队列" class="headerlink" title="顺序队列"></a>顺序队列</h3><h4 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h4><p><img src="/2025/03/17/StackAndQueue/%E9%A1%BA%E5%BA%8F%E9%98%9F%E5%88%97%E7%9A%84%E5%AD%98%E5%82%A8.png" alt="alt text"><br><br></p>
-<h4 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h4><p><img src="/2025/03/17/StackAndQueue/%E9%A1%BA%E5%BA%8F%E9%98%9F%E5%88%97%E7%9A%84%E6%93%8D%E4%BD%9C.png" alt="alt text"><br><img src="/2025/03/17/StackAndQueue/%E9%A1%BA%E5%BA%8F%E9%98%9F%E5%88%97%E7%9A%84%E6%93%8D%E4%BD%9C2.png" alt="alt text"><br><strong>假溢出</strong>：rear已经到达数组末尾，尽管队列中仍有空闲空间（front之前的位置），但由于rear无法继续向后移动，导致假溢出。<br><br></p>
+<h3 id="顺序队列"><a href="#顺序队列" class="headerlink" title="顺序队列"></a>顺序队列</h3><h4 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h4><p><img src="/2025/03/17/StackAndQueue/顺序队列的存储.png" alt="alt text"><br><br></p>
+<h4 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h4><p><img src="/2025/03/17/StackAndQueue/顺序队列的操作.png" alt="alt text"><br><img src="/2025/03/17/StackAndQueue/顺序队列的操作2.png" alt="alt text"><br><strong>假溢出</strong>：rear已经到达数组末尾，尽管队列中仍有空闲空间（front之前的位置），但由于rear无法继续向后移动，导致假溢出。<br><br></p>
 <h3 id="循环队列——解决假溢出问题"><a href="#循环队列——解决假溢出问题" class="headerlink" title="循环队列——解决假溢出问题"></a>循环队列——解决假溢出问题</h3><blockquote>
-<p><em><strong>顺序数列无法利用队头指针之前的空间，因此假溢出的本质是没有完全利用数组空间。而循环数列通过连成环解决了这一问题。由于首尾相接，因此循环队列需要做的只是找到判空和判满的办法。</strong></em><br><br><br><img src="/2025/03/17/StackAndQueue/%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97.png" alt="alt text"></p>
+<p><strong><em>顺序数列无法利用队头指针之前的空间，因此假溢出的本质是没有完全利用数组空间。而循环数列通过连成环解决了这一问题。由于首尾相接，因此循环队列需要做的只是找到判空和判满的办法。</em></strong><br><br><br><img src="/2025/03/17/StackAndQueue/循环队列.png" alt="alt text"></p>
 </blockquote>
-<br>
-
+<p><br></p>
 <ul>
-<li><p><strong>方法一：留出空位</strong><br><img src="/2025/03/17/StackAndQueue/%E7%95%99%E5%87%BA%E7%A9%BA%E4%BD%8D.png" alt="alt text"><br>  判断条件：</p>
+<li><p><strong>方法一：留出空位</strong><br><img src="/2025/03/17/StackAndQueue/留出空位.png" alt="alt text"><br>  判断条件：</p>
 <ol>
-<li>队列为空：<strong>front &#x3D;&#x3D; rear</strong></li>
-<li>队列为满：<strong>front &#x3D;&#x3D; (rear + 1) % max</strong><br></li>
+<li>队列为空：<strong>front == rear</strong></li>
+<li>队列为满：<strong>front == (rear + 1) % max</strong><br><br></li>
 </ol>
 </li>
-<li><p><strong>其他方法易于理解</strong>：<br><img src="/2025/03/17/StackAndQueue/%E5%85%B6%E4%BB%96%E6%96%B9%E6%B3%95.png" alt="alt text"></p>
-<br>
-<br></li>
+<li><p><strong>其他方法易于理解</strong>：<br><img src="/2025/03/17/StackAndQueue/其他方法.png" alt="alt text"><br><br><br><br></p>
+</li>
 </ul>
-<h3 id="链式队列——链式存储方式"><a href="#链式队列——链式存储方式" class="headerlink" title="链式队列——链式存储方式"></a>链式队列——链式存储方式</h3><p>和链表的逻辑一致，易于理解：<br><img src="/2025/03/17/StackAndQueue/%E9%93%BE%E5%BC%8F%E9%98%9F%E5%88%97.png" alt="alt text"></p>
-<h3 id="优先队列"><a href="#优先队列" class="headerlink" title="优先队列"></a>优先队列</h3><p>易于理解：<br><img src="/2025/03/17/StackAndQueue/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97.png" alt="alt text"></p>
-<h3 id="队列的应用：杨辉三角"><a href="#队列的应用：杨辉三角" class="headerlink" title="队列的应用：杨辉三角"></a>队列的应用：杨辉三角</h3><p><img src="/2025/03/17/StackAndQueue/%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92.png" alt="alt text"><br><br></p>
+<h3 id="链式队列——链式存储方式"><a href="#链式队列——链式存储方式" class="headerlink" title="链式队列——链式存储方式"></a>链式队列——链式存储方式</h3><p>和链表的逻辑一致，易于理解：<br><img src="/2025/03/17/StackAndQueue/链式队列.png" alt="alt text"></p>
+<h3 id="优先队列"><a href="#优先队列" class="headerlink" title="优先队列"></a>优先队列</h3><p>易于理解：<br><img src="/2025/03/17/StackAndQueue/优先队列.png" alt="alt text"></p>
+<h3 id="队列的应用：杨辉三角"><a href="#队列的应用：杨辉三角" class="headerlink" title="队列的应用：杨辉三角"></a>队列的应用：杨辉三角</h3><p><img src="/2025/03/17/StackAndQueue/杨辉三角.png" alt="alt text"><br><br></p>
 <h4 id="具体实现："><a href="#具体实现：" class="headerlink" title="具体实现："></a>具体实现：</h4><p>先进队一个1</p>
 <blockquote>
 <p>此时队列： 1      （这样我们就得到了杨辉三角的第一行）</p>
 </blockquote>
-<br>
-<br>
-
-
+<p><br><br><br></p>
 <p>第一步：在队尾<mark>进队一个1</mark></p>
 <blockquote>
 <p>此时队列：1 1</p>
@@ -446,7 +415,7 @@
 <blockquote>
 <p>1 1 1</p>
 </blockquote>
-<p><strong>循环一次：进队队头两个元素的和（1+1&#x3D;2），即进队2</strong>；</p>
+<p><strong>循环一次：进队队头两个元素的和（1+1=2），即进队2</strong>；</p>
 <blockquote>
 <p>1 1 1 2</p>
 </blockquote>
@@ -462,16 +431,13 @@
 <blockquote>
 <p>1 2 1            （这样我们就得到了杨辉三角的第三行）</p>
 </blockquote>
-<br>
-<br>
-
-
+<p><br><br><br></p>
 <p>第三步：</p>
 <p>在队尾<mark>进队一个1</mark>（与第一步中相同操作）</p>
 <blockquote>
 <p>1 2 1 1</p>
 </blockquote>
-<p><strong>循环两次：第一次进队队头两个元素的和（1+2&#x3D;3），即进队3</strong>；</p>
+<p><strong>循环两次：第一次进队队头两个元素的和（1+2=3），即进队3</strong>；</p>
 <blockquote>
 <p>1 2 1 1 3</p>
 </blockquote>
@@ -479,7 +445,7 @@
 <blockquote>
 <p>2 1 1 3</p>
 </blockquote>
-<p><strong>第二次再进队队头两个元素的和（2+1&#x3D;3），即进队3</strong>；</p>
+<p><strong>第二次再进队队头两个元素的和（2+1=3），即进队3</strong>；</p>
 <blockquote>
 <p>2 1 1 3 3</p>
 </blockquote>
@@ -495,13 +461,11 @@
 <blockquote>
 <p>1 3 3 1           （这样我们就得到了杨辉三角的第四行）</p>
 </blockquote>
-<br>
-
+<p><br></p>
 <blockquote>
-<p>经过上面的三步操作，不难看出，每一步都分为<mark>三个部分</mark>。即：<em><strong>进1；循环；进1出1</strong></em>。所以我们可以控制重复上述步骤的次数，打印出想要的杨辉三角的层数。（并且可以看出，<strong>第一步循环0次；第二步循环1次；第三步循环2次。即循环次数为步数-1</strong>）</p>
+<p>经过上面的三步操作，不难看出，每一步都分为<mark>三个部分</mark>。即：<strong><em>进1；循环；进1出1</em></strong>。所以我们可以控制重复上述步骤的次数，打印出想要的杨辉三角的层数。（并且可以看出，<strong>第一步循环0次；第二步循环1次；第三步循环2次。即循环次数为步数-1</strong>）</p>
 </blockquote>
-<br>
-
+<p><br></p>
 <h3 id="双栈实现队列"><a href="#双栈实现队列" class="headerlink" title="双栈实现队列"></a>双栈实现队列</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//TODO...</span></span><br></pre></td></tr></table></figure>
 
     </div>
@@ -621,6 +585,12 @@
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
 
 
 
