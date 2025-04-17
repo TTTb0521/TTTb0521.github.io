@@ -20,24 +20,67 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"tttb0521.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Welcome to my world!">
-<meta property="og:type" content="website">
+    <meta name="description" content="图图的基本概念 顶点集、边集、顶点数目、边数目  有向图和无向图的区别有向图的边集$\mathbf{E}$中的元素有序而无向图的边集$\mathbf{E’}$中的元素无序    简单图不存在自环和多重边（两条边的起点和终点相同）这里讨论的都是简单图 无向完全图和有向完全图的区别完全图：图中的每个顶点和其余顶点都有边相连无向完全图的边数:$e &#x3D; n (n - 1) &#x2F; 2$有向完全图的边数:$e">
+<meta property="og:type" content="article">
 <meta property="og:title" content="TTTb">
-<meta property="og:url" content="https://tttb0521.github.io/index.html">
+<meta property="og:url" content="https://tttb0521.github.io/2025/04/12/Graph/index.html">
 <meta property="og:site_name" content="TTTb">
-<meta property="og:description" content="Welcome to my world!">
+<meta property="og:description" content="图图的基本概念 顶点集、边集、顶点数目、边数目  有向图和无向图的区别有向图的边集$\mathbf{E}$中的元素有序而无向图的边集$\mathbf{E’}$中的元素无序    简单图不存在自环和多重边（两条边的起点和终点相同）这里讨论的都是简单图 无向完全图和有向完全图的区别完全图：图中的每个顶点和其余顶点都有边相连无向完全图的边数:$e &#x3D; n (n - 1) &#x2F; 2$有向完全图的边数:$e">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/12/Graph/Graph.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/12/Graph/G.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/12/Graph/%E5%AD%90%E5%9B%BE%E5%92%8C%E8%B6%85%E5%9B%BE.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/12/Graph/%E6%9E%81%E5%A4%A7%E8%BF%9E%E9%80%9A%E5%AD%90%E5%9B%BE.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/12/Graph/%E8%A1%A5%E5%9B%BE.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/12/Graph/%E5%90%8C%E6%9E%84.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/12/Graph/%E6%AF%94%E8%BE%83.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/12/Graph/%E9%A1%B6%E7%82%B9%E4%BF%A1%E6%81%AF.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/12/Graph/%E6%97%A0%E5%90%91%E5%9B%BE%E7%9A%84%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/12/Graph/%E6%9C%89%E5%90%91%E5%9B%BE%E7%9A%84%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/12/Graph/%E6%9C%89%E5%90%91%E8%B5%8B%E6%9D%83%E5%9B%BE%E7%9A%84%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/12/Graph/%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5%E5%AE%9E%E7%8E%B0.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/12/Graph/%E9%82%BB%E6%8E%A5%E8%A1%A8.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/12/Graph/%E9%82%BB%E6%8E%A5%E8%A1%A8%E7%9A%84%E5%AE%9E%E7%8E%B0.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/12/Graph/%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5%E5%92%8C%E9%82%BB%E6%8E%A5%E8%A1%A8%E7%9A%84%E6%AF%94%E8%BE%83.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/12/Graph/%E5%B9%BF%E6%90%9C1.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/12/Graph/%E5%B9%BF%E6%90%9C2.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/12/Graph/DFS1.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/12/Graph/DFS2.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/12/Graph/%E5%85%B3%E8%8A%82%E7%82%B9%E4%B8%8E%E6%A1%A5.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/12/Graph/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/12/Graph/Prim%E7%AE%97%E6%B3%951.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/12/Graph/Prim%E7%AE%97%E6%B3%952.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/12/Graph/Kruskal%E7%AE%97%E6%B3%95.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/12/Graph/Dijkstra.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/12/Graph/D%E7%AE%97%E6%B3%951.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/12/Graph/D%E7%AE%97%E6%B3%952.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/12/Graph/D%E7%AE%97%E6%B3%953.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/12/Graph/Floyd%E7%AE%97%E6%B3%95.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/12/Graph/Floyd%E7%AE%97%E6%B3%951.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/12/Graph/Floyd%E7%AE%97%E6%B3%952.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/12/Graph/F%E7%AE%97%E6%B3%953.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/12/Graph/F%E7%AE%97%E6%B3%954.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/12/Graph/F%E7%AE%97%E6%B3%955.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/12/Graph/F%E7%AE%97%E6%B3%956.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/12/Graph/%E8%BE%B9%E6%9D%BE%E5%BC%9B.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/12/Graph/B%E7%AE%97%E6%B3%951.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/12/Graph/B%E7%AE%97%E6%B3%952.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/12/Graph/B%E7%AE%97%E6%B3%953.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/12/Graph/%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94.png">
+<meta property="article:published_time" content="2025-04-12T04:55:09.547Z">
+<meta property="article:modified_time" content="2025-04-17T04:33:55.651Z">
 <meta property="article:author" content="Jeffery Tang">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tttb0521.github.io/2025/04/12/Graph/Graph.png">
 
 
-<link rel="canonical" href="https://tttb0521.github.io/">
+<link rel="canonical" href="https://tttb0521.github.io/2025/04/12/Graph/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://tttb0521.github.io/2025/04/12/Graph/","path":"2025/04/12/Graph/","title":""}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>TTTb</title>
+<title> | TTTb</title>
   
 
 
@@ -70,7 +113,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">TTTb</h1>
+      <p class="site-title">TTTb</p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">日拱一卒，功不唐捐</p>
@@ -124,7 +167,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -137,6 +180,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE"><span class="nav-number">1.</span> <span class="nav-text">图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text">图的基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%89%E5%90%91%E5%9B%BE%E5%92%8C%E6%97%A0%E5%90%91%E5%9B%BE%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.1.1.</span> <span class="nav-text">有向图和无向图的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E5%9B%BE"><span class="nav-number">1.1.2.</span> <span class="nav-text">简单图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A0%E5%90%91%E5%AE%8C%E5%85%A8%E5%9B%BE%E5%92%8C%E6%9C%89%E5%90%91%E5%AE%8C%E5%85%A8%E5%9B%BE%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.1.3.</span> <span class="nav-text">无向完全图和有向完全图的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%90%E5%9B%BE%E5%92%8C%E8%B6%85%E5%9B%BE"><span class="nav-number">1.1.4.</span> <span class="nav-text">子图和超图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B6%E7%82%B9%E7%9A%84%E5%BA%A6"><span class="nav-number">1.1.5.</span> <span class="nav-text">顶点的度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%AF%E5%BE%84%E5%92%8C%E5%9B%9E%E8%B7%AF"><span class="nav-number">1.1.6.</span> <span class="nav-text">路径和回路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9E%E9%80%9A%E5%9B%BE"><span class="nav-number">1.1.7.</span> <span class="nav-text">连通图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A5%E5%9B%BE"><span class="nav-number">1.1.8.</span> <span class="nav-text">补图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8C%E6%9E%84"><span class="nav-number">1.1.9.</span> <span class="nav-text">同构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8%E3%80%81%E6%A0%91%E3%80%81%E5%9B%BE%E7%9A%84%E6%AF%94%E8%BE%83"><span class="nav-number">1.2.</span> <span class="nav-text">线性表、树、图的比较</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AC%A7%E6%8B%89%E8%B7%AF%E5%BE%84%E5%92%8C%E5%9B%9E%E8%B7%AF"><span class="nav-number">1.3.</span> <span class="nav-text">欧拉路径和回路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E7%9A%84%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="nav-number">1.4.</span> <span class="nav-text">图的存储结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.4.1.</span> <span class="nav-text">邻接矩阵实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%82%BB%E6%8E%A5%E8%A1%A8"><span class="nav-number">1.4.2.</span> <span class="nav-text">邻接表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5%E5%92%8C%E9%82%BB%E6%8E%A5%E8%A1%A8%E7%9A%84%E6%AF%94%E8%BE%83"><span class="nav-number">1.4.3.</span> <span class="nav-text">邻接矩阵和邻接表的比较</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86"><span class="nav-number">1.5.</span> <span class="nav-text">图的遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86%EF%BC%88DFS%EF%BC%89"><span class="nav-number">1.5.1.</span> <span class="nav-text">深度优先遍历（DFS）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86%EF%BC%88BFS%EF%BC%89"><span class="nav-number">1.5.2.</span> <span class="nav-text">广度优先遍历（BFS）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%95%88%E7%8E%87%E5%88%86%E6%9E%90"><span class="nav-number">1.5.3.</span> <span class="nav-text">算法效率分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E9%81%8D%E5%8E%86%E7%9A%84%E5%BA%94%E7%94%A8"><span class="nav-number">1.6.</span> <span class="nav-text">图遍历的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%81%8D%E5%8E%86%E4%B8%8E%E5%9B%BE%E7%9A%84%E8%BF%9E%E9%80%9A%E6%80%A7"><span class="nav-number">1.6.1.</span> <span class="nav-text">遍历与图的连通性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91"><span class="nav-number">1.7.</span> <span class="nav-text">最小生成树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Prim%E7%AE%97%E6%B3%95"><span class="nav-number">1.7.1.</span> <span class="nav-text">Prim算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Kruskal%E7%AE%97%E6%B3%95"><span class="nav-number">1.7.2.</span> <span class="nav-text">Kruskal算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84"><span class="nav-number">1.8.</span> <span class="nav-text">最短路径</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Dijkstra%E7%AE%97%E6%B3%95-%E5%8D%95%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84"><span class="nav-number">1.8.1.</span> <span class="nav-text">Dijkstra算法(单源最短路径)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Floyd%E7%AE%97%E6%B3%95-%E5%85%A8%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84"><span class="nav-number">1.8.2.</span> <span class="nav-text">Floyd算法(全源最短路径)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bellman-Ford%E7%AE%97%E6%B3%95"><span class="nav-number">1.8.3.</span> <span class="nav-text">Bellman-Ford算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94"><span class="nav-number">1.8.4.</span> <span class="nav-text">算法对比</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -166,16 +210,17 @@
 
     </div>
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
 
-    
+
+  
 
 
 <div class="post-block">
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://tttb0521.github.io/2025/04/12/Graph/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -189,13 +234,13 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | TTTb">
+      <meta itemprop="name" content=" | TTTb">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/04/12/Graph/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -216,6 +261,13 @@
     </span>
 
   
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
     <span class="post-meta-item" title="本文字数">
       <span class="post-meta-item-icon">
         <i class="far fa-file-word"></i>
@@ -238,8 +290,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="图"><a href="#图" class="headerlink" title="图"></a>图</h1><h2 id="图的基本概念"><a href="#图的基本概念" class="headerlink" title="图的基本概念"></a>图的基本概念</h2><blockquote>
+    <div class="post-body" itemprop="articleBody"><h1 id="图"><a href="#图" class="headerlink" title="图"></a>图</h1><h2 id="图的基本概念"><a href="#图的基本概念" class="headerlink" title="图的基本概念"></a>图的基本概念</h2><blockquote>
 <p>顶点集、边集、顶点数目、边数目<br><img src="/2025/04/12/Graph/Graph.png" alt="alt text"></p>
 </blockquote>
 <h3 id="有向图和无向图的区别"><a href="#有向图和无向图的区别" class="headerlink" title="有向图和无向图的区别"></a>有向图和无向图的区别</h3><p>有向图的边集$\mathbf{E}$中的元素有序而无向图的边集$\mathbf{E’}$中的元素无序</p>
@@ -345,7 +396,6 @@
 <p>比如：<br><img src="/2025/04/12/Graph/B算法1.png" alt="alt text"><br><img src="/2025/04/12/Graph/B算法2.png" alt="alt text"><br><img src="/2025/04/12/Graph/B算法3.png" alt="alt text"></p>
 <h3 id="算法对比"><a href="#算法对比" class="headerlink" title="算法对比"></a>算法对比</h3><p><img src="/2025/04/12/Graph/算法对比.png" alt="alt text"></p>
 
-      
     </div>
 
     
@@ -353,302 +403,22 @@
     
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
 
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://tttb0521.github.io/2025/03/29/TreeAndBinaryTree/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeffery Tang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TTTb">
-      <meta itemprop="description" content="Welcome to my world!">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | TTTb">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/03/29/TreeAndBinaryTree/" class="post-title-link" itemprop="url">树与二叉树</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-03-29 00:00:00" itemprop="dateCreated datePublished" datetime="2025-03-29T00:00:00+08:00">2025-03-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-30 16:51:02" itemprop="dateModified" datetime="2025-03-30T16:51:02+08:00">2025-03-30</time>
-    </span>
-
-  
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>3.3k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>数据结构与算法——树与二叉树</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/03/29/TreeAndBinaryTree/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
 
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://tttb0521.github.io/2025/03/17/LinearList/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeffery Tang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TTTb">
-      <meta itemprop="description" content="Welcome to my world!">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | TTTb">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/03/17/LinearList/" class="post-title-link" itemprop="url">线性表</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-03-17 00:41:13" itemprop="dateCreated datePublished" datetime="2025-03-17T00:41:13+08:00">2025-03-17</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-30 16:53:50" itemprop="dateModified" datetime="2025-03-30T16:53:50+08:00">2025-03-30</time>
-    </span>
-
-  
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>2k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>数据结构与算法——线性表</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/03/17/LinearList/">
-                阅读全文 &raquo;
-              </a>
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/03/29/TreeAndBinaryTree/" rel="prev" title="树与二叉树">
+                  <i class="fa fa-angle-left"></i> 树与二叉树
+                </a>
             </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://tttb0521.github.io/2025/03/17/StackAndQueue/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeffery Tang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TTTb">
-      <meta itemprop="description" content="Welcome to my world!">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | TTTb">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/03/17/StackAndQueue/" class="post-title-link" itemprop="url">栈和队列</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-03-17 00:00:00" itemprop="dateCreated datePublished" datetime="2025-03-17T00:00:00+08:00">2025-03-17</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-30 17:03:16" itemprop="dateModified" datetime="2025-03-30T17:03:16+08:00">2025-03-30</time>
-    </span>
-
-  
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>3.6k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>数据结构与算法——栈和队列</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/03/17/StackAndQueue/">
-                阅读全文 &raquo;
-              </a>
+            <div class="post-nav-item">
             </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+          </div>
     </footer>
   </article>
 </div>
+
 
 
 
