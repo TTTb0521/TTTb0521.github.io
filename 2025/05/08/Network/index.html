@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="manifest" href="/manifest.json">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"tttb0521.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="计算机网络基础知识总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络">
+<meta property="og:url" content="https://tttb0521.github.io/2025/05/08/Network/index.html">
+<meta property="og:site_name" content="TTTb">
+<meta property="og:description" content="计算机网络基础知识总结">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/1.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/2.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/3.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/4.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/5.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/6.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/7.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/8.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/9.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/10.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/11.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/12.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/13.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/14.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/15.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/16.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/17.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/18.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/19.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/20.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/21.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/22.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/23.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/24.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/25.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/26.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/27.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/28.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/29.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/30.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/31.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/32.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/34.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/35.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/36.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/37.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/38.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/39.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/40.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/41.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/42.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/43.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/44.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/45.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/46.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/47.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/48.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/49.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/50.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/51.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/52.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/53.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/54.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/55.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/56.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/57.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/58.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/59.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/60.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/61.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/62.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/63.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/64.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/65.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/66.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/67.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/68.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/69.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/70.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/71.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/72.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/73.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/74.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/75.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/76.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/77.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/78.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/79.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/80.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/81.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/82.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/83.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/84.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/85.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/86.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/87.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/88.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/89.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/90.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/91.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/92.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/93.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/94.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/95.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/96.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/97.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/98.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/99.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/100.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/101.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/102.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/103.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/104.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/105.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/106.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/107.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/108.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/109.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/110.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/111.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/112.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/113.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/114.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/115.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/116.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/118.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/117.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/119.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/120.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/121.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/122.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/123.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/124.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/125.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/126.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/127.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/128.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/129.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/130.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/132.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/133.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/134.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/135.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/136.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/137.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/138.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/139.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/140.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/141.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/142.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/143.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/144.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/145.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/146.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/147.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/05/08/Network/148.png">
+<meta property="article:published_time" content="2025-05-08T14:35:00.000Z">
+<meta property="article:modified_time" content="2025-05-08T14:35:57.606Z">
+<meta property="article:author" content="Jeffery Tang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tttb0521.github.io/2025/05/08/Network/1.png">
+
+
+<link rel="canonical" href="https://tttb0521.github.io/2025/05/08/Network/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://tttb0521.github.io/2025/05/08/Network/","path":"2025/05/08/Network/","title":"计算机网络"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>计算机网络 | TTTb</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">TTTb</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">日拱一卒，功不唐捐</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%A4%8D%E4%B9%A0"><span class="nav-number">1.</span> <span class="nav-text">计算机网络复习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="nav-number">1.1.</span> <span class="nav-text">数据通信基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%A0%E8%BE%93%E5%AA%92%E4%BB%8B"><span class="nav-number">1.1.1.</span> <span class="nav-text">传输媒介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%BC%96%E7%A0%81%E4%B8%8E%E4%BC%A0%E8%BE%93"><span class="nav-number">1.1.2.</span> <span class="nav-text">数据编码与传输</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E5%AD%97%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F%EF%BC%9A"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">数字编码方式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A8%A1%E6%8B%9F%E4%BC%A0%E8%BE%93%E6%96%B9%E5%BC%8F%EF%BC%9A"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">模拟传输方式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A8%A1%E6%8B%9F%E4%BF%A1%E5%8F%B7%E6%95%B0%E5%AD%97%E5%8C%96%EF%BC%9A"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">模拟信号数字化：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%A1%E9%81%93%E5%A4%8D%E7%94%A8%E6%8A%80%E6%9C%AF"><span class="nav-number">1.1.3.</span> <span class="nav-text">信道复用技术</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%A9%E7%90%86%E5%B1%82"><span class="nav-number">1.2.</span> <span class="nav-text">物理层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82"><span class="nav-number">1.3.</span> <span class="nav-text">数据链路层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%82%B9%E5%AF%B9%E7%82%B9%E4%BF%A1%E9%81%93"><span class="nav-number">1.3.1.</span> <span class="nav-text">点对点信道</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%BF%E6%92%AD%E4%BF%A1%E9%81%93"><span class="nav-number">1.3.2.</span> <span class="nav-text">广播信道</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A9%E5%B1%95%E5%B1%80%E5%9F%9F%E7%BD%91"><span class="nav-number">1.3.3.</span> <span class="nav-text">扩展局域网</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82"><span class="nav-number">1.4.</span> <span class="nav-text">网络层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IP"><span class="nav-number">1.4.1.</span> <span class="nav-text">IP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#IPv4-%E6%95%B0%E6%8D%AE%E6%8A%A5%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">IPv4 数据报格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IPv4-%E5%9C%B0%E5%9D%80"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">IPv4 地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3IPv4%E5%9C%B0%E5%9D%80%E5%8C%AE%E4%B9%8F%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%9A%E5%88%92%E5%88%86%E5%AD%90%E7%BD%91%E5%92%8C%E6%9E%84%E9%80%A0%E8%B6%85%E7%BD%91"><span class="nav-number">1.4.1.3.</span> <span class="nav-text">解决IPv4地址匮乏的方法：划分子网和构造超网</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IPv6-%E6%95%B0%E6%8D%AE%E6%8A%A5%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.4.1.4.</span> <span class="nav-text">IPv6 数据报格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IPv6-%E5%9C%B0%E5%9D%80"><span class="nav-number">1.4.1.5.</span> <span class="nav-text">IPv6 地址</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP%E9%80%89%E8%B7%AF"><span class="nav-number">1.4.2.</span> <span class="nav-text">IP选路</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E5%99%A8"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">路由器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E9%80%89%E6%8B%A9%E5%8D%8F%E8%AE%AE"><span class="nav-number">1.4.2.2.</span> <span class="nav-text">路由选择协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%92%E8%81%94%E7%BD%91%E6%8E%A7%E5%88%B6%E6%8A%A5%E6%96%87%E5%8D%8F%E8%AE%AE%EF%BC%88ICMP%EF%BC%89"><span class="nav-number">1.4.2.3.</span> <span class="nav-text">互联网控制报文协议（ICMP）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E8%BE%93%E5%B1%82"><span class="nav-number">1.5.</span> <span class="nav-text">运输层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%BE%93%E5%B1%82%E5%8D%8F%E8%AE%AE"><span class="nav-number">1.5.1.</span> <span class="nav-text">运输层协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#UDP%E5%8D%8F%E8%AE%AE"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">UDP协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP%E5%8D%8F%E8%AE%AE"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">TCP协议</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%B1%82"><span class="nav-number">1.6.</span> <span class="nav-text">应用层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%9F%E5%90%8D%E7%B3%BB%E7%BB%9F%EF%BC%88DNS%EF%BC%89"><span class="nav-number">1.6.1.</span> <span class="nav-text">域名系统（DNS）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E4%B8%BB%E6%9C%BA%E9%85%8D%E7%BD%AE%E5%8D%8F%E8%AE%AE%EF%BC%88DHCP%EF%BC%89"><span class="nav-number">1.6.2.</span> <span class="nav-text">动态主机配置协议（DHCP）</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Jeffery Tang</p>
+  <div class="site-description" itemprop="description">Welcome to my world!</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://tttb0521.github.io/2025/05/08/Network/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeffery Tang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TTTb">
+      <meta itemprop="description" content="Welcome to my world!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="计算机网络 | TTTb">
+      <meta itemprop="description" content="计算机网络基础知识总结">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          计算机网络
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-05-08 22:35:00 / 修改时间：22:35:57" itemprop="dateCreated datePublished" datetime="2025-05-08T22:35:00+08:00">2025-05-08</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>15k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>13 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">计算机网络基础知识总结</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="计算机网络复习"><a href="#计算机网络复习" class="headerlink" title="计算机网络复习"></a>计算机网络复习</h1><p><strong>定义</strong>：多种通用的、可编程硬件互连，支持多种应用<br><img src="/2025/05/08/Network/1.png" alt="alt text"></p>
+<p><strong>发展</strong>：<br>|  名称   | 时间  | 地位 |<br>|  :-:  | :-:  | :-: |<br>| ABC(阿塔纳索夫·贝瑞计算机) | 1937 | 第一台电子数字计算设备，能求解线性方程 |<br>| ENIAC | 1946 | 第一台通用电子数字计算机 |<br>| ARPANET | 1969 | 多台计算机互联的二代计算机网络 |<br>| 开放系统互连参考模型(OSI/RM) | 1981 | 全球统一标准，第三代计算机网络 |<br>| Internet(互联网) | 90年代至今 | 第四代计算机网络</p>
+<p><strong>互联网与互联网的区别</strong>：<br><img src="/2025/05/08/Network/2.png" alt="alt text"></p>
+<p><strong>交换技术</strong>：</p>
+<ul>
+<li><p>电路交换<br><mark>电路交换必定是面向连接</mark><br><img src="/2025/05/08/Network/3.png" alt="alt text"><br><mark>关键缺点：不适应计算机网络中的突发性，<strong>信道利用率低</strong></mark><br><img src="/2025/05/08/Network/4.png" alt="alt text"></p>
+</li>
+<li><p>分组交换<br><mark><strong>存储-转发方式</strong></mark><br>具体步骤：构建分组-分别传输-去掉首部-还原报文<br><img src="/2025/05/08/Network/5.png" alt="alt text"><br><img src="/2025/05/08/Network/6.png" alt="alt text"><br><img src="/2025/05/08/Network/7.png" alt="alt text"><br><img src="/2025/05/08/Network/8.png" alt="alt text"><br><img src="/2025/05/08/Network/9.png" alt="alt text"><br>关键缺点：<strong>排队造成时延、首部带来额外开销</strong><br><img src="/2025/05/08/Network/10.png" alt="alt text"></p>
+</li>
+</ul>
+<p><strong>三种交换的比较</strong>：<br><img src="/2025/05/08/Network/11.png" alt="alt text"><br>传输大量数据且<strong>传输时间远大于连接建立时间</strong>，选择电路交换<br>报文交换和分组交换不需要预先分配带宽，<strong>信道利用率更高</strong><br>由于分组的长度小于报文，因此<strong>分组交换比报文交换时延小</strong></p>
+<p><strong>端系统通信</strong>：<br><img src="/2025/05/08/Network/12.png" alt="alt text"></p>
+<p><strong>C/S方式的特点</strong>：<br>客户程序需要指导服务器程序的地址<br>服务器程序不知道客户程序的地址<br>资源集中在服务器</p>
+<p><strong>P2P方式的特点</strong>：<br>不区分请求方和服务提供方<br>资源分散在端系统中</p>
+<p><strong>计算机网络的类别</strong>：<br><img src="/2025/05/08/Network/13.png" alt="alt text"><br><img src="/2025/05/08/Network/14.png" alt="alt text"></p>
+<p><strong>计算机网络性能指标</strong>：</p>
+<ol>
+<li><p>速率<br><strong>速率是额定速率，不是实际运行速率</strong><br>单位定义：<br>​bit/s（比特每秒）​：最基础单位，表示每秒传输的1个二进制位（bit）。<br>​kbit/s​（千比特每秒）：<strong>1 kbit/s = ​1,000 bit/s</strong><br>​Mbit/s​（兆比特每秒）：<strong>1 Mbit/s = ​1,000 kbit/s = 10⁶ bit/s</strong><br>​Gbit/s​（吉比特每秒）：<strong>1 Gbit/s = ​1,000 Mbit/s = 10⁹ bit/s</strong><br>​Tbit/s​（太比特每秒）：<strong>1 Tbit/s = ​1,000 Gbit/s = 10¹² bit/s</strong><br><img src="/2025/05/08/Network/15.png" alt="alt text"></p>
+</li>
+<li><p>带宽<br>频域：频带宽度，单位是赫<br>时域：单位时间内最高数据率，单位是$ bit/s $<br><strong>一条通信链路的“带宽”越宽，其所能传输的“最高数据率”也越高。</strong><br><img src="/2025/05/08/Network/16.png" alt="alt text"><br><img src="/2025/05/08/Network/17.png" alt="alt text"></p>
+</li>
+<li><p>吞吐量<br>表示在单位时间内通过某个网络(或信道、接口)的数据量。<br>吞吐量<strong>受网络的带宽或网络的额定速率的限制，额定速率是绝对上限值</strong>。可能会远小于额定速率，甚至下降到零。</p>
+</li>
+<li><p>时延<br>包括发送时延、传播时延、处理时延、排队时延<br><img src="/2025/05/08/Network/18.png" alt="alt text"><br><img src="/2025/05/08/Network/19.png" alt="alt text"><br><strong>处理时延</strong>：主机或路由器在收到分组时，为<strong>处理分组</strong>(例如，分析首部、提取数据、差错检验或查找路由)所花费的时间。<br><strong>排队时延</strong>：分组在路由器的接收缓存队列中排队等待接收的时间与在发送缓存队列中排队等待发送所经历的时延之和。<strong>排队时延的长短往往取决于网络中当时的通信量</strong></p>
+<blockquote>
+<p><strong>注意</strong>:一般不提升传输速率<br><img src="/2025/05/08/Network/20.png" alt="alt text"></p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p><strong>例题</strong>：<br><img src="/2025/05/08/Network/21.png" alt="alt text"><br><img src="/2025/05/08/Network/22.png" alt="alt text"></p>
+</blockquote>
+<ol>
+<li><p>时延带宽积<br><img src="/2025/05/08/Network/23.png" alt="alt text"></p>
+</li>
+<li><p>往返时间（RTT）<br><img src="/2025/05/08/Network/24.png" alt="alt text"><br><strong>不包含发送端的发送时延</strong><br>有效数据率：<br><img src="/2025/05/08/Network/25.png" alt="alt text"></p>
+</li>
+<li><p>利用率<br><img src="/2025/05/08/Network/26.png" alt="alt text"><br><strong>信道利用率并非越高越好</strong><br><img src="/2025/05/08/Network/27.png" alt="alt text"></p>
+</li>
+</ol>
+<p><strong>协议三要素</strong>：<br><strong>语法</strong>:如何讲，用来规定<strong>信息格式</strong>，涉及数据与控制信息的格式、编码和信号等级(电平的高低)等。<br><strong>语义</strong>:讲什么，用来说明通信双方应该怎么做，涉及<strong>数据的内容、含义及用于协调和差错处理的控制信息</strong>。<br><strong>定时(时序)</strong>:详细说明事件的<strong>先后顺序</strong>，涉及速率匹配和排序等。</p>
+<p>协议的功能：分段与重组、封装、连接控制、流量控制、差错控制等</p>
+<p><strong>服务原语</strong>：<br><img src="/2025/05/08/Network/28.png" alt="alt text"><br><img src="/2025/05/08/Network/29.png" alt="alt text"></p>
+<p><strong>五层协议</strong>：<br><img src="/2025/05/08/Network/30.png" alt="alt text"><br>应用层：通过应用进程间的交互来完成特定网络应用；DNS、HTTP、SMTP；应用层交互的数据单元称为报文</p>
+<p>运输层：两台主机中进程之间的通信；分用和复用；TCP和UDP</p>
+<p>网络层：为分组交换网上的不同主机提供通信服务；路由选择和转发</p>
+<p>链路层：两个相邻节点之间的可靠通信</p>
+<p>物理层：实现比特（0 或1）的传输</p>
+<h2 id="数据通信基础知识"><a href="#数据通信基础知识" class="headerlink" title="数据通信基础知识"></a>数据通信基础知识</h2><p><img src="/2025/05/08/Network/31.png" alt="alt text"></p>
+<hr>
+<p>传输：任何实际的信道都不是理想的，在传输信号时会产生各种<strong>失真</strong>，而且在信道中也会存在各种<strong>干扰和噪声</strong>。<br><strong>码间串扰</strong>：接收端收到的信号波形失去了码元之间的清晰界限的现象。</p>
+<hr>
+<p><img src="/2025/05/08/Network/32.png" alt="alt text"></p>
+<hr>
+<h3 id="传输媒介"><a href="#传输媒介" class="headerlink" title="传输媒介"></a>传输媒介</h3><p><strong>有线传输媒介</strong>：</p>
+<ol>
+<li><p>双绞线<br>绞合度越高，可用的数据传输率越高。<br>无论是哪种类别的双绞线，<strong>衰减都随频率的升高而增大</strong>。</p>
+</li>
+<li><p>同轴电缆<br>具有很好的<strong>抗干扰</strong>特性，被广泛用于传输<strong>较高速率</strong>的数据</p>
+</li>
+<li><p>光纤<br><strong>常用的三个波段的中心：0.85um,1.31um,1.55um</strong><br> <strong>单模光纤</strong>：光沿着一条路径传播，若光纤的直径减小到只有一个光的<br>波长（几个微米），则可使光线一直向前传播，而不会产生多次反射。</p>
+<p> <strong>多模光纤</strong>：光在多条路径中传播，<strong>光脉冲在多模光纤中传输时会逐渐<br>展宽，造成失真</strong>，只适合于<strong>近距离传输</strong>。</p>
+</li>
+<li><p>光缆</p>
+</li>
+</ol>
+<p><strong>无线传输媒介</strong>：</p>
+<ol>
+<li><p><strong>短波通信</strong>（即高频通信）主要是靠<strong>电离层的反射</strong>，但<strong>短波信道的通信质量较差</strong>，传输速率低。<br>微波占有特殊重要的地位，在空间主要是<strong>直线传播</strong>。</p>
+</li>
+<li><p>微波频率范围：300 MHz~300 GHz（波长1 m ~ 1 mm）；主要使用：2 ~ 40GHz。</p>
+</li>
+<li><p>传统微波通信有两种方式：地面微波接力通信、卫星通信</p>
+</li>
+</ol>
+<p><strong>2.4GHz频段为各国共同的ISM频段，因此无线局域网、蓝牙、ZigBee等无线网络，均可工作在2.4GHz频段上</strong></p>
+<hr>
+<h3 id="数据编码与传输"><a href="#数据编码与传输" class="headerlink" title="数据编码与传输"></a>数据编码与传输</h3><p>数据传输技术包括<strong>基带传输</strong>和<strong>频带传输</strong>：</p>
+<ul>
+<li><strong>基带传输</strong>:数字信号<strong>不做任何改变</strong>直接在信道中进行传输的过程，基带信号没有经过调制，它所占据的频带一般是从<strong>直流或低频开始</strong>的。发送端<strong>编码</strong><mark>（对波形进行变换）</mark>，接收端<strong>解码</strong>。</li>
+<li><strong>频带传输</strong>:数字信号<strong>经过调制</strong>后在信道中传输的过程，<mark><strong>调制的目的是减少信号失真，提高线路的利用率</strong></mark>。</li>
+</ul>
+<h4 id="数字编码方式："><a href="#数字编码方式：" class="headerlink" title="数字编码方式："></a>数字编码方式：</h4><p><img src="/2025/05/08/Network/34.png" alt="alt text"></p>
+<p>曼彻斯特码和差分曼彻斯特码产生的<strong>信号频率比不归零码高</strong>。曼彻斯特码和差分曼彻斯特码具有<mark><strong>自同步</strong></mark>能力。</p>
+<p><strong>信号码元周期 $T$ 可作为选择信道带宽的主要依据。</strong></p>
+<h4 id="模拟传输方式："><a href="#模拟传输方式：" class="headerlink" title="模拟传输方式："></a>模拟传输方式：</h4><p><strong>载波</strong>是一种<strong>由振荡器产生并在通信信道上传输的特定频率的无线电波</strong>，在频率、幅度或相位方面被调制后用于传输话音、图像或其他信息。<br><strong>载波频率通常高于输入信号的频率，属于高频信号。</strong></p>
+<p>使用载波把基带信号频率范围搬移到较高的频段，并转换为模拟信号，这样就能够更好地在模拟信道中传输，<mark><strong>经过载波调制后的信号被称为带通信号</strong></mark></p>
+<p><img src="/2025/05/08/Network/35.png" alt="alt text"></p>
+<h4 id="模拟信号数字化："><a href="#模拟信号数字化：" class="headerlink" title="模拟信号数字化："></a>模拟信号数字化：</h4><p><strong>实现模拟信号数字化的一种常用方式是脉冲编码调制（PCM）</strong></p>
+<p><img src="/2025/05/08/Network/36.png" alt="alt text"></p>
+<h3 id="信道复用技术"><a href="#信道复用技术" class="headerlink" title="信道复用技术"></a>信道复用技术</h3><ol>
+<li>频分复用（FDM）<br>频分复用要求<mark><strong>总频率宽度大于各个信道频率之和</strong></mark>。各子信道之间设有隔离带，以保证各路信号<strong>互不干扰</strong>。<br>频分复用技术的特点是所有子信道传输的信号以<mark><strong>并行的方式工作</strong></mark>，例如广播、有线电视</li>
+</ol>
+<p><strong>更多的用户轮流使用这n个频带</strong>，这种方式称为频分多址接入(FDMA)，简称<strong>频分多址</strong>。</p>
+<ol>
+<li>时分复用（TDM）<br><img src="/2025/05/08/Network/37.png" alt="alt text"><br>同步时分复用是将时间划分为一段段<strong>等长的时分复用帧（TDM帧）</strong>，每一个时分复用的用户在每一个 TDM 帧中占用<strong>固定序号的时隙(同步时分复用)</strong>。<br>每一个用户所占用的时隙是<strong>周期性地出现</strong>（其周期就是TDM帧的长度）的，TDM信号也称为等时信号。<br><mark><strong>同步时分复用帧的长度是125µs</strong></mark>，<strong>复用的用户越多，每一个用户分配到的时隙宽度就越窄</strong>。<br>同步时分复用的所有用户<strong>在不同的时间占用同样的频带宽度</strong>。</li>
+</ol>
+<p><strong>更多的用户轮流使用这4个时隙</strong>，这种方式称为时分多址接入（TDMA），简称<strong>时分多址</strong></p>
+<p>当某用户暂时无数据发送时，在同步时分复用帧中分配给该用户的时隙只能处于空闲状态。</p>
+<ol>
+<li><p>统计时分复用（STDM）<br><img src="/2025/05/08/Network/38.png" alt="alt text"><br>数据发往复用器，复用器按顺序扫描，把复用器中的数据放入STDM帧中，一个STDM帧满了就发出去。<br><strong>STDM不是固定分配时隙，而是按需动态分配时隙</strong>。因此统计时分复<br>用可以<strong>提高线路的利用率</strong>。<br>注意：<strong>STDM帧的时隙数少于终端数</strong>，并且有站标识开销。</p>
+</li>
+<li><p>波分复用（WDM）<br><img src="/2025/05/08/Network/39.png" alt="alt text"><br><strong>光的波分复用可以理解为光的频分复用</strong>。<br><strong>可以是单向传输，也可以是双向传输</strong>。</p>
+</li>
+<li><p>码分复用（CDM）<br>每一个用户可以在<strong>同样的时间使用同样的频带</strong>进行通信，使用经过特殊挑选的不同码型，因此彼此不会造成干扰。<br><strong>当码分复用（CDM）信道为多个不同地址的用户所共享时，就称为码分多址（CDMA）</strong>。<br><strong>每一个比特时间划分为 m 个短的间隔，称为码片</strong>，通常m的值是64或128。</p>
+</li>
+</ol>
+<p><strong>码片序列：</strong><br><img src="/2025/05/08/Network/40.png" alt="alt text"><br><strong>-1 表示 0，+1 表示 1</strong></p>
+<p><strong>码片序列实现了扩频</strong>:假定S站要发送信息的数据率为 b $bit/s$。由于每一个比特要转换成 m 个比特的码片，因此S站实际上发送的数据率提高到 mb $bit/s$，同时S站所占用的频带宽度也提高到原来数值的 m 倍</p>
+<p><strong>CDMA的重要特点</strong>：每个站分配的码片序列：<strong>各不相同，且必须互相正交。</strong><br><img src="/2025/05/08/Network/41.png" alt="alt text"></p>
+<p><strong>总结</strong>：</p>
+<ul>
+<li>频分复用:不同用户，相同时间，不同频带</li>
+<li>同步时分复用:不同用户，不同时间，相同频带</li>
+<li>统计时分复用:解决信道利用率低的问题</li>
+<li>波分复用:不同用户，相同时间，不同波长</li>
+<li>码分复用：不同用户，相同时间，相同频带，不同码型</li>
+</ul>
+<h2 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h2><p>考虑的是怎样才能在连接各种计算机的传输媒介上<strong>传输数据比特流，而不是指具体的传输媒介</strong>。从逻辑角度看，<strong>物理层是传输媒介与数据链路层之间的接口</strong>。</p>
+<p><strong>标准化的DTE/DCE接口具有的特性</strong>：</p>
+<ul>
+<li><strong>机械特性</strong>：对接口所用接线器的形状和尺寸、引脚数目和排列、固定和锁定装置等作出详细的规定。</li>
+<li><strong>电气特性</strong>：规定了DTE/DCE之间多根信号线的电气连接及有关电路特性。通常包括发送器和接收器的电路特性。</li>
+<li><strong>功能特性</strong>：描述接口执行的功能，定义接线器的每一引脚(针，Pin)的作用</li>
+<li><strong>规程特性</strong>：规定了DTE/DCE接口各信号线之间的相互关系、工作顺序和时序，以及维护测试操作等内容。<strong>反映了通信双方在数据通信过程中可能发生的各种事件。</strong></li>
+</ul>
+<p><strong>宽带接入技术</strong>：</p>
+<ol>
+<li>ADSL技术<br>非对称数字用户线ADSL (Asymmetric Digital Subscriber Line) 技术就是用数字技术对现有的模拟电话用户线进行改造，使它能够承载宽带业务。<br><strong>非对称：下行（从ISP 到用户）带宽远大于上行（从用户到ISP）带宽</strong><br>ADSL 技术就把 0~4 $kHz$ 低端频谱留给传统电话使用，而<strong>把原来没有被利用的高端频谱留给用户上网使用</strong>。<br>ADSL 最大好处是可以利用现有电话网中的用户线（铜线），而不需要重新布线，节省了大量投资。<br><strong>ADSL 并不适合于企业，因为企业往往需要使用上行信道发送大量数据给许多用户。</strong></li>
+</ol>
+<p><img src="/2025/05/08/Network/42.png" alt="alt text"><br><mark><strong>DMT</strong></mark> 调制技术采用<strong>频分复用</strong>的方法，把 40 kHz 以上一直到 1.1 MHz 的高端频谱划分为许多<strong>子信道</strong>，其中 25 个子信道用于上行信道，而 249 个子信道用于下行信道。<strong>每个子信道占据 4 kHz 带宽（严格讲是4.3125 kHz）</strong>，并使用<strong>不同的载波</strong>进行数字调制。</p>
+<ol>
+<li><p>HFC技术<br>HFC网是在原有覆盖面很广的有线电视网CATV 的基础上开发的一种居民宽带接入网，将原 CATV 网中的同轴电缆<strong>主干部分改换为光纤</strong>，并使用模拟光纤技术，除可传送 CATV 外，还提供电话、数据和其他宽带交互型业务。</p>
+</li>
+<li><p>FTTx 技术<br>FTTx 是一种实现宽带居民接入网的方案，代表<strong>多种宽带光纤接入方式</strong><br><img src="/2025/05/08/Network/43.png" alt="alt text"></p>
+</li>
+</ol>
+<h2 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h2><p><img src="/2025/05/08/Network/44.png" alt="alt text"><br><strong>数据链路层实现是相邻节点之间的通信，为网络层实现的主机之间的通信提供了支持。</strong></p>
+<p>数据链路层信道类型包括<strong>点对点信道</strong>和<strong>广播信道</strong></p>
+<p><strong>数据链路</strong>：链路加上实现通信协议的硬件和软件就构成了数据链路。</p>
+<p><img src="/2025/05/08/Network/45.png" alt="alt text"></p>
+<p><strong>帧：数据链路层的协议数据单元</strong><br><img src="/2025/05/08/Network/46.png" alt="alt text"></p>
+<p><strong>数据链路层的主要功能</strong>：数据链路的建立、拆除和管理；封装成帧；透明传输；差错控制；流量控制。<br>数据链路层的协议有很多种，但不论哪种协议，都必须解决以下三个基本问题：<strong>封装成帧、透明传输、差错检测</strong></p>
+<p><strong>封装成帧就是在一段数据的前后分别添加首部和尾部</strong>，然后就构成了一个帧。首部和尾部的一个重要作用就是进行<strong>帧定界</strong>。<br><mark><strong>最大传送单元 MTU</strong>：规定了所能传送的帧的数据部分长度上限。</mark><br><img src="/2025/05/08/Network/47.png" alt="alt text"></p>
+<ol>
+<li><p>封装成帧<br>控制字符 SOH 放在一帧的最前面，表示帧的首部开始；控制字符 EOT 表示帧的结束。<br><img src="/2025/05/08/Network/48.png" alt="alt text"></p>
+</li>
+<li><p>透明传输<br>在数据链路层透明传送数据，表示无论发送什么样的比特组合的数据，这些数据都能够按照原样没有差错地通过这个数据链路层。<br><strong>避免错误找到帧边界：</strong><br><img src="/2025/05/08/Network/49.png" alt="alt text"></p>
+</li>
+<li><p>差错检测<br>传输过程中可能会产生比特差错：1 可能会变成 0， 而 0 也可能变成 1 。</p>
+</li>
+</ol>
+<p>通常用误比特率或误码率 <strong>（在一段时间内传输错误的⽐特数占所传输⽐特总数的比率）</strong> 来衡量通信链路的质量。</p>
+<p><strong>循环冗余校验（CRC）原理</strong><br><img src="/2025/05/08/Network/50.png" alt="alt text"><br><img src="/2025/05/08/Network/51.png" alt="alt text"></p>
+<p><strong>在数据后面添加上的冗余码称为帧检验序列 FCS</strong><br><mark><strong>循环冗余检验CRC 和帧检验序列 FCS 并不等同：</strong></mark></p>
+<ul>
+<li>CRC 是一种常用的<strong>检错方法</strong>，而FCS 是添加在数据后面的<strong>冗余码</strong>。</li>
+<li>FCS 可以用 CRC 这种方法得出，但 CRC 并非用来获得FCS 的唯一方法。</li>
+</ul>
+<p><mark>仅用循环冗余检验 CRC 技术<strong>只能做到无差错接收</strong>。</mark></p>
+<ul>
+<li>“无差错接收”是指：“凡是接收的帧（即<strong>不包括丢弃的帧</strong>），我<br>们都能以非常接近于1 的概率认为“凡是接收端数据链路层接收的帧都没有传输差错”<strong>（有差错的帧就丢弃而不接收）</strong>。</li>
+</ul>
+<blockquote>
+<p><strong>注意：</strong><br>单纯使用 CRC 差错检测技术<strong>不能实现“无差错传输”或“可靠传输”</strong><br>应当明确，<strong>“无比特差错”与“无传输差错”是不同的概念</strong><br>在数据链路层使用CRC 检验，<strong>能够实现无比特差错的传输，但这还不是可靠传输</strong><br>要做到“无差错传输”（即发送什么就收到什么）就必须再加上<strong>确认和重传机制</strong></p>
+</blockquote>
+<h3 id="点对点信道"><a href="#点对点信道" class="headerlink" title="点对点信道"></a>点对点信道</h3><p><strong>点对点协议（PPP）</strong><br>PPP协议<strong>不需要的功能</strong>包括： <strong>纠错、流量控制、设置序号、多点线路、半双工或单工链路</strong></p>
+<p>PPP非常简单：每收到一个帧，进行CRC检验，如果CRC检验正确，就接收这个帧；反之，就丢弃这个帧，其他什么也不做。</p>
+<p>PPP的应用场景：<br><img src="/2025/05/08/Network/52.png" alt="alt text"></p>
+<p>PPP由三个部分组成：</p>
+<ul>
+<li><strong>一个将 IP 数据报封装到串行链路的方法</strong></li>
+<li><strong>链路控制协议 LCP</strong>，用来建立、配置和测试链路，其最重要的功能之一是身份验证(PAP，CHAP)</li>
+<li><strong>网络控制协议NCP</strong>，支持不同的网络层协议</li>
+</ul>
+<p>PPP的帧格式：<br><img src="/2025/05/08/Network/53.png" alt="alt text"><br><strong>PPP 是面向字节的，所有的PPP 帧的长度都是整数字节。</strong></p>
+<p>PPP的透明传输问题</p>
+<ul>
+<li>当 PPP 用在<strong>异步传输</strong>时，就使用一种特殊的<strong>字节填充法</strong>。</li>
+<li>当 PPP 用在<strong>同步传输</strong>时，协议规定<strong>采用硬件来完成比特填充</strong>。</li>
+</ul>
+<p>字节填充法：<br><img src="/2025/05/08/Network/54.png" alt="alt text"><br><strong>注意：第六位指的是从后向前数六位，0x21是十六进制，所以其二进制表示为00100001</strong></p>
+<p>零比特填充：<br><img src="/2025/05/08/Network/55.png" alt="alt text"></p>
+<p>PPP的工作过程：<strong>PPP 协议不是纯粹的数据链路层的协议，它还包含了物理层和网络层的内容</strong><br><img src="/2025/05/08/Network/56.png" alt="alt text"></p>
+<p>口令鉴别协议（PAP）：<br><strong>两次握手</strong>鉴别协议，口令以<strong>明文</strong>传送，<strong>被鉴别方首先发起鉴别请求</strong></p>
+<p>质询握手鉴别协议（CHAP）：<br><strong>三次握手</strong>鉴别协议，<strong>主鉴别方首先发起鉴别请求</strong>，<mark>安全性比PAP高</mark></p>
+<h3 id="广播信道"><a href="#广播信道" class="headerlink" title="广播信道"></a>广播信道</h3><p><strong>局域网的数据链路层</strong><br><strong>MAC地址</strong>：<br><img src="/2025/05/08/Network/57.png" alt="alt text"></p>
+<p><strong>以太网帧</strong>：<br>最常用的 MAC 帧是 <strong>EthernetⅡ</strong> 的格式：<br><img src="/2025/05/08/Network/58.png" alt="alt text"><br><strong>当数据字段的长度小于 46 字节时</strong>，应在数据字段的后面加入整数字节的填充字段，<strong>以保证以太网的 MAC 帧长不小于64 字节</strong></p>
+<p>前同步码和帧开始定界符：<br><img src="/2025/05/08/Network/59.png" alt="alt text"></p>
+<p><strong>无效的 MAC 帧</strong></p>
+<ul>
+<li><strong>数据字段的长度与长度字段的值</strong>不一致；</li>
+<li>帧的长度不是<strong>整数</strong>个字节；</li>
+<li>用收到的帧检验序列 <strong>FCS 查出有差错</strong>；</li>
+<li>数据字段的长度<strong>不在46 ~ 1500 字节之间</strong>。<br><strong>对于检查出的无效MAC 帧就简单地丢弃，以太网不负责重传丢弃的帧。</strong></li>
+</ul>
+<p><strong>“网卡”（通信适配器）</strong><br><img src="/2025/05/08/Network/60.png" alt="alt text"><br>每收到一个 MAC 帧就<strong>先用硬件检查 MAC 帧中的 MAC 地址</strong>。如果是发往本站的帧则收下，然后再进行其他的处理。否则就将此帧丢弃，不再进行其他的处理。</p>
+<p><strong>“发往本站的帧”包括以下三种帧：</strong></p>
+<ul>
+<li>单播帧（一对一）</li>
+<li>广播帧（一对全体）</li>
+<li>多播帧（一对多）</li>
+</ul>
+<p><img src="/2025/05/08/Network/61.png" alt="alt text"><br><strong>解决方法：动态媒体接入控制（多点接入）</strong></p>
+<ul>
+<li><strong>随机接入</strong>：所有用户可随机发送信息。</li>
+<li><strong>受控接入</strong>：用户必须服从一定的控制。如<strong>集中控制的多点线路探询，或轮询</strong>。</li>
+</ul>
+<p><strong>以太网采取了两种重要措施：<mark>采用较为灵活的无连接工作方式</mark></strong></p>
+<ul>
+<li><strong>不必建立连接</strong>就可以直接发送数据。</li>
+<li>对发送的数据帧<strong>不进行编号，也不要求对方发回确认</strong>。</li>
+</ul>
+<p><strong>以太网发送的数据都使用曼彻斯特编码</strong><br><img src="/2025/05/08/Network/62.png" alt="alt text"></p>
+<p><strong>CAMA/CD 协议（载波监听多址接入/碰撞检测）</strong><br><img src="/2025/05/08/Network/63.png" alt="alt text"></p>
+<blockquote>
+<p><strong>为什么要进行碰撞检测？</strong><br><mark><strong>因为信号传播时延对载波监听产生了影响</strong></mark><br><img src="/2025/05/08/Network/64.png" alt="alt text"></p>
+</blockquote>
+<p><strong>CSMA/CD：争用期</strong><br><strong>以太网的端到端往返时延 2t 称为争用期或碰撞窗口</strong>。经过争用期这段时间还未检测到碰撞，才能确定这次发送不会发生碰撞。<br><strong>无效帧：</strong> 10Mbit/s 以太网取 51.2 μs 为争用期的长度，对于 10Mbit/s 以太网，在争用期内可发送 512 bit，即 64 字节。如果发生碰撞，就一定是在发送的前 64 字节之内。 由于一检测到碰撞就立即中止发送，这时已经发送出去的数据一定<strong>小于 64 字节</strong>。<mark><strong>以太网规定了最短有效帧长为 64 字节</strong></mark>，凡长度小于 64 字节的帧都是由于碰撞而异常中止的无效帧。</p>
+<p><strong>CSMA/CD：5-4-3规则</strong><br><img src="/2025/05/08/Network/65.png" alt="alt text"></p>
+<p><strong>CSMA/CD：检测到碰撞后如何操作？</strong><br>每一个正在发送数据的站，<strong>一旦发现总线上出现碰撞，适配器就要立即停止发送</strong>，免得继续浪费网络资源，然后<strong>等待一段随机时间后再次发送</strong>。</p>
+<p><strong>CSMA/CD：碰撞后重传的时机</strong><br><strong>截断二进制指数退避算法：</strong><br>规定发生碰撞的站点在停止发送数据后，要推迟（退避）一个<strong>随机时间</strong>才能再发送数据。</p>
+<ul>
+<li><strong>基本退避时间取为争用期 2t。</strong></li>
+<li>定义重传次数 $k$ ，$k = Min[重传次数, 10]$<ul>
+<li>从整数集合 $[0, 1, … , (2^k - 1)]$ 中随机地取出一个数，记为 r ,则<strong>重传所需的时延就是 r 倍的基本退避时间</strong>。</li>
+</ul>
+</li>
+<li><strong>当重传达 16 次仍不能成功时即丢弃该帧</strong>，并向高层报告。</li>
+<li>该算法可以<mark><strong>使重传需要推迟的平均时间随重传次数的增多而增大（也称为动态退避）</strong></mark>，从而减小了发生碰撞的概率，有利于整个系统的稳定。</li>
+</ul>
+<p><strong>CSMA/CD：人为干扰信号</strong></p>
+<ul>
+<li>发生碰撞后，发送端需<strong>强化碰撞</strong>。</li>
+<li>立即停止发送数据，再继续发送<strong>若干比特(32bit、48bit或64bit)的人为干扰信号</strong>，让所有用户都知道发生了碰撞。</li>
+<li>以太网还规定了<mark><strong>帧间最小间隔为9.6 μs</strong></mark></li>
+</ul>
+<p><strong>使用 CSMA/CD 协议时，各站点<mark>不能进行全双工通信而只能进行双向交替通信（半双工通信）</mark>，这种发送的不确定性使整个以太网的平均通信量远小于以太网的最高数据率。</strong></p>
+<p><strong>以太网的信道利用率</strong><br><strong>参数 $a$</strong><br><img src="/2025/05/08/Network/66.png" alt="alt text"><br><strong>注意：</strong></p>
+<ul>
+<li>数据率一定时，以太网的连线的长度要有限制，否则 t 的数值会太大。</li>
+<li>以太网的帧长不能太短，否则 $T_0$ 的值会太小，使 $a$ 值太大。</li>
+</ul>
+<p><strong>极限信道利用率</strong><br><img src="/2025/05/08/Network/67.png" alt="alt text"></p>
+<p><strong>CSMA/CD 和 CSMA/CA的对比</strong><br><img src="/2025/05/08/Network/68.png" alt="alt text"></p>
+<h3 id="扩展局域网"><a href="#扩展局域网" class="headerlink" title="扩展局域网"></a>扩展局域网</h3><p><strong>网络中的中介设备</strong><br><img src="/2025/05/08/Network/69.png" alt="alt text"></p>
+<p><strong>集线器</strong><br><strong>在利用集线器组建的局域网中，所有计算机都处于<mark>同一个碰撞域（或冲突域）中和同一个广播域中。</mark></strong><br><strong>碰撞域增大，但总吞吐量并未提高</strong><br><img src="/2025/05/08/Network/70.png" alt="alt text"></p>
+<p><strong>网桥</strong><br><img src="/2025/05/08/Network/71.png" alt="alt text"></p>
+<p><strong>交换机</strong><br>本质上是多端口网桥、全双工工作<br><img src="/2025/05/08/Network/72.png" alt="alt text"><br><strong>每个端口都处于一个独立的碰撞域（或冲突域）中，但所有计算机都处于同一个广播域中。</strong><br><img src="/2025/05/08/Network/73.png" alt="alt text"></p>
+<p><strong>集线器和交换机的区别</strong><br><img src="/2025/05/08/Network/74.png" alt="alt text"><br><img src="/2025/05/08/Network/75.png" alt="alt text"></p>
+<p><strong>交换机的自学习功能</strong><br><img src="/2025/05/08/Network/76.png" alt="alt text"><br><img src="/2025/05/08/Network/77.png" alt="alt text"><br><img src="/2025/05/08/Network/78.png" alt="alt text"></p>
+<p><strong>广播风暴</strong><br>由于一直学习不到E的地址，S1和S2之间会无限循环泛洪，造成广播风暴。<br><img src="/2025/05/08/Network/79.png" alt="alt text"><br><strong>解决办法：生成树协议</strong><br>不改变网络的实际拓扑，但在<strong>逻辑上则切断了某些链路</strong>，使得从一台主机到所有其他主机的路径是无环路的树状结构</p>
+<p><strong>虚拟局域网（VLAN）</strong><br>虚拟局域网（VLAN）<strong>只是局域网给用户提供的一种服务</strong>，而并不是一种新型局域网。<br><strong>划分VLAN的主要作用是隔离广播域，增强网络的安全性和管理。</strong><br>VLAN限制了接收广播信息的工作站数，使得网络不会因传播过多的广播信息（即“广播风暴”）而降低性能。<br><img src="/2025/05/08/Network/80.png" alt="alt text"></p>
+<p><strong>VLAN的划分方法包括：</strong></p>
+<ul>
+<li>基于交换机端口</li>
+<li>基于MAC地址</li>
+<li>基于协议类型</li>
+<li>基于IP子网地址</li>
+<li>基于高层应用或服务</li>
+</ul>
+<p><strong>地址解析协议（ARP）</strong><br>IP数据报交付到主机或路由器需要<strong>两级地址：IP地址和物理地址</strong></p>
+<blockquote>
+<p><strong>为什么需要使用IP地址？</strong></p>
+<ul>
+<li>由于全世界存在着各式各样的网络，它们使用不同的硬件地址。<strong>要使这些异构网络能够互相通信就必须进行非常复杂的硬件地址转换工作。</strong></li>
+<li>IP 编址把这个复杂问题解决了。<strong>通过在物理网络上覆盖一层IP软件来实现对物理地址差异性的屏蔽</strong>，为上层用户提供“统一”的地址形式，而且不对物理地址做任何修改。</li>
+</ul>
+</blockquote>
+<p><strong>ARP的工作原理</strong><br><img src="/2025/05/08/Network/81.png" alt="alt text"></p>
+<p><strong>ARP高速缓存技术</strong><br><strong>每一个主机都设有一个 ARP 高速缓存区，用来存放最近使用的 IP 地址到物理地址之间的映射记录。</strong><br>为了保证主机中 ARP 表的正确性和有效性，ARP 表要经常更新。采用 ARP 高速缓存技术可以提高网络运行的效率。<br><img src="/2025/05/08/Network/82.png" alt="alt text"></p>
+<p><strong>ARP命令</strong><br><img src="/2025/05/08/Network/83.png" alt="alt text"><br><img src="/2025/05/08/Network/84.png" alt="alt text"><br><img src="/2025/05/08/Network/85.png" alt="alt text"></p>
+<blockquote>
+<p><strong>点对点链路不使用ARP协议</strong><br>因为在设置这些链路时，网络设备已获得了链路两端的IP地址</p>
+</blockquote>
+<p><strong>特殊的ARP</strong></p>
+<ol>
+<li>代理ARP<br><img src="/2025/05/08/Network/86.png" alt="alt text"></li>
+<li>免费ARP<br>主机发送 ARP 广播来查找自己的IP地址，一般发生在<strong>局域网IP地址冲突时，地址修改或变更时</strong>，DHCP分发地址时，ARP缓存表清理时，用来获取网络接口的MAC地址</li>
+</ol>
+<p><strong>ARP欺骗攻击</strong><br><strong>本质上都是通过<mark>填写错误的IP-MAC对应关系</mark>来实现的</strong></p>
+<h2 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h2><p><strong><em>网络层提供不可靠、无连接、尽力而为的<mark>数据报</mark>传送服务。</em></strong><br><strong><em>主机运输层负责可靠交付。</em></strong></p>
+<p><strong>虚电路和数据报的区别：</strong><br><img src="/2025/05/08/Network/87.png" alt="alt text"></p>
+<h3 id="IP"><a href="#IP" class="headerlink" title="IP"></a>IP</h3><p>网际协议（IP）<strong>是 TCP/IP 协议族中最为核心的协议</strong>，提供的是不可靠、无连接、尽力而为的数据报传送服务。</p>
+<h4 id="IPv4-数据报格式"><a href="#IPv4-数据报格式" class="headerlink" title="IPv4 数据报格式"></a>IPv4 数据报格式</h4><p>一个 IPv4 数据报由<strong>首部和数据</strong>两部分组成。<br>首部的前一部分<strong>是固定长度，共 20 字节</strong>，是所有IPv4 数据报必须具有的。<br><img src="/2025/05/08/Network/88.png" alt="alt text"></p>
+<ul>
+<li><p>版本——占4位，指 IP 协议的版本。</p>
+</li>
+<li><p>首部长度——占4位，可表示的最大数值是15个单位(一个单位为 4 字节)，因此<strong>IP 的首部长度的最大值是 60 字节</strong>。如果数据报的首部长度<strong>不是<mark>4字节的整数倍</mark>，必须利用最后的填充字段加以填充。</strong></p>
+</li>
+<li><p>区分服务——占8位，用来获得更好的服务<br><img src="/2025/05/08/Network/89.png" alt="alt text"></p>
+<ul>
+<li><strong>DSCP（差分服务代码点）</strong>：用于标识不同的服务类别或优先级。为不同类型的流量<strong>提供不同的服务质量（QoS）保障。</strong></li>
+<li><strong>ECN （显式拥塞通告）</strong>：用于在网络出现拥塞时，向发送方发送拥塞通知。取值0 表示不支持ECN，1 表示支持ECN 且当前网络无拥塞，2 表示支持ECN 且网络出现拥塞，3 保留未用。</li>
+</ul>
+</li>
+<li><p>总长度——占 16 位，<strong>指首部和数据之和的长度</strong>，单位为字节，因<br>此数据报的最大长度为 65535 字节。<strong>总长度必须不超过数据链路层<br>的最大传送单元MTU。</strong></p>
+</li>
+</ul>
+<p><strong><em>标识、标志、片偏移与IP分片有关，IP数据报总长度超过MTU时，IP数据报需要分片。</em></strong></p>
+<ul>
+<li><p>标识——占16位，是一个计数器，用来产生IP数据报的标识，通常每发送一份报文它的值就会加1。当数据报长度超过网络的MTU而必须分片时，标识字段的值就被复制到所有的数据报片的标识字段中，<strong>相同的标识字段值使分片后的各数据报片最后能正确地重组为原来的数据报。</strong></p>
+</li>
+<li><p>标志——占3位，目前只有两位有意义。标志字段中的最低位记为MF（More Fragment），<strong>MF=1表示后面还有分片的数据；MF=0表示最后一个数据报片</strong>。标志字段中间的一位记为DF（Don’t Fragment），其含义是不能分片（DF=1），<strong>只有当DF=0时才允许分片。</strong></p>
+</li>
+<li><p>片偏移——占13位，指出较长的分组在分片后<strong>某片在原分组中的相对位置</strong>，即相对于用户数据字段的起点，该片从何处开始。<strong>以<mark>8个字节为偏移单位</mark>，即每个分片的长度一定是8字节（64bit）的整数倍。</strong></p>
+</li>
+</ul>
+<p><strong>除最后一个分片外，<mark>每个分片的数据长度必须是8的倍数</mark></strong><br><img src="/2025/05/08/Network/90.png" alt="alt text"><br><img src="/2025/05/08/Network/91.png" alt="alt text"></p>
+<ul>
+<li><p>生存时间——占8位，记为TTL，由发出数据报的源主机设置这个字段，<strong>指示数据报在网络中可通过的路由器数的最大值</strong>。TTL的初始值通常设为32或64，每经过一个路由器，其值就减去1。当TTL=0时，丢弃数据报，并发送ICMP报文通知源主机。</p>
+</li>
+<li><p>协议——占8位，指出此数据报携带的数据使用何种协议，以便目的主机的IP层将数据部分上交给那个处理过程</p>
+</li>
+<li><p>首部校验和——占16位，<strong>只校验数据报的首部，不校验数据部分</strong>。IP数据报首部校验和的计算采用<strong>16位二进制反码求和算法</strong>。<br><img src="/2025/05/08/Network/92.png" alt="alt text"></p>
+</li>
+<li><p>源地址和目的地址——源地址和目的地址都各占4字节。</p>
+</li>
+<li><p>可选字段——长度可变，从1个字节到40个字节不等</p>
+</li>
+<li><p>填充——使IP数据报为<strong>4字节的整数倍。</strong></p>
+</li>
+</ul>
+<blockquote>
+<p><strong>为什么只检验首部，不检验数据部分？</strong><br>网络层（IP）的职责是<strong>尽力而为的传输，而端到端可靠性由传输层（如TCP）保证。</strong>首部校验确保路由基础正确，但数据完整性由更高层协议负责。</p>
+</blockquote>
+<h4 id="IPv4-地址"><a href="#IPv4-地址" class="headerlink" title="IPv4 地址"></a>IPv4 地址</h4><p><img src="/2025/05/08/Network/93.png" alt="alt text"></p>
+<p><strong>点分十进制记法</strong><br><img src="/2025/05/08/Network/94.png" alt="alt text"></p>
+<p><strong>各类IP地址</strong><br><img src="/2025/05/08/Network/95.png" alt="alt text"><br><img src="/2025/05/08/Network/96.png" alt="alt text"></p>
+<blockquote>
+<p>最大可指派的网络数计算逻辑如下：<br>​A类网络计算逻辑<br>​网络位结构：A类地址第一个字节固定最高位为0，剩余7位为网络位<br><strong>0xxxxxxx.xxxxxxxx.xxxxxxxx.xxxxxxxx</strong><br>​理论网络数：$2^7 = 128$<br>​实际可指派数：<br>网络号0.0.0.0（全0）被保留为默认路由<br>网络号127.x.x.x被保留为环回地址（如127.0.0.1）<br>⇒ ​公式：$2^7 - 2 = 126$</p>
+<p>​B类网络计算逻辑<br>​网络位结构：B类地址前两个字节最高位固定为10，剩余14位为网络位<br><strong>10xxxxxx.xxxxxxxx.xxxxxxxx.xxxxxxxx</strong><br>​理论网络数：$2^{14} = 16384$<br>​实际可指派数：<br>网络号128.0.0.0是第一个有效网络号<br>网络号191.255.0.0是最后一个有效网络号<br>⇒ ​公式：$2^{14} - 1 = 16383$</p>
+<p>​C类网络计算逻辑<br>​网络位结构：C类地址前三个字节最高位固定为110，剩余21位为网络位<br><strong>110xxxxx.xxxxxxxx.xxxxxxxx.xxxxxxxx</strong><br>​理论网络数：$2^{21} = 2,097,152$<br>​实际可指派数：<br>网络号192.0.1.0是第一个有效网络号<br>网络号223.255.255.0是最后一个有效网络号<br>⇒ ​公式：$2^{21} - 1 = 2,097,151$</p>
+</blockquote>
+<p><strong>127.x.x.x被保留为环回地址（如127.0.0.1）</strong></p>
+<h4 id="解决IPv4地址匮乏的方法：划分子网和构造超网"><a href="#解决IPv4地址匮乏的方法：划分子网和构造超网" class="headerlink" title="解决IPv4地址匮乏的方法：划分子网和构造超网"></a>解决IPv4地址匮乏的方法：划分子网和构造超网</h4><p><strong>划分子网</strong><br><img src="/2025/05/08/Network/97.png" alt="alt text"></p>
+<p>子网掩码可用与IP地址格式相同的点分十进制表示</p>
+<ul>
+<li>例如：255.255.255.0，255.255.255.126</li>
+</ul>
+<p>也可在IP地址后加上“/”符号和1-32的数字，其中1-32的数字表示子网掩码中网络标识位的长度</p>
+<ul>
+<li>例如：192.168.0.1/24（ 255.255.255.0 ）<br><img src="/2025/05/08/Network/98.png" alt="alt text"></li>
+</ul>
+<p><strong>子网掩码的作用</strong></p>
+<ol>
+<li>使用子网掩码可以确定子网的网络地址</li>
+<li><strong>决定子网中主机的数目</strong><br><img src="/2025/05/08/Network/99.png" alt="alt text"></li>
+</ol>
+<p><strong>注意：</strong><br><strong><mark>相同的IP地址和不同的子网掩码可以得到相同的网络地址。</mark></strong><br><strong>不同的子网掩码可以使同一网络划分的子网数和每个子网中的最大主机数都不同。</strong></p>
+<p><img src="/2025/05/08/Network/100.png" alt="alt text"></p>
+<p><strong>构造超网</strong><br><strong>无分类域间选路（CIDR）</strong><br>两级编址：<br><img src="/2025/05/08/Network/101.png" alt="alt text"><br><img src="/2025/05/08/Network/102.png" alt="alt text"></p>
+<p>地址块：<br><img src="/2025/05/08/Network/103.png" alt="alt text"></p>
+<blockquote>
+<p><strong>​全0地址（如128.14.32.0）的保留意义</strong><br>这是CIDR地址块的<strong>网络标识地址，用于表示整个子网本身。</strong><br><strong>​全1地址（如128.14.47.255）的保留意义</strong><br>这是CIDR地址块的<strong>广播地址</strong>，用于向子网内所有设备发送广播数据包。</p>
+</blockquote>
+<p>特殊的地址块：<br><img src="/2025/05/08/Network/104.png" alt="alt text"></p>
+<blockquote>
+<p><strong>一个CIDR 地址块可以表示很多地址，这种地址的聚合常称为<mark>路由聚合 (构成超网)</mark></strong></p>
+<p><strong>CIDR可以看作是子网划分的逆过程</strong></p>
+<ul>
+<li>使用CIDR技术聚合地址时，<strong>网络前缀越短，其地址块所包含的地址数就越多。</strong></li>
+<li><strong>划分子网是使网络前缀变长</strong>。</li>
+</ul>
+</blockquote>
+<p><strong>最长前缀匹配</strong><br>在查找路由表时可能会得到不止一个匹配结果，应从匹配结果中<strong>选择具有最长网络前缀的路由</strong>，<mark>网络前缀越长，其地址块就越小，路由就越具体。</mark><br><img src="/2025/05/08/Network/105.png" alt="alt text"></p>
+<p><img src="/2025/05/08/Network/106.png" alt="alt text"></p>
+<p><img src="/2025/05/08/Network/107.png" alt="alt text"></p>
+<h4 id="IPv6-数据报格式"><a href="#IPv6-数据报格式" class="headerlink" title="IPv6 数据报格式"></a>IPv6 数据报格式</h4><p><img src="/2025/05/08/Network/108.png" alt="alt text"><br>变化：<br>首部长度：<strong>固定的40字节，称为基本首部</strong><br>首部字段数：只有<strong>8个</strong>。</p>
+<h4 id="IPv6-地址"><a href="#IPv6-地址" class="headerlink" title="IPv6 地址"></a>IPv6 地址</h4><p><strong>冒号十六进制记法</strong><br>每个 16 位的值用十六进制值表示，各值之间用冒号分隔。<br><img src="/2025/05/08/Network/109.png" alt="alt text"></p>
+<p><strong>零省略和零压缩</strong><br><img src="/2025/05/08/Network/110.png" alt="alt text"></p>
+<p><mark><strong><em>注意：在任一地址中只能使用一次零压缩。</em></strong></mark><br><img src="/2025/05/08/Network/111.png" alt="alt text"></p>
+<p><strong>特殊的地址</strong><br><img src="/2025/05/08/Network/112.png" alt="alt text"></p>
+<h3 id="IP选路"><a href="#IP选路" class="headerlink" title="IP选路"></a>IP选路</h3><h4 id="路由器"><a href="#路由器" class="headerlink" title="路由器"></a>路由器</h4><p>典型的网络层设备，其任务是<strong>连通不同的网络，转发分组</strong>。</p>
+<ul>
+<li>端口：配置端口、局域网端口、广域网端口</li>
+<li>结构：路由选择处理机、分组处理与交换部分<br><img src="/2025/05/08/Network/113.png" alt="alt text"></li>
+</ul>
+<p><strong>路由选择和转发的区别</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">对比维度</th>
+<th style="text-align:center">​路由选择</th>
+<th style="text-align:center">​转发</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">​动态性</td>
+<td style="text-align:center">动态调整（适应拓扑变化）</td>
+<td style="text-align:center">静态执行（基于现有转发表）</td>
+</tr>
+<tr>
+<td style="text-align:center">​范围</td>
+<td style="text-align:center">全局网络路径规划</td>
+<td style="text-align:center">局部数据包传送</td>
+</tr>
+<tr>
+<td style="text-align:center">​设备协作</td>
+<td style="text-align:center">多路由器协同工作</td>
+<td style="text-align:center">单路由器独立操作</td>
+</tr>
+<tr>
+<td style="text-align:center">​信息粒度</td>
+<td style="text-align:center">逻辑地址（IP层）</td>
+<td style="text-align:center">物理接口（端口/MAC地址）</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>路由表</strong><br><img src="/2025/05/08/Network/114.png" alt="alt text"></p>
+<p><strong>IP路由选择的顺序: 主机路由、网络路由、默认路由</strong><br><img src="/2025/05/08/Network/115.png" alt="alt text"></p>
+<h4 id="路由选择协议"><a href="#路由选择协议" class="headerlink" title="路由选择协议"></a>路由选择协议</h4><p>路由选择协议属于<strong>网络层控制层面</strong>的内容<br><img src="/2025/05/08/Network/116.png" alt="alt text"></p>
+<p><strong>分层的路由选择协议</strong><br>把整个互联网划分为许多较小的<strong>自治系统AS</strong>，采用分层的路由选择协议。</p>
+<ul>
+<li>分为2个层次：域内和域间的路由选择</li>
+</ul>
+<p><strong>OSPF协议</strong><br><img src="/2025/05/08/Network/118.png" alt="alt text"></p>
+<p><strong>区域：</strong><br><img src="/2025/05/08/Network/117.png" alt="alt text"></p>
+<p><strong>作用：</strong><br><strong>减少了网络上的通信量；减少了需要维护的状态数量。</strong></p>
+<p><strong>相邻路由器和相邻关系的区别：</strong><br>相邻路由器指的是两台通过一条<strong>普通链路相连的、可以对话的路由器</strong>。<br>相邻关系指的是两台相邻路由器的<strong>双向关系</strong>。<br><mark><strong>注意：是邻居不一定就有相邻关系。</strong></mark></p>
+<p><strong>链路状态数据库和链路状态广播：</strong><br><strong>链路状态数据库（LSDB）</strong><br>由于各路由器之间频繁地交换链路状态信息，因此所有的路由器最终都能建立一个LSDB，它实际上是<strong>全网的拓扑结构图，在全网范围内是一致的（这称为链路状态数据库的同步）</strong>。<br><strong>链路状态广播（LSA）</strong><br>每台路由器根据自己周围的网络拓扑结构生成LSA，<strong>通过相互之间发送协议报文将LSA发送给网络中其他路由器</strong>，这样每台路由器都收到了其他路由器的LSA，<strong>所有的LSA放在一起便组成了LSDB</strong>。</p>
+<p><strong>报文类型：</strong><br><img src="/2025/05/08/Network/119.png" alt="alt text"><br><img src="/2025/05/08/Network/120.png" alt="alt text"></p>
+<h4 id="互联网控制报文协议（ICMP）"><a href="#互联网控制报文协议（ICMP）" class="headerlink" title="互联网控制报文协议（ICMP）"></a>互联网控制报文协议（ICMP）</h4><p>ICMP是TCP/IP协议族的一个子协议，属于<strong>网络层协议</strong>，主要用于在<strong>主机与路由器之间传递控制消息</strong>。</p>
+<blockquote>
+<p><strong>控制消息是指网络通不通、主机是否可达、路由是否可用等网络本身的消息</strong>。这些控制消息虽然并不传输用户数据，但是对于<strong>用户数据的传递和网络安全</strong>具有极其重要的意义。</p>
+</blockquote>
+<p><strong>ICMP 报文格式</strong><br><strong>ICMP报文的前4个字节是统一的格式</strong>，共有三个字段：类型、代码和校验和。接着的4个字节的内容与ICMP的类型有关。<br><img src="/2025/05/08/Network/121.png" alt="alt text"></p>
+<p><strong>ICMP 报文类型</strong><br>差错报文和查询报文</p>
+<p><strong>ICMP差错报文弥补了IP协议的不可靠问题</strong></p>
+<ul>
+<li>发现错误的设备只向<mark>源主机</mark>报告差错，但<mark>不负责纠正错误</mark>，纠错留给高层协议；</li>
+<li>差错报文作为一般数据传输，<mark>不享受特别的优先级和可靠性</mark>。</li>
+<li>产生ICMP差错报文的同时会<mark>丢弃出错的IP数据报</mark>。</li>
+</ul>
+<p><strong>不应发送ICMP差错报告报文的几种情况</strong></p>
+<ul>
+<li>ICMP差错报文<mark>本身不会再产生ICMP差错报文</mark></li>
+<li><mark>广播或组播地址的数据报</mark>不会产生ICMP差错报文</li>
+<li><mark>分片的IP数据报的非第一个分片</mark>不会产生ICMP差错报文</li>
+<li><mark>特殊地址0.0.0.0和127.0.0.1</mark>的报文不会产生ICMP差错报文</li>
+</ul>
+<h2 id="运输层"><a href="#运输层" class="headerlink" title="运输层"></a>运输层</h2><p><strong>网络层已解决的问题</strong></p>
+<ul>
+<li>提供<strong>不可靠、无连接、尽力而为的数据报</strong>传送服务。</li>
+<li>将数据报从一台主机经过网络送到另一台主机，实现<strong>主机之间的通信</strong>。</li>
+</ul>
+<p><strong>网络层未解决的问题</strong></p>
+<ul>
+<li>主机中<strong>谁发送的数据、谁接收数据</strong>？</li>
+<li>IP数据报<strong>无序到达</strong>目的主机，接收进程如何处理？</li>
+<li><strong>可靠传输问题</strong></li>
+</ul>
+<p><strong>运输层的作用</strong><br>对于高层用户而言，其主要起<strong>屏蔽作用</strong>：<br>屏蔽了下面网络核心的细节，使应用进程看见的就是好像在两个运输层实体之间有一条端到端的逻辑通信信道。<br>对于低层用户而言，其主要起<strong>管控作用</strong>：<br>实现可靠传输、流量拥塞控制、运输连接管理</p>
+<p><strong>运输层和网络层的区别</strong><br>运输层为应用进程之间提供端到端的逻辑通信，<strong>通信的真正端点是主机中的进程</strong>。<br>网络层为主机之间提供逻辑通信，<strong>通信的两端是两台主机</strong>。</p>
+<p><strong>运输层的复用和分用</strong></p>
+<ul>
+<li>复用：应用进程都可以通过运输层再传送到网络层。</li>
+<li>分用：运输层从网络层收到发送给应用进程的数据后，必须分别<br>交付给指明的各应用进程。</li>
+</ul>
+<blockquote>
+<p><strong>复用过程（发送端）</strong><br>​</p>
+<ul>
+<li>多路合并：<br>主机A的不同应用进程（AP1/AP2/AP3）通过不同端口号（如80/443/21）发送数据,运输层为每个数据段添加首部（源端口+目的端口）</li>
+<li>统一传输：<br>所有数据段通过同一运输层协议（如TCP/UDP）合并到IP数据报中进入网络层传输</li>
+</ul>
+<p><strong>分用过程（接收端）</strong></p>
+<ul>
+<li>端口识别：<br>运输层收到IP数据报后，通过首部中的目的端口号（如80对应Web服务）</li>
+<li>精准分发：<br>根据端口号与进程绑定关系，将数据交付给主机B对应的应用进程</li>
+</ul>
+</blockquote>
+<p><strong>端口</strong><br>端口是用来标识应用层的进程。</p>
+<p><strong>两台计算机进程互相通信的前提</strong></p>
+<ul>
+<li>必须知道对方的<strong>IP地址</strong></li>
+<li>必须知道对方的<strong>端口号</strong><br><img src="/2025/05/08/Network/122.png" alt="alt text"></li>
+</ul>
+<p><strong>三大端口号类型</strong></p>
+<ul>
+<li>服务器端口号：一般<strong>通过知名端口号来识别</strong>。</li>
+<li>注册端口号：为没有知名端口号的应用程序所使用，<strong>主要用于一些不常用的服务，使用  前需注册</strong>。</li>
+<li>客户端口号：<strong>只有在用户运行该客户进程时才存在，通信结束后被系统收回</strong></li>
+</ul>
+<p><img src="/2025/05/08/Network/123.png" alt="alt text"></p>
+<h3 id="运输层协议"><a href="#运输层协议" class="headerlink" title="运输层协议"></a>运输层协议</h3><p><strong>*UDP和TCP的区别</strong></p>
+<ol>
+<li>收到报文后：UDP不需要给出确认，TCP需要确认</li>
+<li>UDP支持单播、多播、广播；TCP仅支持点对点单播，不支持多播和广播</li>
+<li>UDP 适用于对效率要求相对高、对准确性要求相对低的场景，TCP反之</li>
+<li>UDP面向报文，TCP面向连接、面向字节流</li>
+<li>TCP能够实现可靠传输、流量控制、超时重传、拥塞控制</li>
+</ol>
+<h4 id="UDP协议"><a href="#UDP协议" class="headerlink" title="UDP协议"></a>UDP协议</h4><p><strong>UDP 只在 IP 的数据报服务之上增加了少量功能：<mark>复用和分用、差错检测</mark></strong></p>
+<p><strong>UDP数据报格式</strong><br>用户数据报 UDP 有两个字段：首部字段和数据字段。<strong>首部字段有8个字节</strong>，由4个字段组成，每个字段都是2个字节。</p>
+<p><img src="/2025/05/08/Network/124.png" alt="alt text"></p>
+<p><strong>伪首部</strong><br>伪首部不是UDP的真实首部，<strong>仅仅是为了<mark>计算校验和</mark>临时添加的</strong>。</p>
+<p>UDP的校验和是把首部和数据部分一起检验：<br><img src="/2025/05/08/Network/125.png" alt="alt text"></p>
+<h4 id="TCP协议"><a href="#TCP协议" class="headerlink" title="TCP协议"></a>TCP协议</h4><p>TCP<strong>不保证</strong>接收端应用程序所收到的数据块和发送端应用程序所发出的<strong>数据块具有对应大小的关系</strong>，但接收端应用程序收到的字节流必须和发送端应用程序发出的<strong>字节流完全一样</strong>。</p>
+<p><img src="/2025/05/08/Network/126.png" alt="alt text"></p>
+<p><strong>TCP连接</strong><br><strong>TCP连接的端点叫做套接字(socket)或插口</strong><br><strong><mark>端口号拼接IP地址</mark>即构成了套接字</strong></p>
+<p><img src="/2025/05/08/Network/127.png" alt="alt text"></p>
+<p><strong>TCP报文段格式</strong><br><strong>TCP首部的最小长度是20字节。</strong><br><img src="/2025/05/08/Network/128.png" alt="alt text"></p>
+<p>序号：<br>TCP 连接中传送的数据流中的<strong>每一个字节都有一个序号</strong>，序号字段的值则指的是本报文段所发送的数据的<strong>第一个字节的序号</strong>。<br><img src="/2025/05/08/Network/129.png" alt="alt text"></p>
+<p>确认号：<br><strong>期望</strong>收到对方的下一个报文段的数据的<strong>第一个字节的序号</strong><br><img src="/2025/05/08/Network/130.png" alt="alt text"></p>
+<p>SYN、FIN、ACK：<br><img src="/2025/05/08/Network/132.png" alt="alt text"></p>
+<p>校验和：<br>字段检验的范围包括<strong>首部和数据</strong>两部分。在计算检验和时，要在TCP报文段的前面<strong>加上12字节的伪首部</strong>。</p>
+<p><strong>最大报文段长度(MSS)</strong><br>最大报文段长度是每个<strong>TCP报文段中的数据字段的最大长度，<mark>与接收窗口值没有关系</mark>。</strong></p>
+<p>MSS不能太小（网络利用率低）也不能太大（开销增大）</p>
+<p><strong>TCP连接</strong><br>采用<strong>客户（主动发起）-服务器（被动等待）</strong>方式</p>
+<p><mark><strong>TCP规定</strong></mark></p>
+<ul>
+<li>SYN 报文段（即 SYN = 1 的报文段）<strong>不能携带数据，但要分配一个序号</strong>。</li>
+<li>ACK报文段可以携带数据，<strong>若不携带数据，则不分配序号</strong>。</li>
+<li>FIN 报文段（即 FIN = 1 的报文段）<strong>即使不携带数据，也要分配一个序号</strong>。</li>
+</ul>
+<p>建立连接：三报文握手<br><img src="/2025/05/08/Network/133.png" alt="alt text"></p>
+<p>连接释放：四报文握手<br><strong>必须等待 2 MSL（最长报文段寿命）</strong></p>
+<p><strong>保活计时器</strong><br><strong>用来防止在TCP连接出现长时期的空闲。</strong></p>
+<ul>
+<li>保活计时器通常设置为<strong>2小时</strong>。</li>
+<li>若服务器过了2小时还没有收到客户的数据，它就发送<strong>探测报文段</strong>。若发送了<strong>10个探测报文段（每一个相隔75秒）</strong>还没有响应，就认为客户的主机出了故障，终止连接。</li>
+</ul>
+<p><strong>TCP传输控制——可靠传输</strong></p>
+<ol>
+<li><p>停止等待协议<br><strong>要点：停止等待后再发送、暂存副本、编号、超时重传、信道利用率低</strong></p>
+</li>
+<li><p>连续ARQ协议<br><strong>要点：窗口，序号，确认，超时重传——实现可靠传输</strong></p>
+</li>
+</ol>
+<p><strong>滑动窗口协议</strong><br><img src="/2025/05/08/Network/134.png" alt="alt text"></p>
+<p><strong>累计确认</strong><br>接收方<strong>不必对收到的分组逐个发送确认</strong>，在收到<strong>几个分组</strong>后对按序到达的最后一个分组发送确认</p>
+<p><strong>选择性确认（SACK）</strong><br><img src="/2025/05/08/Network/135.png" alt="alt text"></p>
+<p><strong>连续ARQ协议和停止等待协议</strong><br><img src="/2025/05/08/Network/136.png" alt="alt text"></p>
+<p><strong>TCP传输控制——流量控制</strong><br>流量控制：让发送方的发送速率不要太快，既要让接收方来得及接收，也不会使网络发生拥塞。<br>利用<strong>滑动窗口机制</strong>可以在TCP连接上实现对发送方的流量控制。</p>
+<p><strong>TCP传输控制——超时重传</strong><br>超时重传时间（RTO）的设置<br><img src="/2025/05/08/Network/137.png" alt="alt text"><br><img src="/2025/05/08/Network/138.png" alt="alt text"></p>
+<p><strong>$RTO$ 应略大于加权平均往返时间$RTT_S$</strong></p>
+<p><strong>TCP传输控制——拥塞控制</strong></p>
+<p><strong>拥塞控制与流量控制的区别</strong><br>拥塞控制是<strong>全局性问题</strong>，流量控制是<strong>端到端问题</strong>（抑制传输速率可以解决）</p>
+<p>TCP 采用<strong>基于窗口</strong>的方法进行拥塞控制，该方法属于<strong>闭环控制</strong>方法。</p>
+<ul>
+<li>TCP 发送方维持一个拥塞窗口（cwnd）</li>
+<li>cwnd的<mark><strong>大小取决于网络的拥塞程度</strong></mark>，并且是<strong>动态变化</strong>的。</li>
+<li>只要网络<strong>没有出现拥塞，cwnd就可以再增大一些</strong>，以便把更多的分组发送出去，<strong>提高网络的利用率</strong>；只要网络出现拥塞或有可能出现拥塞，就必须把cwnd减小一些，以减少注入到网络中的分组数，缓解网络出现的拥塞。</li>
+<li>发送方根据网络的拥塞情况，<strong>利用cwnd调整发送的数据量</strong>。<br><img src="/2025/05/08/Network/139.png" alt="alt text"></li>
+</ul>
+<blockquote>
+<p><strong>开环控制和闭环控制的区别</strong><br><img src="/2025/05/08/Network/140.png" alt="alt text"></p>
+</blockquote>
+<p><strong>拥塞控制的两种方法：</strong></p>
+<ol>
+<li><p>慢启动<br><strong>每个RTT 内，每收到一个确认，cwnd + 1；</strong></p>
+<blockquote>
+<p><img src="/2025/05/08/Network/141.png" alt="alt text"></p>
+</blockquote>
+</li>
+<li><p>拥塞避免<br><strong>每个 RTT 内，无论收到多少确认，cwnd + 1 (<mark>加法增大</mark>)；</strong><br><img src="/2025/05/08/Network/142.png" alt="alt text"></p>
+</li>
+<li><p>快速重传<br><strong>收到 3 个连续重复确认，立即重传丢失的报文段；</strong><br><img src="/2025/05/08/Network/143.png" alt="alt text"><br>接收方每次收到M4或M5时，会发送对最近缺失包（M3）​的重复确认</p>
+</li>
+<li><p>快速恢复<br><strong>收到 3 个连续重复确认，慢启动阈值= cwnd/2 ，执行拥塞避免算法</strong></p>
+</li>
+</ol>
+<h2 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h2><p>运输层为应用进程提供了端到端的逻辑通信服务。<strong>应用层协议精确定义不同主机中的多个应用进程之间的通信规则。</strong><br><img src="/2025/05/08/Network/144.png" alt="alt text"></p>
+<h3 id="域名系统（DNS）"><a href="#域名系统（DNS）" class="headerlink" title="域名系统（DNS）"></a>域名系统（DNS）</h3><p>用来把人们使用的<strong>机器名字（域名）转换为 IP 地址</strong></p>
+<ul>
+<li>采用<strong>层次树状结构</strong>的命名方法：www.ustb.edu.cn</li>
+<li>DNS 是一个联机<strong>分布式数据库系统</strong>，采用<strong>客户/服务器</strong>工作方式。</li>
+<li>域名到 IP 地址的解析是由<strong>若干个域名服务器程序</strong>共同完成。</li>
+<li>域名服务器程序在专设的节点上运行，<strong>运行该程序的机器称为域名服务器</strong>。<br><img src="/2025/05/08/Network/145.png" alt="alt text"></li>
+</ul>
+<p>DNS 使用 <strong>UDP 通信</strong><br>域名解析方式包括<strong>递归解析和迭代解析</strong></p>
+<ul>
+<li>递归解析：<strong>主机向本地域名服务器</strong>发送域名解析请求时使用</li>
+<li>迭代解析：<strong>本地域名服务器向根域名服务器</strong>发送域名解析请求时使用<br><img src="/2025/05/08/Network/146.png" alt="alt text"></li>
+</ul>
+<h3 id="动态主机配置协议（DHCP）"><a href="#动态主机配置协议（DHCP）" class="headerlink" title="动态主机配置协议（DHCP）"></a>动态主机配置协议（DHCP）</h3><p>DHCP 提供了<strong>即插即用连网</strong>的机制。<br><strong>DHCP给运行服务器软件、且位置固定的计算机指派一个永久地址，给运行客户端软件的计算机分配一个临时地址。</strong></p>
+<p>过程：<br>需要 IP 地址的主机在启动时就向 DHCP 服务器广播发送<strong>发现报文</strong>，这时该主机就成为DHCP 客户。</p>
+<ul>
+<li>本地网络上所有主机<strong>都能收到此广播报文，但只有 DHCP 服务器才回答此广播报文</strong>。</li>
+<li>DHCP服务器的回答报文叫做<br><strong>提供报文</strong>。</li>
+<li>DHCP 使用<strong>客户-服务器</strong>方式，采用<strong>请求/应答方式</strong>工作。</li>
+<li>DHCP 基于 <strong>UDP</strong> 工作，DHCP <strong>服务器运行在 67 号端口</strong>， DHCP <strong>客户运行在 68 号端口</strong>。</li>
+</ul>
+<p><img src="/2025/05/08/Network/147.png" alt="alt text"><br><img src="/2025/05/08/Network/148.png" alt="alt text"></p>
+<p><strong>DHCP 中继代理</strong><br>并不是每个网络上都有DHCP服务器，这样会使DHCP服务器的数量太多。现在是每一个网络<strong>至少有一个 DHCP 中继代理，它配置了 DHCP 服务器的 IP 地址信息</strong>。<br>当 DHCP 中继代理收到主机发送的发现报文后，就以<strong>单播方式向 DHCP 服务器</strong>转发此报文，并等待其回答。收到 DHCP 服务器回答的提供报文后，DHCP 中继代理再将此提供报文发回给主机。</p>
+<p><strong>租用期</strong><br>DHCP 服务器<strong>分配给 DHCP 客户的 IP 地址的临时的</strong>，因此 DHCP 客户只能在一段有限的时间内使用这个分配到的 IP 地址。DHCP 协议称这段时间为<strong>租用期</strong>。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/04/17/Graph/" rel="prev" title="图">
+                  <i class="fa fa-angle-left"></i> 图
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Jeffery Tang</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">27k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">24 分钟</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        访客人数：<span id="busuanzi_value_site_uv"></span>人
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        浏览总量：<span id="busuanzi_value_site_pv"></span>次
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
