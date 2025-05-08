@@ -234,7 +234,45 @@
     <title>计算机网络</title>
     <url>/2025/05/08/Network/</url>
     <content><![CDATA[<h1 id="计算机网络复习"><a href="#计算机网络复习" class="headerlink" title="计算机网络复习"></a>计算机网络复习</h1><p><strong>定义</strong>：多种通用的、可编程硬件互连，支持多种应用<br><img src="/2025/05/08/Network/1.png" alt="alt text"></p>
-<p><strong>发展</strong>：<br>|  名称   | 时间  | 地位 |<br>|——|——|——|<br>| ABC(阿塔纳索夫·贝瑞计算机) | 1937 | 第一台电子数字计算设备，能求解线性方程 |<br>| ENIAC | 1946 | 第一台通用电子数字计算机 |<br>| ARPANET | 1969 | 多台计算机互联的二代计算机网络 |<br>| 开放系统互连参考模型(OSI/RM) | 1981 | 全球统一标准，第三代计算机网络 |<br>| Internet(互联网) | 90年代至今 | 第四代计算机网络</p>
+<p><strong>发展</strong>：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>时间</th>
+<th>地位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ABC(阿塔纳索夫·贝瑞计算机)</td>
+<td>1937</td>
+<td>第一台电子数字计算设备，能求解线性方程</td>
+</tr>
+<tr>
+<td>ENIAC</td>
+<td>1946</td>
+<td>第一台通用电子数字计算机</td>
+</tr>
+<tr>
+<td>ARPANET</td>
+<td>1969</td>
+<td>多台计算机互联的二代计算机网络</td>
+</tr>
+<tr>
+<td>开放系统互连参考模型(OSI/RM)</td>
+<td>1981</td>
+<td>全球统一标准，第三代计算机网络</td>
+</tr>
+<tr>
+<td>Internet(互联网)</td>
+<td>90年代至今</td>
+<td>第四代计算机网络</td>
+</tr>
+</tbody>
+</table>
+</div>
 <p><strong>互联网与互联网的区别</strong>：<br><img src="/2025/05/08/Network/2.png" alt="alt text"></p>
 <p><strong>交换技术</strong>：</p>
 <ul>
