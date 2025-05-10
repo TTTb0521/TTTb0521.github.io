@@ -1,122 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>线性表</title>
-    <url>/2025/03/17/LinearList/</url>
-    <content><![CDATA[<h1 id="线性表"><a href="#线性表" class="headerlink" title="线性表"></a>线性表</h1><blockquote>
-<p>线性表（linear list）：具有相同性质的数据元素<mark>顺序排列</mark>形成的优先序列</p>
+    <title>图</title>
+    <url>/2025/04/17/Graph/</url>
+    <content><![CDATA[<h1 id="图"><a href="#图" class="headerlink" title="图"></a>图</h1><h2 id="图的基本概念"><a href="#图的基本概念" class="headerlink" title="图的基本概念"></a>图的基本概念</h2><blockquote>
+<p>顶点集、边集、顶点数目、边数目<br><img src="/2025/04/17/Graph/Graph.png" alt="alt text"></p>
 </blockquote>
-<p>由于顺序存储结构存在以下问题：</p>
-<ul>
-<li>存储空间分配不灵活</li>
-<li>运算的空间复杂度高</li>
-</ul>
-<p><strong>因此，链式存储结构更佳</strong></p>
-<h2 id="顺序表——线性表的顺序存储方式"><a href="#顺序表——线性表的顺序存储方式" class="headerlink" title="顺序表——线性表的顺序存储方式"></a>顺序表——线性表的顺序存储方式</h2><blockquote>
-<p><strong>顺序表有以下特点</strong>：<br>数据元素依次顺序存储在一组<mark>连续的存储单元</mark>中，知道某个元素的位置就可以计算其他元素，获得任意元素的复杂度为$O(1)$<br>数据元素的<mark>物理存放顺序与其逻辑顺序一致</mark></p>
-</blockquote>
-<h3 id="顺序表的查找操作"><a href="#顺序表的查找操作" class="headerlink" title="顺序表的查找操作"></a>顺序表的查找操作</h3><p>顺序查找的ASL（<mark>Average Search Length</mark>）<br><img src="/2025/03/17/LinearList/顺序表查找的ASL.png" alt="alt text"><br>假设每个元素查找的概率相等：$P_i = 1/n$<br>则$ASL =（1 + 2 + 3 +…+n）/ n = (n + 1) / 2$<br><strong><em>时间复杂度为$O(n)$</em></strong></p>
-<h3 id="顺序表的插入操作"><a href="#顺序表的插入操作" class="headerlink" title="顺序表的插入操作"></a>顺序表的插入操作</h3><p><strong>算法步骤</strong>：</p>
-<ol>
-<li>判断插入位置是否合法</li>
-<li>判断顺序表的存储空间是否已满，已满则返回False</li>
-<li>空出第 i 个位置，将第 n 至第 i 位的元素依次向后移动一个位置</li>
-<li>将要插入的新元素放入第 i 个位置</li>
-<li>表长加一</li>
-</ol>
-<p><strong>复杂度分析</strong>：</p>
-<ol>
-<li>在第 i 个位置插入元素的先验概率$P_i = 1 / n + 1$</li>
-<li>则期望为：<br><img src="/2025/03/17/LinearList/顺序表插入的期望.png" alt="alt text"></li>
-</ol>
-<p><strong><em>插入一个元素的平均时间复杂度为$O(n)$</em></strong></p>
-<h3 id="顺序表的删除操作"><a href="#顺序表的删除操作" class="headerlink" title="顺序表的删除操作"></a>顺序表的删除操作</h3><p><strong>算法步骤</strong>：</p>
-<ol>
-<li>判断插入位置是否合法</li>
-<li>将待删除的元素保留</li>
-<li>空出第 i + 1 个位置至第 n 位的元素依次向前移动一个位置</li>
-<li>表长减一</li>
-</ol>
-<p><strong>复杂度分析</strong>：</p>
-<ol>
-<li>在第 i 个位置删除元素的先验概率$P_i = 1 / n$</li>
-<li>共有 n - i - 1 个元素需要移动</li>
-<li>则期望为：<br><img src="/2025/03/17/LinearList/顺序表删除的期望.png" alt="alt text"><br><strong><em>删除一个元素的平均时间复杂度为$O(n)$</em></strong></li>
-</ol>
-<h3 id="顺序表的优缺点"><a href="#顺序表的优缺点" class="headerlink" title="顺序表的优缺点"></a>顺序表的优缺点</h3><ul>
-<li>可以<mark>直接访问</mark>表中的元素</li>
-<li>插入/删除操作设计<mark>大量元素移动</mark>，复杂度高</li>
-<li>静态存储，<mark>不可扩充</mark></li>
-</ul>
-<h2 id="单向链表——线性表的链式存储方式"><a href="#单向链表——线性表的链式存储方式" class="headerlink" title="单向链表——线性表的链式存储方式"></a>单向链表——线性表的链式存储方式</h2><blockquote>
-<p><strong>单向链表表有以下特点</strong>：<br>存储单元<strong>可以不连续</strong><br>用<mark>额外的存储空间</mark>存放数据元素的逻辑位置<br>采用<mark>指针链接</mark>逻辑相邻的元素</p>
-</blockquote>
-<h3 id="在链表中插入新节点"><a href="#在链表中插入新节点" class="headerlink" title="在链表中插入新节点"></a>在链表中插入新节点</h3><p><img src="/2025/03/17/LinearList/单向链表的插入.png" alt="alt text"><br><strong>步骤</strong>：</p>
-<ol>
-<li><code>s -&gt; next = p -&gt; next</code></li>
-<li><code>p -&gt; next = s</code></li>
-</ol>
-<p><strong><em>颠倒顺序会导致自循环</em></strong><br><br></p>
-<h3 id="在链表中删除节点"><a href="#在链表中删除节点" class="headerlink" title="在链表中删除节点"></a>在链表中删除节点</h3><p><img src="/2025/03/17/LinearList/单向链表的删除.png" alt="alt text"><br><strong>步骤</strong>：</p>
-<ol>
-<li><code>q = p -&gt; next</code></li>
-<li><code>p -&gt; next = q -&gt; next</code></li>
-<li><code>delete q; q = null</code></li>
-</ol>
-<h3 id="定义SeqList和LinkList均继承自LinearLis出现的问题"><a href="#定义SeqList和LinkList均继承自LinearLis出现的问题" class="headerlink" title="定义SeqList和LinkList均继承自LinearLis出现的问题"></a>定义SeqList和LinkList均继承自LinearLis出现的问题</h3><p><img src="/2025/03/17/LinearList/对象切割.png" alt="alt text"></p>
-<p>使用<strong>引用传递</strong>可以避免对象切割，防止破坏多态性：<br><img src="/2025/03/17/LinearList/引用传递避免对象切割.png" alt="alt text"><br><br></p>
-<h3 id="Slicing-Problem-对象切割问题"><a href="#Slicing-Problem-对象切割问题" class="headerlink" title="Slicing Problem 对象切割问题"></a>Slicing Problem 对象切割问题</h3><blockquote>
-<p><strong>产生原因</strong>：</p>
-<ul>
-<li><p>当<mark>把一个派生类对象赋给一个基类对象</mark>时（并不是使用父类指针或引用接收子类对象），会发生对象切割。(另外用<mark>基类对象强制转换派生类对象</mark>也会)<br><img src="/2025/03/17/LinearList/对象切割原因1.png" alt="alt text"><br><br></p>
-</li>
-<li><p>接收<mark>值传递</mark>的返回值时，发生的拷贝构造也会发生对象切割<br><img src="/2025/03/17/LinearList/对象切割原因2.png" alt="alt text"></p>
-</li>
-</ul>
-</blockquote>
-<p><strong><em>发生对象切片后派生类的覆盖部分就被切掉了，所以调用的方法将会是父类方法</em></strong></p>
-<p>与对象切割类似的，还有<strong>静态联编</strong>问题：<br><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="comment">//基类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	 <span class="function"><span class="type">void</span> <span class="title">printError</span><span class="params">()</span></span>&#123;  <span class="comment">//使用virtual关键字声明函数，将其变为虚函数，即可使用多态</span></span><br><span class="line">	 cout &lt;&lt; <span class="string">&quot;基类方法!&quot;</span> &lt;&lt; endl;</span><br><span class="line">	 &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//派生类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Derived</span> : <span class="keyword">public</span> Base&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	 <span class="function"><span class="type">void</span> <span class="title">printError</span><span class="params">()</span></span>&#123;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;派生类方法!&quot;</span> &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;	</span><br><span class="line">	Base *ex = <span class="keyword">new</span> <span class="built_in">Derived</span>(); <span class="comment">//静态联编导致子类对象调用基类方法，而不是子类方法</span></span><br><span class="line">	ex-&gt;<span class="built_in">printError</span>(); <span class="comment">//输出基类方法！</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="built_in">test</span>();</span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="有向图和无向图的区别"><a href="#有向图和无向图的区别" class="headerlink" title="有向图和无向图的区别"></a>有向图和无向图的区别</h3><p>有向图的边集$\mathbf{E}$中的元素有序而无向图的边集$\mathbf{E’}$中的元素无序</p>
 <blockquote>
-<p><strong>静态联编</strong>行为：<br>当基类函数<mark>未声明为virtual</mark>时，编译器根据指针/引用的<mark>静态类型（声明类型）</mark><br>决定调用哪个函数。<br>示例中<code>Base* ex</code>的静态类型是<code>Base*</code>，因此<code>ex-&gt;printError()</code>直接调用<code>Base::printError()</code>，即使对象实际是Derived类型。</p>
+<p><img src="/2025/04/17/Graph/G.png" alt="alt text"></p>
 </blockquote>
-<p><strong>单向链表的特点</strong>：</p>
-<ol>
-<li>可以<mark>灵活改变长度</mark></li>
-<li>插入/删除<mark>无需移动</mark>大量数据</li>
-<li>通过<mark>指针</mark>表示数据间的顺序关系</li>
-<li>表长需要<mark>遍历</mark>获取</li>
-<li>插入/删除操作中寻找<mark>相应位置的复杂度高</mark><br><br></li>
+<h3 id="简单图"><a href="#简单图" class="headerlink" title="简单图"></a>简单图</h3><p>不存在自环和多重边（两条边的起点和终点相同）<br><mark><em>这里讨论的都是简单图</em></mark></p>
+<h3 id="无向完全图和有向完全图的区别"><a href="#无向完全图和有向完全图的区别" class="headerlink" title="无向完全图和有向完全图的区别"></a>无向完全图和有向完全图的区别</h3><p>完全图：图中的每个顶点和其余顶点都有边相连<br><strong>无向完全图的边数:$e = n (n - 1) / 2$<br>有向完全图的边数:$e = n (n - 1)$</strong></p>
+<p><strong>拥有$n$个顶点的无向图一共有$2 ^ {n (n - 1) / 2}$种<br>拥有$n$个顶点的有向图一共有$2 ^ {n (n - 1)}$种</strong></p>
+<blockquote>
+<p><strong>为什么？</strong><br>有向图和无向图最多可能有的边数就是他们成为完全图的边数</p>
+</blockquote>
+<h3 id="子图和超图"><a href="#子图和超图" class="headerlink" title="子图和超图"></a>子图和超图</h3><p><img src="/2025/04/17/Graph/子图和超图.png" alt="alt text"><br><strong>每个图都是自身的子图，空图是任何图的子图</strong><br><strong>拥有$n$个顶点的图一定是这$n$个顶点组成的完全图的子图</strong></p>
+<h3 id="顶点的度"><a href="#顶点的度" class="headerlink" title="顶点的度"></a>顶点的度</h3><p>顶点的度记作$TD(v)$，入度记作$ID(v)$，出度记作$OD(v)$<br><strong>有：$ TD(v) = ID(v) + OD(v) $</strong><br><strong>度为奇数的顶点成为奇点，度为偶数的顶点称为偶点</strong></p>
+<blockquote>
+<p><strong>重要性质：</strong><br>有向图中所有顶点入度之和等于所有顶点出度之和<mark><em>（每条边贡献一个入度和一个出度）</em></mark></p>
+<p><strong>握手定理：</strong><br>图中所有顶点度之和等于边数目的2倍<mark><em>（每条边贡献两个度）</em></mark></p>
+<p><strong>推论一：</strong><br>有向图中所有顶点入度或出度之和等于边数目<br><strong>推论二：</strong><br>任意图中一定有偶数个（含0）奇点</p>
+<p><mark><strong>对于树来说：</strong></mark></p>
+<ul>
+<li>边数等于度数之和</li>
+<li>边数等于节点数减一</li>
+</ul>
+</blockquote>
+<h3 id="路径和回路"><a href="#路径和回路" class="headerlink" title="路径和回路"></a>路径和回路</h3><p>没有重复节点，则成为简单路径/回路</p>
+<h3 id="连通图"><a href="#连通图" class="headerlink" title="连通图"></a>连通图</h3><p>无向图中$G$，如果任意两个顶点都是连通的，则$G$是连通图；有向图$G$中，如果任意两个顶点都存在路径，则$G$是强连通图<br><strong><em>极大连通子图（连通分量）</em></strong>：该图是$G$的连通子图，将$G$中任何不在该子图中的顶点加入，子图将不再连通<br><img src="/2025/04/17/Graph/极大连通子图.png" alt="alt text"></p>
+<h3 id="补图"><a href="#补图" class="headerlink" title="补图"></a>补图</h3><p><img src="/2025/04/17/Graph/补图.png" alt="alt text"></p>
+<h3 id="同构"><a href="#同构" class="headerlink" title="同构"></a>同构</h3><p>形变过后得到的图<br><img src="/2025/04/17/Graph/同构.png" alt="alt text"></p>
+<h2 id="线性表、树、图的比较"><a href="#线性表、树、图的比较" class="headerlink" title="线性表、树、图的比较"></a>线性表、树、图的比较</h2><p><img src="/2025/04/17/Graph/比较.png" alt="alt text"></p>
+<h2 id="欧拉路径和回路"><a href="#欧拉路径和回路" class="headerlink" title="欧拉路径和回路"></a>欧拉路径和回路</h2><p>欧拉路径:图中经过每条边且仅经过每条边一次的路径<br>欧拉回路:终点和起点重合的欧拉路径</p>
+<p><strong>定理：</strong><br><img src="/2025/04/17/Graph/欧拉路径和回路.png" alt="alt text"></p>
+<h2 id="图的存储结构"><a href="#图的存储结构" class="headerlink" title="图的存储结构"></a>图的存储结构</h2><p>通常采用两个数组来表示一个图<br>其一用来存储顶点信息；其二用来存储顶点的关联情况，称为邻接矩阵<br>顶点信息：<br><img src="/2025/04/17/Graph/顶点信息.png" alt="alt text"><br>邻接矩阵：<br><img src="/2025/04/17/Graph/无向图的邻接矩阵.png" alt="alt text"><br><img src="/2025/04/17/Graph/有向图的邻接矩阵.png" alt="alt text"><br><img src="/2025/04/17/Graph/有向赋权图的邻接矩阵.png" alt="alt text"></p>
+<p><strong><em>重要特点：无向图的邻接矩阵对称，有向图则不一定</em></strong></p>
+<h3 id="邻接矩阵实现"><a href="#邻接矩阵实现" class="headerlink" title="邻接矩阵实现"></a>邻接矩阵实现</h3><p><img src="/2025/04/17/Graph/邻接矩阵实现.png" alt="alt text"></p>
+<blockquote>
+<p><strong>为什么添加/删除顶点的时间复杂度是$O(n^2)$?</strong><br>邻接矩阵通过 ​n×n 的二维数组 存储顶点间的边关系。当添加一个新顶点时：<br>​需要将原矩阵<strong>从 n×n 扩容到 (n+1)×(n+1)</strong>，即创建一个新的二维数组。<strong>复制原有 n×n 数据到新数组</strong>，并初始化新增行/列（通常用 0 填充表示无边）。这一过程中，​<mark>复制原有数据需要遍历所有 n² 个元素，因此时间复杂度为 O(n²)。</mark></p>
+</blockquote>
+<h3 id="邻接表"><a href="#邻接表" class="headerlink" title="邻接表"></a>邻接表</h3><p><img src="/2025/04/17/Graph/邻接表.png" alt="alt text"></p>
+<p><strong>有向图</strong>每个链表的长度等于顶点的<strong>出度</strong>，总共需要<mark>$(n + e)$</mark>个链表结点<br><strong>无向图</strong>每个链表的长度等于顶点的<strong>度</strong>，总共需要<mark>$(n + 2e)$</mark>个链表结点</p>
+<p>邻接表的实现：<br><img src="/2025/04/17/Graph/邻接表的实现.png" alt="alt text"><br><strong>注意插入边和删除边的时间复杂度不同</strong></p>
+<h3 id="邻接矩阵和邻接表的比较"><a href="#邻接矩阵和邻接表的比较" class="headerlink" title="邻接矩阵和邻接表的比较"></a>邻接矩阵和邻接表的比较</h3><p><img src="/2025/04/17/Graph/邻接矩阵和邻接表的比较.png" alt="alt text"></p>
+<blockquote>
+<p><strong>稠密图</strong>适于采用<strong>邻接矩阵</strong>表示<br>大规模的<strong>稀疏图</strong>$(e &lt;&lt; n^2)$，适于采用<strong>邻接表</strong>表示</p>
+</blockquote>
+<h2 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h2><h3 id="深度优先遍历（DFS）"><a href="#深度优先遍历（DFS）" class="headerlink" title="深度优先遍历（DFS）"></a>深度优先遍历（DFS）</h3><p><strong>代码实现：</strong><br><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="title class_">ElemType</span>&gt;</span><br><span class="line"><span class="type">void</span> Graph&lt;ElemType&gt;::<span class="built_in">DFS</span>(<span class="type">int</span> v)&#123;</span><br><span class="line">    cout &lt;&lt; v &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">    visited[v] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> t = <span class="built_in">FirstAdjVex</span>(v); t != <span class="number">-1</span>; t = <span class="built_in">NextAdjVex</span>(v,t))&#123;</span><br><span class="line">        <span class="keyword">if</span>(visited[t] == <span class="number">0</span>) <span class="built_in">DFS</span>(t);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong><em>稠密图适于在邻接矩阵上进行深度遍历;稀疏图适于在邻接表上进行深度遍历。</em></strong></p>
+<h3 id="广度优先遍历（BFS）"><a href="#广度优先遍历（BFS）" class="headerlink" title="广度优先遍历（BFS）"></a>广度优先遍历（BFS）</h3><p>类似<strong>层序遍历</strong></p>
+<p><img src="/2025/04/17/Graph/广搜1.png" alt="alt text"><br><img src="/2025/04/17/Graph/广搜2.png" alt="alt text"></p>
+<h3 id="算法效率分析"><a href="#算法效率分析" class="headerlink" title="算法效率分析"></a>算法效率分析</h3><p><strong>时间复杂度：</strong><br>用邻接矩阵来表示图时,遍历图中每一个顶点都要从头扫描该顶点所在行，时间复杂度为$O(n)$，总共是$O(n^2)$。用邻接表来表示图时，虽然有$2e$个表结点，<strong>但只需扫描$e$个结点即可完成遍历</strong>，加上访问$n$个头结点的时间，时间复杂度为$O(n+e)$。</p>
+<h2 id="图遍历的应用"><a href="#图遍历的应用" class="headerlink" title="图遍历的应用"></a>图遍历的应用</h2><ol>
+<li>寻找图中从顶点$v$到顶点$w$的简单路径<br>使用DFS，路径删除规则：维护一条路径P依次记录DFS中访问的顶点，<strong>如果某顶点全部邻接点均被访问仍没有到达$w$</strong>，则从路径中删除此顶点;最终到达$w$时，路径中记录的即为从$v$到$w$的一条简单路径</li>
 </ol>
-<h2 id="双向链表——增加前驱指针的单向链表"><a href="#双向链表——增加前驱指针的单向链表" class="headerlink" title="双向链表——增加前驱指针的单向链表"></a>双向链表——增加前驱指针的单向链表</h2><p><img src="/2025/03/17/LinearList/双向链表.png" alt="alt text"><br>对于单向链表，想要获取后继元素，复杂度为$O(1)$,但是想要获取前驱元素，需要遍历，复杂度为$O(n)$<br><strong>双向链表使得两个操作的复杂度都为$O(1)$</strong></p>
-<h3 id="双向链表的插入操作"><a href="#双向链表的插入操作" class="headerlink" title="双向链表的插入操作"></a>双向链表的插入操作</h3><p><img src="/2025/03/17/LinearList/双向链表的插入.png" alt="alt text"></p>
-<p><strong>算法步骤</strong>：</p>
+<p><strong>下图中的1和3满足路径删除规则：</strong><br><img src="/2025/04/17/Graph/DFS1.png" alt="alt text"><br><img src="/2025/04/17/Graph/DFS2.png" alt="alt text"></p>
+<ol>
+<li>无权图中从顶点$v$到顶点$w$的最短路径<br>使用BFS</li>
+</ol>
+<h3 id="遍历与图的连通性"><a href="#遍历与图的连通性" class="headerlink" title="遍历与图的连通性"></a>遍历与图的连通性</h3><p>关节点与桥：</p>
+<p><img src="/2025/04/17/Graph/关节点与桥.png" alt="alt text"></p>
+<p><strong><em>注意：无向连通图的顶点度都为偶数，则该图没有桥</em></strong></p>
+<h2 id="最小生成树"><a href="#最小生成树" class="headerlink" title="最小生成树"></a>最小生成树</h2><p><strong>无向连通图的生成树:包含图中全部n个顶点，但仅有 $n-1$ 条边的连通子图</strong><br>满足以下条件：</p>
 <ul>
-<li>让前驱指向s：</li>
-<li><p><code>p -&gt; prev -&gt; next = s</code><br><br></p>
-</li>
-<li><p>以s为中心，设置它的前驱后继</p>
-</li>
-<li><code>s -&gt; next = p</code>          </li>
-<li><p><code>s -&gt; prev = p -&gt; prev</code><br><br></p>
-</li>
-<li><p>让后继指向s</p>
-</li>
-<li><code>p -&gt; prev = s</code></li>
+<li>生成树上删除一边则不再连通</li>
+<li>生成树上添加一条边则一定会产生回路</li>
+<li>生成树可以理解为’极小’连通图，且可以不唯<br><img src="/2025/04/17/Graph/最小生成树.png" alt="alt text"></li>
 </ul>
-<h3 id="双向链表的删除操作"><a href="#双向链表的删除操作" class="headerlink" title="双向链表的删除操作"></a>双向链表的删除操作</h3><p><img src="/2025/03/17/LinearList/双向链表的删除.png" alt="alt text"></p>
-<p><strong>算法步骤</strong>：</p>
+<p><strong>最小生成树：</strong></p>
 <ul>
-<li>让p的后继往前链接：</li>
-<li><p><code>p -&gt; prev -&gt; next = p -&gt; next</code><br><br></p>
-</li>
-<li><p>让p的前驱往后链接：</p>
-</li>
-<li><p><code>p -&gt; next -&gt; prev = p -&gt; prev</code><br><br></p>
-</li>
-<li><p>删除p</p>
-</li>
-<li><code>delete p</code></li>
+<li><strong>赋权图生成树的权</strong>:组成生成树的 $n-1$ 条边的权之和</li>
+<li><strong>生成树的权不大于其它任何生成树，称为最小生成树</strong></li>
+<li>如果<strong>图中有相等权值的边</strong>，则MST可能不唯一</li>
 </ul>
+<h3 id="Prim算法"><a href="#Prim算法" class="headerlink" title="Prim算法"></a>Prim算法</h3><p><strong>本质上是一种贪心算法，每次选择权值最小的边</strong><br><img src="/2025/04/17/Graph/Prim算法1.png" alt="alt text"><br><img src="/2025/04/17/Graph/Prim算法2.png" alt="alt text"></p>
+<p>对于<strong>邻接矩阵和邻接表来说，时间复杂度都为 $O(n^2)$</strong><br>这是因为：每次迭代需要遍历所有 $n$ 个顶点来寻找最小权重边，找到新顶点后，需要遍历邻接矩阵中该顶点的所有 $n$ 个邻接点来更新权重，总时间 $O(n^2)$</p>
+<blockquote>
+<p><strong>为什么Prim算法得到的一定是MST？</strong></p>
+<p><strong>Prim算法</strong>一定能得到最小生成树（MST）的根本原因在于其设计严格遵循了MST的<strong>两个核心数学性质</strong>，并通过<strong>贪心策略</strong>保证每一步选择的边都安全地属于MST。以下是详细解释：</p>
+<p><strong>​1. 切割定理（Cut Property）的保证</strong><br><mark>Prim算法的核心逻辑是：​每次选择连接”已选顶点集合（MST部分）”与”未选顶点集合”的最小权重边。</mark><br><strong>​切割定理：若将图划分为两个顶点集合（例如已选集合$U$和未选集合$V-U$），则连接这两个集合的最小权重边一定属于MST。</strong><br>​算法行为：每次选出的边，本质上就是当前切割（已选顶点与未选顶点之间的分割）的最小权重边。</p>
+<p><strong>​2. 无环性的维护</strong><br>​顶点增量扩展：算法每次仅将一个新顶点加入已选集合$U$<mark>且该顶点从未属于$U$</mark>。<br>​边连接方式：新加入的边始终连接$U$和$V-U$，<mark>不会在$U$内部形成回路，也不会在$V-U$内部形成回路</mark>。<br>​树形结构保持：已选边集<mark>始终构成一棵树（无环且连通）</mark>，直到覆盖所有顶点。</p>
+<p><strong>​3. 贪心策略的全局最优性</strong><br>​局部最优蕴含全局最优：<strong>通过归纳法可证明，每次选择的局部最优边最终能组合成全局最优解：</strong><br>​初始状态：空树是MST的平凡情况（权值和为0）。<br>​归纳假设：假设前k步已选择的边构成某棵MST的边子集。<br>​递推步骤：根据切割定理，第k+1步选择的边必然属于某棵MST，最终所有顶点加入后，整体构成MST。</p>
+</blockquote>
+<h3 id="Kruskal算法"><a href="#Kruskal算法" class="headerlink" title="Kruskal算法"></a>Kruskal算法</h3><p><strong>也是一种贪心算法，重要特征是放弃环路.<mark>环路的判断采用等价类思想(并查集)</mark>，将已连通的顶点均用其中一个顶点代表</strong></p>
+<p>算法步骤：<br><img src="/2025/04/17/Graph/Kruskal算法.png" alt="alt text"></p>
+<p><strong>算法复杂度为：$O(eloge)$</strong></p>
+<h2 id="最短路径"><a href="#最短路径" class="headerlink" title="最短路径"></a>最短路径</h2><blockquote>
+<p>一些特点：</p>
+<ul>
+<li><strong><em>最短路径存在的<mark>充要条件</mark>：图中不存在负环。</em></strong></li>
+<li><strong><em>正权图中，如果存在最短路径，则一定不包含环</em></strong></li>
+<li><strong><em>最短路径中任意一段也是局部最短路径（整体最优蕴含了局部最优）</em></strong></li>
+</ul>
+</blockquote>
+<h3 id="Dijkstra算法-单源最短路径"><a href="#Dijkstra算法-单源最短路径" class="headerlink" title="Dijkstra算法(单源最短路径)"></a>Dijkstra算法(单源最短路径)</h3><p><mark><strong>算法的时间复杂度为：$O(n^2)$</strong></mark></p>
+<p><img src="/2025/04/17/Graph/Dijkstra.png" alt="alt text"></p>
+<p>图示：<br><img src="/2025/04/17/Graph/D算法1.png" alt="alt text"><br><img src="/2025/04/17/Graph/D算法2.png" alt="alt text"><br><img src="/2025/04/17/Graph/D算法3.png" alt="alt text"></p>
+<h3 id="Floyd算法-全源最短路径"><a href="#Floyd算法-全源最短路径" class="headerlink" title="Floyd算法(全源最短路径)"></a>Floyd算法(全源最短路径)</h3><p><strong>若对每个顶点使用Dijkstra算法，则算法复杂度为$O(n^3)$</strong></p>
+<p><strong>Floyd算法的复杂度也为$O(n^3)$，但是它允许负权边，不允许包含负回路</strong></p>
+<p>算法思想：<br><img src="/2025/04/17/Graph/Floyd算法.png" alt="alt text"></p>
+<p>比如：<br><img src="/2025/04/17/Graph/Floyd算法1.png" alt="alt text"><br><img src="/2025/04/17/Graph/Floyd算法2.png" alt="alt text"></p>
+<p>或者采用逐步加入顶点的思想来理解：<br><img src="/2025/04/17/Graph/F算法3.png" alt="alt text"></p>
+<p><img src="/2025/04/17/Graph/F算法4.png" alt="alt text"></p>
+<p><img src="/2025/04/17/Graph/F算法5.png" alt="alt text"></p>
+<p><img src="/2025/04/17/Graph/F算法6.png" alt="alt text"></p>
+<h3 id="Bellman-Ford算法"><a href="#Bellman-Ford算法" class="headerlink" title="Bellman-Ford算法"></a>Bellman-Ford算法</h3><p><strong>重要思想：边松弛</strong><br><img src="/2025/04/17/Graph/边松弛.png" alt="alt text"></p>
+<p>比如：<br><img src="/2025/04/17/Graph/B算法1.png" alt="alt text"><br><img src="/2025/04/17/Graph/B算法2.png" alt="alt text"><br><img src="/2025/04/17/Graph/B算法3.png" alt="alt text"></p>
+<h3 id="算法对比"><a href="#算法对比" class="headerlink" title="算法对比"></a>算法对比</h3><p><img src="/2025/04/17/Graph/算法对比.png" alt="alt text"></p>
 ]]></content>
   </entry>
   <entry>
@@ -172,7 +164,7 @@
 </ul>
 <p><strong>三种交换的比较</strong>：<br><img src="/2025/05/08/Network/11.png" alt="alt text"><br>传输大量数据且<strong>传输时间远大于连接建立时间</strong>，选择电路交换<br>报文交换和分组交换不需要预先分配带宽，<strong>信道利用率更高</strong><br>由于分组的长度小于报文，因此<strong>分组交换比报文交换时延小</strong></p>
 <p><strong>端系统通信</strong>：<br><img src="/2025/05/08/Network/12.png" alt="alt text"></p>
-<p><strong>C/S方式的特点</strong>：<br>客户程序需要指导服务器程序的地址<br>服务器程序不知道客户程序的地址<br>资源集中在服务器</p>
+<p><strong>C/S方式的特点</strong>：<br>客户程序需要知道服务器程序的地址，<strong>服务器程序不知道客户程序的地址</strong><br>资源集中在服务器</p>
 <p><strong>P2P方式的特点</strong>：<br>不区分请求方和服务提供方<br>资源分散在端系统中</p>
 <p><strong>计算机网络的类别</strong>：<br><img src="/2025/05/08/Network/13.png" alt="alt text"><br><img src="/2025/05/08/Network/14.png" alt="alt text"></p>
 <p><strong>计算机网络性能指标</strong>：</p>
@@ -195,7 +187,7 @@
 <ol>
 <li><p>时延带宽积<br><img src="/2025/05/08/Network/23.png" alt="alt text"></p>
 </li>
-<li><p>往返时间（RTT）<br><img src="/2025/05/08/Network/24.png" alt="alt text"><br><strong>不包含发送端的发送时延</strong><br>有效数据率：<br><img src="/2025/05/08/Network/25.png" alt="alt text"></p>
+<li><p>往返时间（RTT）<br><img src="/2025/05/08/Network/24.png" alt="alt text"><br><strong>不包含发送端的发送时延</strong><br><strong>有效数据率（注意分母）</strong>：<br><img src="/2025/05/08/Network/25.png" alt="alt text"></p>
 </li>
 <li><p>利用率<br><img src="/2025/05/08/Network/26.png" alt="alt text"><br><strong>信道利用率并非越高越好</strong><br><img src="/2025/05/08/Network/27.png" alt="alt text"></p>
 </li>
@@ -255,7 +247,7 @@
 </ol>
 <p><strong>更多的用户轮流使用这n个频带</strong>，这种方式称为频分多址接入(FDMA)，简称<strong>频分多址</strong>。</p>
 <ol>
-<li>时分复用（TDM）<br><img src="/2025/05/08/Network/37.png" alt="alt text"><br>同步时分复用是将时间划分为一段段<strong>等长的时分复用帧（TDM帧）</strong>，每一个时分复用的用户在每一个 TDM 帧中占用<strong>固定序号的时隙(同步时分复用)</strong>。<br>每一个用户所占用的时隙是<strong>周期性地出现</strong>（其周期就是TDM帧的长度）的，TDM信号也称为等时信号。<br><mark><strong>同步时分复用帧的长度是125µs</strong></mark>，<strong>复用的用户越多，每一个用户分配到的时隙宽度就越窄</strong>。<br>同步时分复用的所有用户<strong>在不同的时间占用同样的频带宽度</strong>。</li>
+<li>时分复用（TDM）<br><img src="/2025/05/08/Network/37.png" alt="alt text"><br>同步时分复用是将时间划分为一段段<strong>等长的时分复用帧（TDM帧）</strong>，每一个时分复用的用户在每一个 TDM 帧中占用<strong>固定序号的时隙(同步时分复用)</strong>。<br>每一个用户所占用的时隙是<strong>周期性地出现</strong>（其周期就是TDM帧的长度）的，<strong>TDM信号也称为等时信号</strong>。<br><mark><strong>同步时分复用帧的长度是125µs</strong></mark>，<strong>复用的用户越多，每一个用户分配到的时隙宽度就越窄</strong>。<br>同步时分复用的所有用户<strong>在不同的时间占用同样的频带宽度</strong>。</li>
 </ol>
 <p><strong>更多的用户轮流使用这4个时隙</strong>，这种方式称为时分多址接入（TDMA），简称<strong>时分多址</strong></p>
 <p>当某用户暂时无数据发送时，在同步时分复用帧中分配给该用户的时隙只能处于空闲状态。</p>
@@ -274,7 +266,7 @@
 <ul>
 <li>频分复用:不同用户，相同时间，不同频带</li>
 <li>同步时分复用:不同用户，不同时间，相同频带</li>
-<li>统计时分复用:解决信道利用率低的问题</li>
+<li>统计时分复用:解决<strong>信道利用率低</strong>的问题</li>
 <li>波分复用:不同用户，相同时间，不同波长</li>
 <li>码分复用:不同用户，相同时间，相同频带，不同码型</li>
 </ul>
@@ -457,7 +449,7 @@
 <li><strong>ECN （显式拥塞通告）</strong>：用于在网络出现拥塞时，向发送方发送拥塞通知。取值0 表示不支持ECN，1 表示支持ECN 且当前网络无拥塞，2 表示支持ECN 且网络出现拥塞，3 保留未用。</li>
 </ul>
 </li>
-<li><p>总长度——占 16 位，<strong>指首部和数据之和的长度</strong>，单位为字节，因<br>此数据报的最大长度为 65535 字节。<strong>总长度必须不超过数据链路层<br>的最大传送单元MTU。</strong></p>
+<li><p>总长度——占 16 位，<strong>指首部和数据之和的长度</strong>，单位为字节，因此数据报的最大长度为 65535 字节。<strong>总长度必须不超过数据链路层的最大传送单元MTU。</strong></p>
 </li>
 </ul>
 <p><strong><em>标识、标志、片偏移与IP分片有关，IP数据报总长度超过MTU时，IP数据报需要分片。</em></strong></p>
@@ -469,7 +461,7 @@
 <li><p>片偏移——占13位，指出较长的分组在分片后<strong>某片在原分组中的相对位置</strong>，即相对于用户数据字段的起点，该片从何处开始。<strong>以<mark>8个字节为偏移单位</mark>，即每个分片的长度一定是8字节（64bit）的整数倍。</strong></p>
 </li>
 </ul>
-<p><strong>除最后一个分片外，<mark>每个分片的数据长度必须是8的倍数</mark></strong><br><img src="/2025/05/08/Network/90.png" alt="alt text"><br><img src="/2025/05/08/Network/91.png" alt="alt text"></p>
+<p><strong><mark>除最后一个分片外，每个分片的数据长度必须是8的倍数</mark></strong><br><img src="/2025/05/08/Network/90.png" alt="alt text"><br><img src="/2025/05/08/Network/91.png" alt="alt text"></p>
 <ul>
 <li><p>生存时间——占8位，记为TTL，由发出数据报的源主机设置这个字段，<strong>指示数据报在网络中可通过的路由器数的最大值</strong>。TTL的初始值通常设为32或64，每经过一个路由器，其值就减去1。当TTL=0时，丢弃数据报，并发送ICMP报文通知源主机。</p>
 </li>
@@ -591,7 +583,7 @@
 <p><strong>控制消息是指网络通不通、主机是否可达、路由是否可用等网络本身的消息</strong>。这些控制消息虽然并不传输用户数据，但是对于<strong>用户数据的传递和网络安全</strong>具有极其重要的意义。</p>
 </blockquote>
 <p><strong>ICMP 报文格式</strong><br><strong>ICMP报文的前4个字节是统一的格式</strong>，共有三个字段：类型、代码和校验和。接着的4个字节的内容与ICMP的类型有关。<br><img src="/2025/05/08/Network/121.png" alt="alt text"></p>
-<p><strong>ICMP 报文类型</strong><br>差错报文和查询报文</p>
+<p><strong>ICMP 报文类型</strong><br>差错报文(traceroute)和查询报文(ping)</p>
 <p><strong>ICMP差错报文弥补了IP协议的不可靠问题</strong></p>
 <ul>
 <li>发现错误的设备只向<mark>源主机</mark>报告差错，但<mark>不负责纠正错误</mark>，纠错留给高层协议；</li>
@@ -624,7 +616,7 @@
 <li>分用：运输层从网络层收到发送给应用进程的数据后，必须分别<br>交付给指明的各应用进程。</li>
 </ul>
 <blockquote>
-<p><strong>复用过程（发送端）</strong><br>​</p>
+<p><strong>复用过程（发送端）</strong></p>
 <ul>
 <li>多路合并：<br>主机A的不同应用进程（AP1/AP2/AP3）通过不同端口号（如80/443/21）发送数据,运输层为每个数据段添加首部（源端口+目的端口）</li>
 <li>统一传输：<br>所有数据段通过同一运输层协议（如TCP/UDP）合并到IP数据报中进入网络层传输</li>
@@ -644,16 +636,16 @@
 <p><strong>三大端口号类型</strong></p>
 <ul>
 <li>服务器端口号：一般<strong>通过知名端口号来识别</strong>。</li>
-<li>注册端口号：为没有知名端口号的应用程序所使用，<strong>主要用于一些不常用的服务，使用  前需注册</strong>。</li>
+<li>注册端口号：为没有知名端口号的应用程序所使用，<strong>主要用于一些不常用的服务，使用前需注册</strong>。</li>
 <li>客户端口号：<strong>只有在用户运行该客户进程时才存在，通信结束后被系统收回</strong></li>
 </ul>
 <p><img src="/2025/05/08/Network/123.png" alt="alt text"></p>
-<h3 id="运输层协议"><a href="#运输层协议" class="headerlink" title="运输层协议"></a>运输层协议</h3><p><strong>*UDP和TCP的区别</strong></p>
+<h3 id="运输层协议"><a href="#运输层协议" class="headerlink" title="运输层协议"></a>运输层协议</h3><p><strong>UDP和TCP的区别</strong></p>
 <ol>
 <li>收到报文后：UDP不需要给出确认，TCP需要确认</li>
 <li>UDP支持单播、多播、广播；TCP仅支持点对点单播，不支持多播和广播</li>
 <li>UDP 适用于对效率要求相对高、对准确性要求相对低的场景，TCP反之</li>
-<li>UDP面向报文，TCP面向连接、面向字节流</li>
+<li>UDP面向非连接、面向报文，TCP面向连接、面向字节流</li>
 <li>TCP能够实现可靠传输、流量控制、超时重传、拥塞控制</li>
 </ol>
 <h4 id="UDP协议"><a href="#UDP协议" class="headerlink" title="UDP协议"></a>UDP协议</h4><p><strong>UDP 只在 IP 的数据报服务之上增加了少量功能：<mark>复用和分用、差错检测</mark></strong></p>
@@ -679,8 +671,9 @@
 <li>ACK报文段可以携带数据，<strong>若不携带数据，则不分配序号</strong>。</li>
 <li>FIN 报文段（即 FIN = 1 的报文段）<strong>即使不携带数据，也要分配一个序号</strong>。</li>
 </ul>
-<p>建立连接：三报文握手<br><img src="/2025/05/08/Network/133.png" alt="alt text"></p>
-<p>连接释放：四报文握手<br><strong>必须等待 2 MSL（最长报文段寿命）</strong></p>
+<p><strong>建立连接：三次握手</strong><br><img src="/2025/05/08/Network/133.png" alt="alt text"></p>
+<p><strong>连接释放：四次挥手</strong><br><img src="/2025/05/08/Network/150.png" alt="alt text"><br><strong>必须等待 2 MSL（最长报文段寿命）</strong></p>
+<p><strong><em>三次握手和四次挥手能保证在不可靠的网络中进行可靠的连接</em></strong></p>
 <p><strong>保活计时器</strong><br><strong>用来防止在TCP连接出现长时期的空闲。</strong></p>
 <ul>
 <li>保活计时器通常设置为<strong>2小时</strong>。</li>
@@ -739,17 +732,334 @@
 <li>递归解析：<strong>主机向本地域名服务器</strong>发送域名解析请求时使用</li>
 <li>迭代解析：<strong>本地域名服务器向根域名服务器</strong>发送域名解析请求时使用<br><img src="/2025/05/08/Network/146.png" alt="alt text"></li>
 </ul>
-<h3 id="动态主机配置协议（DHCP）"><a href="#动态主机配置协议（DHCP）" class="headerlink" title="动态主机配置协议（DHCP）"></a>动态主机配置协议（DHCP）</h3><p>DHCP 提供了<strong>即插即用连网</strong>的机制。<br><strong>DHCP给运行服务器软件、且位置固定的计算机指派一个永久地址，给运行客户端软件的计算机分配一个临时地址。</strong></p>
+<h3 id="动态主机配置协议（DHCP）"><a href="#动态主机配置协议（DHCP）" class="headerlink" title="动态主机配置协议（DHCP）"></a>动态主机配置协议（DHCP）</h3><p>DHCP 提供了<strong>即插即用连网</strong>的机制。<br><strong>DHCP给运行服务器软件、且位置固定的计算机指派一个永久地址，给运行客户端软件的计算机分配一个临时地址。</strong><br><img src="/2025/05/08/Network/151.png" alt="alt text"><br><strong>PC重启后直接发送Request报文，不用重新通过Discover报文获取IP</strong></p>
 <p>过程：<br>需要 IP 地址的主机在启动时就向 DHCP 服务器广播发送<strong>发现报文</strong>，这时该主机就成为DHCP 客户。</p>
 <ul>
 <li>本地网络上所有主机<strong>都能收到此广播报文，但只有 DHCP 服务器才回答此广播报文</strong>。</li>
-<li>DHCP服务器的回答报文叫做<br><strong>提供报文</strong>。</li>
+<li>DHCP服务器的回答报文叫做<strong>提供报文</strong>。</li>
 <li>DHCP 使用<strong>客户-服务器</strong>方式，采用<strong>请求/应答方式</strong>工作。</li>
 <li>DHCP 基于 <strong>UDP</strong> 工作，DHCP <strong>服务器运行在 67 号端口</strong>， DHCP <strong>客户运行在 68 号端口</strong>。</li>
 </ul>
 <p><img src="/2025/05/08/Network/147.png" alt="alt text"><br><img src="/2025/05/08/Network/148.png" alt="alt text"></p>
 <p><strong>DHCP 中继代理</strong><br>并不是每个网络上都有DHCP服务器，这样会使DHCP服务器的数量太多。现在是每一个网络<strong>至少有一个 DHCP 中继代理，它配置了 DHCP 服务器的 IP 地址信息</strong>。<br>当 DHCP 中继代理收到主机发送的发现报文后，就以<strong>单播方式向 DHCP 服务器</strong>转发此报文，并等待其回答。收到 DHCP 服务器回答的提供报文后，DHCP 中继代理再将此提供报文发回给主机。</p>
 <p><strong>租用期</strong><br>DHCP 服务器<strong>分配给 DHCP 客户的 IP 地址的临时的</strong>，因此 DHCP 客户只能在一段有限的时间内使用这个分配到的 IP 地址。DHCP 协议称这段时间为<strong>租用期</strong>。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>线性表</title>
+    <url>/2025/03/17/LinearList/</url>
+    <content><![CDATA[<h1 id="线性表"><a href="#线性表" class="headerlink" title="线性表"></a>线性表</h1><blockquote>
+<p>线性表（linear list）：具有相同性质的数据元素<mark>顺序排列</mark>形成的优先序列</p>
+</blockquote>
+<p>由于顺序存储结构存在以下问题：</p>
+<ul>
+<li>存储空间分配不灵活</li>
+<li>运算的空间复杂度高</li>
+</ul>
+<p><strong>因此，链式存储结构更佳</strong></p>
+<h2 id="顺序表——线性表的顺序存储方式"><a href="#顺序表——线性表的顺序存储方式" class="headerlink" title="顺序表——线性表的顺序存储方式"></a>顺序表——线性表的顺序存储方式</h2><blockquote>
+<p><strong>顺序表有以下特点</strong>：<br>数据元素依次顺序存储在一组<mark>连续的存储单元</mark>中，知道某个元素的位置就可以计算其他元素，获得任意元素的复杂度为$O(1)$<br>数据元素的<mark>物理存放顺序与其逻辑顺序一致</mark></p>
+</blockquote>
+<h3 id="顺序表的查找操作"><a href="#顺序表的查找操作" class="headerlink" title="顺序表的查找操作"></a>顺序表的查找操作</h3><p>顺序查找的ASL（<mark>Average Search Length</mark>）<br><img src="/2025/03/17/LinearList/顺序表查找的ASL.png" alt="alt text"><br>假设每个元素查找的概率相等：$P_i = 1/n$<br>则$ASL =（1 + 2 + 3 +…+n）/ n = (n + 1) / 2$<br><strong><em>时间复杂度为$O(n)$</em></strong></p>
+<h3 id="顺序表的插入操作"><a href="#顺序表的插入操作" class="headerlink" title="顺序表的插入操作"></a>顺序表的插入操作</h3><p><strong>算法步骤</strong>：</p>
+<ol>
+<li>判断插入位置是否合法</li>
+<li>判断顺序表的存储空间是否已满，已满则返回False</li>
+<li>空出第 i 个位置，将第 n 至第 i 位的元素依次向后移动一个位置</li>
+<li>将要插入的新元素放入第 i 个位置</li>
+<li>表长加一</li>
+</ol>
+<p><strong>复杂度分析</strong>：</p>
+<ol>
+<li>在第 i 个位置插入元素的先验概率$P_i = 1 / n + 1$</li>
+<li>则期望为：<br><img src="/2025/03/17/LinearList/顺序表插入的期望.png" alt="alt text"></li>
+</ol>
+<p><strong><em>插入一个元素的平均时间复杂度为$O(n)$</em></strong></p>
+<h3 id="顺序表的删除操作"><a href="#顺序表的删除操作" class="headerlink" title="顺序表的删除操作"></a>顺序表的删除操作</h3><p><strong>算法步骤</strong>：</p>
+<ol>
+<li>判断插入位置是否合法</li>
+<li>将待删除的元素保留</li>
+<li>空出第 i + 1 个位置至第 n 位的元素依次向前移动一个位置</li>
+<li>表长减一</li>
+</ol>
+<p><strong>复杂度分析</strong>：</p>
+<ol>
+<li>在第 i 个位置删除元素的先验概率$P_i = 1 / n$</li>
+<li>共有 n - i - 1 个元素需要移动</li>
+<li>则期望为：<br><img src="/2025/03/17/LinearList/顺序表删除的期望.png" alt="alt text"><br><strong><em>删除一个元素的平均时间复杂度为$O(n)$</em></strong></li>
+</ol>
+<h3 id="顺序表的优缺点"><a href="#顺序表的优缺点" class="headerlink" title="顺序表的优缺点"></a>顺序表的优缺点</h3><ul>
+<li>可以<mark>直接访问</mark>表中的元素</li>
+<li>插入/删除操作设计<mark>大量元素移动</mark>，复杂度高</li>
+<li>静态存储，<mark>不可扩充</mark></li>
+</ul>
+<h2 id="单向链表——线性表的链式存储方式"><a href="#单向链表——线性表的链式存储方式" class="headerlink" title="单向链表——线性表的链式存储方式"></a>单向链表——线性表的链式存储方式</h2><blockquote>
+<p><strong>单向链表表有以下特点</strong>：<br>存储单元<strong>可以不连续</strong><br>用<mark>额外的存储空间</mark>存放数据元素的逻辑位置<br>采用<mark>指针链接</mark>逻辑相邻的元素</p>
+</blockquote>
+<h3 id="在链表中插入新节点"><a href="#在链表中插入新节点" class="headerlink" title="在链表中插入新节点"></a>在链表中插入新节点</h3><p><img src="/2025/03/17/LinearList/单向链表的插入.png" alt="alt text"><br><strong>步骤</strong>：</p>
+<ol>
+<li><code>s -&gt; next = p -&gt; next</code></li>
+<li><code>p -&gt; next = s</code></li>
+</ol>
+<p><strong><em>颠倒顺序会导致自循环</em></strong><br><br></p>
+<h3 id="在链表中删除节点"><a href="#在链表中删除节点" class="headerlink" title="在链表中删除节点"></a>在链表中删除节点</h3><p><img src="/2025/03/17/LinearList/单向链表的删除.png" alt="alt text"><br><strong>步骤</strong>：</p>
+<ol>
+<li><code>q = p -&gt; next</code></li>
+<li><code>p -&gt; next = q -&gt; next</code></li>
+<li><code>delete q; q = null</code></li>
+</ol>
+<h3 id="定义SeqList和LinkList均继承自LinearLis出现的问题"><a href="#定义SeqList和LinkList均继承自LinearLis出现的问题" class="headerlink" title="定义SeqList和LinkList均继承自LinearLis出现的问题"></a>定义SeqList和LinkList均继承自LinearLis出现的问题</h3><p><img src="/2025/03/17/LinearList/对象切割.png" alt="alt text"></p>
+<p>使用<strong>引用传递</strong>可以避免对象切割，防止破坏多态性：<br><img src="/2025/03/17/LinearList/引用传递避免对象切割.png" alt="alt text"><br><br></p>
+<h3 id="Slicing-Problem-对象切割问题"><a href="#Slicing-Problem-对象切割问题" class="headerlink" title="Slicing Problem 对象切割问题"></a>Slicing Problem 对象切割问题</h3><blockquote>
+<p><strong>产生原因</strong>：</p>
+<ul>
+<li><p>当<mark>把一个派生类对象赋给一个基类对象</mark>时（并不是使用父类指针或引用接收子类对象），会发生对象切割。(另外用<mark>基类对象强制转换派生类对象</mark>也会)<br><img src="/2025/03/17/LinearList/对象切割原因1.png" alt="alt text"><br><br></p>
+</li>
+<li><p>接收<mark>值传递</mark>的返回值时，发生的拷贝构造也会发生对象切割<br><img src="/2025/03/17/LinearList/对象切割原因2.png" alt="alt text"></p>
+</li>
+</ul>
+</blockquote>
+<p><strong><em>发生对象切片后派生类的覆盖部分就被切掉了，所以调用的方法将会是父类方法</em></strong></p>
+<p>与对象切割类似的，还有<strong>静态联编</strong>问题：<br><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="comment">//基类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	 <span class="function"><span class="type">void</span> <span class="title">printError</span><span class="params">()</span></span>&#123;  <span class="comment">//使用virtual关键字声明函数，将其变为虚函数，即可使用多态</span></span><br><span class="line">	 cout &lt;&lt; <span class="string">&quot;基类方法!&quot;</span> &lt;&lt; endl;</span><br><span class="line">	 &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//派生类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Derived</span> : <span class="keyword">public</span> Base&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	 <span class="function"><span class="type">void</span> <span class="title">printError</span><span class="params">()</span></span>&#123;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;派生类方法!&quot;</span> &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;	</span><br><span class="line">	Base *ex = <span class="keyword">new</span> <span class="built_in">Derived</span>(); <span class="comment">//静态联编导致子类对象调用基类方法，而不是子类方法</span></span><br><span class="line">	ex-&gt;<span class="built_in">printError</span>(); <span class="comment">//输出基类方法！</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="built_in">test</span>();</span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p><strong>静态联编</strong>行为：<br>当基类函数<mark>未声明为virtual</mark>时，编译器根据指针/引用的<mark>静态类型（声明类型）</mark><br>决定调用哪个函数。<br>示例中<code>Base* ex</code>的静态类型是<code>Base*</code>，因此<code>ex-&gt;printError()</code>直接调用<code>Base::printError()</code>，即使对象实际是Derived类型。</p>
+</blockquote>
+<p><strong>单向链表的特点</strong>：</p>
+<ol>
+<li>可以<mark>灵活改变长度</mark></li>
+<li>插入/删除<mark>无需移动</mark>大量数据</li>
+<li>通过<mark>指针</mark>表示数据间的顺序关系</li>
+<li>表长需要<mark>遍历</mark>获取</li>
+<li>插入/删除操作中寻找<mark>相应位置的复杂度高</mark><br><br></li>
+</ol>
+<h2 id="双向链表——增加前驱指针的单向链表"><a href="#双向链表——增加前驱指针的单向链表" class="headerlink" title="双向链表——增加前驱指针的单向链表"></a>双向链表——增加前驱指针的单向链表</h2><p><img src="/2025/03/17/LinearList/双向链表.png" alt="alt text"><br>对于单向链表，想要获取后继元素，复杂度为$O(1)$,但是想要获取前驱元素，需要遍历，复杂度为$O(n)$<br><strong>双向链表使得两个操作的复杂度都为$O(1)$</strong></p>
+<h3 id="双向链表的插入操作"><a href="#双向链表的插入操作" class="headerlink" title="双向链表的插入操作"></a>双向链表的插入操作</h3><p><img src="/2025/03/17/LinearList/双向链表的插入.png" alt="alt text"></p>
+<p><strong>算法步骤</strong>：</p>
+<ul>
+<li>让前驱指向s：</li>
+<li><p><code>p -&gt; prev -&gt; next = s</code><br><br></p>
+</li>
+<li><p>以s为中心，设置它的前驱后继</p>
+</li>
+<li><code>s -&gt; next = p</code>          </li>
+<li><p><code>s -&gt; prev = p -&gt; prev</code><br><br></p>
+</li>
+<li><p>让后继指向s</p>
+</li>
+<li><code>p -&gt; prev = s</code></li>
+</ul>
+<h3 id="双向链表的删除操作"><a href="#双向链表的删除操作" class="headerlink" title="双向链表的删除操作"></a>双向链表的删除操作</h3><p><img src="/2025/03/17/LinearList/双向链表的删除.png" alt="alt text"></p>
+<p><strong>算法步骤</strong>：</p>
+<ul>
+<li>让p的后继往前链接：</li>
+<li><p><code>p -&gt; prev -&gt; next = p -&gt; next</code><br><br></p>
+</li>
+<li><p>让p的前驱往后链接：</p>
+</li>
+<li><p><code>p -&gt; next -&gt; prev = p -&gt; prev</code><br><br></p>
+</li>
+<li><p>删除p</p>
+</li>
+<li><code>delete p</code></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>栈和队列</title>
+    <url>/2025/03/17/StackAndQueue/</url>
+    <content><![CDATA[<h1 id="栈和队列"><a href="#栈和队列" class="headerlink" title="栈和队列"></a>栈和队列</h1><blockquote>
+<p><strong>栈、队列、双端队列均是线性表的特殊情况（访问受限的线性表）</strong></p>
+<p><img src="/2025/03/17/StackAndQueue/访问受限的线性表.png" alt="alt text"></p>
+</blockquote>
+<h2 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h2><ul>
+<li>允许插入、删除的一端称为<mark>栈顶(top)</mark>，另一端称为<mark>栈底(bottom)</mark></li>
+<li>在栈顶插入元素称为<mark>入栈(push)</mark>，删除元素称为<mark>出栈(pop)</mark></li>
+</ul>
+<h3 id="顺序栈——栈的顺序存储实现"><a href="#顺序栈——栈的顺序存储实现" class="headerlink" title="顺序栈——栈的顺序存储实现"></a>顺序栈——栈的顺序存储实现</h3><p><strong>顺序栈存储空间的处理</strong><br><img src="/2025/03/17/StackAndQueue/顺序栈存储空间的处理.png" alt="alt text"></p>
+<p><strong>顺序栈的特点</strong>：</p>
+<ol>
+<li>顺序栈的入栈和出栈、构造和销毁的<mark>复杂度都是$O(1)$</mark></li>
+<li>可以采用溢出时增容，或者<mark>共享栈</mark>的方式提高空间利用率</li>
+</ol>
+<h3 id="链式栈——栈的链式存储分配实现"><a href="#链式栈——栈的链式存储分配实现" class="headerlink" title="链式栈——栈的链式存储分配实现"></a>链式栈——栈的链式存储分配实现</h3><p><strong>链式栈的特点</strong>：</p>
+<ol>
+<li>链式栈的<mark>入栈和出栈复杂度为$O(1)$</mark>，<mark>构造和销毁的复杂度是$O(n)$<strong>(需要逐个释放/创建)</strong></mark></li>
+<li>栈的长度动态变化，空间利用率高，一般<mark>无需判断溢出</mark></li>
+</ol>
+<h3 id="栈的应用"><a href="#栈的应用" class="headerlink" title="栈的应用"></a>栈的应用</h3><ul>
+<li><p><strong>十进制数到二进制数的转换</strong><br><img src="/2025/03/17/StackAndQueue/十进制转二进制.png" alt="alt text"><br><br></p>
+</li>
+<li><p><strong>算术表达式求值的栈实现</strong></p>
+<p>  中缀表达式实现步骤：</p>
+<ol>
+<li>初始化:结束符‘#’入栈：<code>Sr.Push(‘#’)</code></li>
+<li>如果W是操作数则入栈：<code>Sd.Push(W)</code></li>
+<li>若W为运算符，则有以下几种情况:<ol>
+<li>若W优先级高于Sr栈顶元素则入栈：<code>Sr.Push(W)</code></li>
+<li>若W优先级低于Sr栈顶元素则执行运算操作:<br> <code>Sd.Pop(x1);</code><br> <code>Sd.Pop(x2);</code><br> <code>Sr.Pop(@);</code><br> <code>Sd.Push(x2@X1);</code></li>
+<li>若W等于Sr栈顶元素则弹出Sr栈顶元素</li>
+</ol>
+</li>
+<li><p>Sd即为运算结果<br><br></p>
+<p>中缀转后缀表达式：<br>维护两个栈：运算符(OP)和结果栈(R)</p>
+</li>
+</ol>
+<ul>
+<li>扫描到操作数，R入栈;扫描到’(‘，OP入栈</li>
+<li>扫描到运算符:<br>  当前运算符优先级高于OP栈顶元紊优先级，OP入栈<br>  否则，则OP栈出栈，R栈入栈</li>
+<li>扫描到’)’，OP出栈，到pop出’)’为止。如果pop出的元素不是’(‘或’)’，则将元素压入R<br><img src="/2025/03/17/StackAndQueue/后缀表达式.png" alt="alt text"></li>
+</ul>
+</li>
+</ul>
+<h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><blockquote>
+<p><strong>适用情况：问题可以<mark>收敛</mark></strong></p>
+</blockquote>
+<ul>
+<li><p><strong>阶乘求值</strong><br><img src="/2025/03/17/StackAndQueue/阶乘求值.png" alt="alt text"><br><br><br><br></p>
+</li>
+<li><p><strong>阿克曼函数</strong><br>特点：随着输入值的增加，函数的值<strong>增长得非常快</strong><br>定义如下：<br><img src="/2025/03/17/StackAndQueue/阿克曼函数定义.png" alt="alt text"><br>  递归实现：</p>
+  <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">c</span><span class="params">(<span class="type">int</span> m, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(m == <span class="number">0</span>) <span class="keyword">return</span> n + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(n == <span class="number">0</span> &amp;&amp; m &gt; <span class="number">0</span>) <span class="keyword">return</span> <span class="built_in">c</span>(m - <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">if</span>(m &gt; <span class="number">0</span> &amp;&amp; n &gt; <span class="number">0</span>)<span class="keyword">return</span> <span class="built_in">c</span>(m - <span class="number">1</span>, <span class="built_in">c</span>(m, n - <span class="number">1</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> a, b;</span><br><span class="line">    cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">c</span>(a, b);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br><br><br></p>
+</li>
+<li><p><strong>斐波那契数列</strong><br>递归定义：<br><img src="/2025/03/17/StackAndQueue/斐波那契定义.png" alt="alt text"><br><br></p>
+<p>  递归实现：<br>  <img src="/2025/03/17/StackAndQueue/斐波那契实现.png" alt="alt text"><br>  F(5)的栈调用情况：<br>  <img src="/2025/03/17/StackAndQueue/斐波那契栈调用.png" alt="alt text"><br><br><br><br></p>
+</li>
+<li><p><strong>最大公约数</strong><br>定义：可以同时除尽两个正整数的最大的正整数<br><img src="/2025/03/17/StackAndQueue/最大公约数.png" alt="alt text"><br><br></p>
+<p>  递归实现：</p>
+  <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">long</span> <span class="title">gcd</span><span class="params">(<span class="type">unsigned</span> <span class="type">long</span> a,<span class="type">unsigned</span> <span class="type">long</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> r = a % b;</span><br><span class="line">    <span class="keyword">if</span>(r != <span class="number">0</span>) <span class="keyword">return</span> <span class="built_in">gcd</span>(b，r);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br><br><br></p>
+</li>
+<li><p><strong>互递归</strong><br>定义：一种非直接递归，两个函数互相借助对方定义<br>示例：<br><img src="/2025/03/17/StackAndQueue/互递归.png" alt="alt text"><br><br><br><br></p>
+</li>
+<li><p><strong>汉诺塔问题</strong><br>递归步骤：<br><img src="/2025/03/17/StackAndQueue/汉诺塔.png" alt="alt text"><br><br></p>
+<p>  递归实现：<br>  <img src="/2025/03/17/StackAndQueue/汉诺塔实现.png" alt="alt text"><br>  <strong><em>先把 n - 1 个移动到y，然后移动最底下的到z，然后把 n - 1 个从y移动到z</em></strong><br><br></p>
+<p>  复杂度分析：<br>  <img src="/2025/03/17/StackAndQueue/汉诺塔复杂度分析.png" alt="alt text"><br><br><br><br></p>
+</li>
+</ul>
+<h3 id="递归的消去"><a href="#递归的消去" class="headerlink" title="递归的消去"></a>递归的消去</h3><h4 id="尾递归"><a href="#尾递归" class="headerlink" title="尾递归"></a>尾递归</h4><p>定义：函数最后操作时<strong>递归调用或平凡返回</strong>（<mark>返回已经存在的值</mark>）</p>
+<blockquote>
+<p><strong>为什么需要尾递归？</strong><br>对于非尾递归来说，由于最后的返回值需要额外计算，因此<mark>经历了创建栈帧、销毁栈帧的过程，可能导致栈溢出</mark>。</p>
+<p>以计算阶乘的普通递归实现为例:<br><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">factorial</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">       <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">   <span class="keyword">else</span></span><br><span class="line">       <span class="keyword">return</span> n * <span class="built_in">factorial</span>(n - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>当调用<code>factorial(3)</code>时，执行过程如下：</p>
+<p>调用<code>factorial(3)</code>，<mark>创建栈帧A</mark>，保存参数n=3。<br>执行到<code>return n * factorial(n - 1)</code>时，需要先计算<code>factorial(2)</code>的值。</p>
+<p>调用<code>factorial(2)</code>，<mark>创建新的栈帧B</mark>，保存参数n=2。<br>执行到<code>return n * factorial(n - 1)</code>时，需要先计算<code>factorial(1)</code>的值。</p>
+<p>调用<code>factorial(1)</code>，<mark>创建新的栈帧C</mark>，保存参数n=1。<br>执行到<code>return n * factorial(n - 1)</code>时，需要先计算<code>factorial(0)</code>的值。</p>
+<p>调用<code>factorial(0)</code>，<mark>创建新的栈帧D</mark>，保存参数n=0。<br>执行到return 1，返回值1，销毁栈帧D。</p>
+<p>栈帧C继续执行，计算1 <em> 1=1，返回值1，<mark>销毁栈帧C</mark>。<br>栈帧B继续执行，计算2 </em> 1=2，返回值2，<mark>销毁栈帧B</mark>。<br>栈帧A继续执行，计算3 * 2=6，返回值6，<mark>销毁栈帧A</mark>。</p>
+<p><strong><em>在这个过程中，每次递归调用都会创建新的栈帧，栈帧数量随着递归深度增加而增加，可能导致栈溢出，并且每次创建和销毁栈帧都会带来性能开销。</em></strong></p>
+</blockquote>
+<p><br></p>
+<p><strong>尾递归优化的执行过程：</strong><br><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">factorial_tail</span><span class="params">(<span class="type">int</span> n, <span class="type">int</span> acc)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> acc;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">factorial_tail</span>(n - <span class="number">1</span>, n * acc);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>初始调用时，acc的初始值为1。例如，计算<code>factorial_tail(3, 1)</code>的执行过程如下：<br>调用<code>factorial_tail(3, 1)</code>，<mark>创建栈帧A</mark>，保存参数n=3，acc=1。</p>
+<p>执行到<code>return factorial_tail(n - 1, n * acc)</code>时，计算新的参数值n-1=2，n <em> acc=3</em>1=3。<br>调用<code>factorial_tail(2, 3)</code>，<mark>复用栈帧A</mark>，更新参数n=2，acc=3。</p>
+<p>执行到<code>return factorial_tail(n - 1, n * acc)</code>时，计算新的参数值n-1=1，n <em> acc=2</em>3=6。<br>调用<code>factorial_tail(1, 6)</code>，<mark>复用栈帧A</mark>，更新参数n=1，acc=6。</p>
+<p>执行到<code>return factorial_tail(n - 1, n * acc)</code>时，计算新的参数值n-1=0，n <em> acc=1</em>6=6。<br>调用<code>factorial_tail(0, 6)</code>，<mark>复用栈帧A</mark>，更新参数n=0，acc=6。</p>
+<p>执行到<code>return acc</code>，返回值6，<mark>销毁栈帧A</mark>。</p>
+<p><strong><em>在这个过程中，每次递归调用复用当前栈帧，不需要创建新的栈帧，因此栈帧数量始终保持为1，不会导致栈溢出，并且避免了创建和销毁栈帧的性能开销。</em></strong><br><br></p>
+<p><strong>底层原理</strong><br><strong>尾递归优化的关键在于编译器能够识别出尾递归调用，并将其转换为循环操作</strong>。具体来说，当编译器检测到一个函数调用是尾递归时，它会生成代码来复用当前的栈帧，而不是创建新的栈帧。这通常是通过将递归调用的参数更新到当前栈帧的变量中，并跳转到函数的开头重新执行来实现的。<br><br></p>
+<p><strong>常见简单问题的尾递归实现</strong><br><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//TODO...</span></span><br></pre></td></tr></table></figure><br><br><br><br></p>
+<h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2><blockquote>
+<p><strong>定义：限制数据一端插入，另一端删除的特殊线性表</strong></p>
+<ul>
+<li>允许插入的一端称为<mark>队尾(rear)</mark>，允许删除的一端称为<mark>队头(front)</mark></li>
+<li>入队为<mark>Enqueue</mark>，出队为<mark>Dequeue</mark><br><br></li>
+</ul>
+</blockquote>
+<h3 id="顺序队列"><a href="#顺序队列" class="headerlink" title="顺序队列"></a>顺序队列</h3><h4 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h4><p><img src="/2025/03/17/StackAndQueue/顺序队列的存储.png" alt="alt text"><br><br></p>
+<h4 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h4><p><img src="/2025/03/17/StackAndQueue/顺序队列的操作.png" alt="alt text"><br><img src="/2025/03/17/StackAndQueue/顺序队列的操作2.png" alt="alt text"><br><strong>假溢出</strong>：rear已经到达数组末尾，尽管队列中仍有空闲空间（front之前的位置），但由于rear无法继续向后移动，导致假溢出。<br><br></p>
+<h3 id="循环队列——解决假溢出问题"><a href="#循环队列——解决假溢出问题" class="headerlink" title="循环队列——解决假溢出问题"></a>循环队列——解决假溢出问题</h3><blockquote>
+<p><strong><em>顺序数列无法利用队头指针之前的空间，因此假溢出的本质是没有完全利用数组空间。而循环数列通过连成环解决了这一问题。由于首尾相接，因此循环队列需要做的只是找到判空和判满的办法。</em></strong><br><br><br><img src="/2025/03/17/StackAndQueue/循环队列.png" alt="alt text"></p>
+</blockquote>
+<p><br></p>
+<ul>
+<li><p><strong>方法一：留出空位</strong><br><img src="/2025/03/17/StackAndQueue/留出空位.png" alt="alt text"><br>  判断条件：</p>
+<ol>
+<li>队列为空：<strong>front == rear</strong></li>
+<li>队列为满：<strong>front == (rear + 1) % max</strong><br><br></li>
+</ol>
+</li>
+<li><p><strong>其他方法易于理解</strong>：<br><img src="/2025/03/17/StackAndQueue/其他方法.png" alt="alt text"><br><br><br><br></p>
+</li>
+</ul>
+<h3 id="链式队列——链式存储方式"><a href="#链式队列——链式存储方式" class="headerlink" title="链式队列——链式存储方式"></a>链式队列——链式存储方式</h3><p>和链表的逻辑一致，易于理解：<br><img src="/2025/03/17/StackAndQueue/链式队列.png" alt="alt text"></p>
+<h3 id="优先队列"><a href="#优先队列" class="headerlink" title="优先队列"></a>优先队列</h3><p>易于理解：<br><img src="/2025/03/17/StackAndQueue/优先队列.png" alt="alt text"></p>
+<h3 id="队列的应用：杨辉三角"><a href="#队列的应用：杨辉三角" class="headerlink" title="队列的应用：杨辉三角"></a>队列的应用：杨辉三角</h3><p><img src="/2025/03/17/StackAndQueue/杨辉三角.png" alt="alt text"><br><br></p>
+<h4 id="具体实现："><a href="#具体实现：" class="headerlink" title="具体实现："></a>具体实现：</h4><p>先进队一个1</p>
+<blockquote>
+<p>此时队列： 1      （这样我们就得到了杨辉三角的第一行）</p>
+</blockquote>
+<p><br><br><br></p>
+<p>第一步：在队尾<mark>进队一个1</mark></p>
+<blockquote>
+<p>此时队列：1 1</p>
+</blockquote>
+<p><strong>循环0次</strong>（这里相当于没有进行操作）（看不懂就往下看）</p>
+<blockquote>
+<p>此时队列：1 1</p>
+</blockquote>
+<p>在队尾<mark>进队一个1</mark></p>
+<blockquote>
+<p>1 1 1</p>
+</blockquote>
+<p><mark>出队队头的一个1</mark></p>
+<blockquote>
+<p>1 1              （这样我们就得到了杨辉三角的第二行）</p>
+</blockquote>
+<p>（这里看不懂没关系，接着看就懂了）<br><br><br><br></p>
+<p>第二步：在队尾<mark>进队一个1</mark>（与第一步中相同操作）</p>
+<blockquote>
+<p>1 1 1</p>
+</blockquote>
+<p><strong>循环一次：进队队头两个元素的和（1+1=2），即进队2</strong>；</p>
+<blockquote>
+<p>1 1 1 2</p>
+</blockquote>
+<p><strong>再出队队头的一个元素（1）。这两个操作为一次循环</strong>。</p>
+<blockquote>
+<p>1 1 2</p>
+</blockquote>
+<p>在队尾<mark>进队一个1</mark>（与第一步中相同操作）</p>
+<blockquote>
+<p>1 1 2 1</p>
+</blockquote>
+<p><mark>出队队头的一个1</mark></p>
+<blockquote>
+<p>1 2 1            （这样我们就得到了杨辉三角的第三行）</p>
+</blockquote>
+<p><br><br><br></p>
+<p>第三步：</p>
+<p>在队尾<mark>进队一个1</mark>（与第一步中相同操作）</p>
+<blockquote>
+<p>1 2 1 1</p>
+</blockquote>
+<p><strong>循环两次：第一次进队队头两个元素的和（1+2=3），即进队3</strong>；</p>
+<blockquote>
+<p>1 2 1 1 3</p>
+</blockquote>
+<p><strong>再出队队头的一个元素（1）。这两个操作为一次循环</strong>。</p>
+<blockquote>
+<p>2 1 1 3</p>
+</blockquote>
+<p><strong>第二次再进队队头两个元素的和（2+1=3），即进队3</strong>；</p>
+<blockquote>
+<p>2 1 1 3 3</p>
+</blockquote>
+<p><strong>再出队队头的一个元素（2）。这两个操作为第二次循环</strong>。</p>
+<blockquote>
+<p>1 1 3 3</p>
+</blockquote>
+<p>在队尾<mark>进队一个1</mark>（与第一步中相同操作）</p>
+<blockquote>
+<p>1 1 3 3 1</p>
+</blockquote>
+<p><mark>出队队头的一个1</mark></p>
+<blockquote>
+<p>1 3 3 1           （这样我们就得到了杨辉三角的第四行）</p>
+</blockquote>
+<p><br></p>
+<blockquote>
+<p>经过上面的三步操作，不难看出，每一步都分为<mark>三个部分</mark>。即：<strong><em>进1；循环；进1出1</em></strong>。所以我们可以控制重复上述步骤的次数，打印出想要的杨辉三角的层数。（并且可以看出，<strong>第一步循环0次；第二步循环1次；第三步循环2次。即循环次数为步数-1</strong>）</p>
+</blockquote>
+<p><br></p>
+<h3 id="双栈实现队列"><a href="#双栈实现队列" class="headerlink" title="双栈实现队列"></a>双栈实现队列</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//TODO...</span></span><br></pre></td></tr></table></figure>
 ]]></content>
   </entry>
   <entry>
@@ -950,315 +1260,6 @@
 <li>红黑树的<strong>平均统计性能优于AVL树</strong>，实际应用中更多选择使用红黑树</li>
 </ul>
 </blockquote>
-]]></content>
-  </entry>
-  <entry>
-    <title>图</title>
-    <url>/2025/04/17/Graph/</url>
-    <content><![CDATA[<h1 id="图"><a href="#图" class="headerlink" title="图"></a>图</h1><h2 id="图的基本概念"><a href="#图的基本概念" class="headerlink" title="图的基本概念"></a>图的基本概念</h2><blockquote>
-<p>顶点集、边集、顶点数目、边数目<br><img src="/2025/04/17/Graph/Graph.png" alt="alt text"></p>
-</blockquote>
-<h3 id="有向图和无向图的区别"><a href="#有向图和无向图的区别" class="headerlink" title="有向图和无向图的区别"></a>有向图和无向图的区别</h3><p>有向图的边集$\mathbf{E}$中的元素有序而无向图的边集$\mathbf{E’}$中的元素无序</p>
-<blockquote>
-<p><img src="/2025/04/17/Graph/G.png" alt="alt text"></p>
-</blockquote>
-<h3 id="简单图"><a href="#简单图" class="headerlink" title="简单图"></a>简单图</h3><p>不存在自环和多重边（两条边的起点和终点相同）<br><mark><em>这里讨论的都是简单图</em></mark></p>
-<h3 id="无向完全图和有向完全图的区别"><a href="#无向完全图和有向完全图的区别" class="headerlink" title="无向完全图和有向完全图的区别"></a>无向完全图和有向完全图的区别</h3><p>完全图：图中的每个顶点和其余顶点都有边相连<br><strong>无向完全图的边数:$e = n (n - 1) / 2$<br>有向完全图的边数:$e = n (n - 1)$</strong></p>
-<p><strong>拥有$n$个顶点的无向图一共有$2 ^ {n (n - 1) / 2}$种<br>拥有$n$个顶点的有向图一共有$2 ^ {n (n - 1)}$种</strong></p>
-<blockquote>
-<p><strong>为什么？</strong><br>有向图和无向图最多可能有的边数就是他们成为完全图的边数</p>
-</blockquote>
-<h3 id="子图和超图"><a href="#子图和超图" class="headerlink" title="子图和超图"></a>子图和超图</h3><p><img src="/2025/04/17/Graph/子图和超图.png" alt="alt text"><br><strong>每个图都是自身的子图，空图是任何图的子图</strong><br><strong>拥有$n$个顶点的图一定是这$n$个顶点组成的完全图的子图</strong></p>
-<h3 id="顶点的度"><a href="#顶点的度" class="headerlink" title="顶点的度"></a>顶点的度</h3><p>顶点的度记作$TD(v)$，入度记作$ID(v)$，出度记作$OD(v)$<br><strong>有：$ TD(v) = ID(v) + OD(v) $</strong><br><strong>度为奇数的顶点成为奇点，度为偶数的顶点称为偶点</strong></p>
-<blockquote>
-<p><strong>重要性质：</strong><br>有向图中所有顶点入度之和等于所有顶点出度之和<mark><em>（每条边贡献一个入度和一个出度）</em></mark></p>
-<p><strong>握手定理：</strong><br>图中所有顶点度之和等于边数目的2倍<mark><em>（每条边贡献两个度）</em></mark></p>
-<p><strong>推论一：</strong><br>有向图中所有顶点入度或出度之和等于边数目<br><strong>推论二：</strong><br>任意图中一定有偶数个（含0）奇点</p>
-<p><mark><strong>对于树来说：</strong></mark></p>
-<ul>
-<li>边数等于度数之和</li>
-<li>边数等于节点数减一</li>
-</ul>
-</blockquote>
-<h3 id="路径和回路"><a href="#路径和回路" class="headerlink" title="路径和回路"></a>路径和回路</h3><p>没有重复节点，则成为简单路径/回路</p>
-<h3 id="连通图"><a href="#连通图" class="headerlink" title="连通图"></a>连通图</h3><p>无向图中$G$，如果任意两个顶点都是连通的，则$G$是连通图；有向图$G$中，如果任意两个顶点都存在路径，则$G$是强连通图<br><strong><em>极大连通子图（连通分量）</em></strong>：该图是$G$的连通子图，将$G$中任何不在该子图中的顶点加入，子图将不再连通<br><img src="/2025/04/17/Graph/极大连通子图.png" alt="alt text"></p>
-<h3 id="补图"><a href="#补图" class="headerlink" title="补图"></a>补图</h3><p><img src="/2025/04/17/Graph/补图.png" alt="alt text"></p>
-<h3 id="同构"><a href="#同构" class="headerlink" title="同构"></a>同构</h3><p>形变过后得到的图<br><img src="/2025/04/17/Graph/同构.png" alt="alt text"></p>
-<h2 id="线性表、树、图的比较"><a href="#线性表、树、图的比较" class="headerlink" title="线性表、树、图的比较"></a>线性表、树、图的比较</h2><p><img src="/2025/04/17/Graph/比较.png" alt="alt text"></p>
-<h2 id="欧拉路径和回路"><a href="#欧拉路径和回路" class="headerlink" title="欧拉路径和回路"></a>欧拉路径和回路</h2><p>欧拉路径:图中经过每条边且仅经过每条边一次的路径<br>欧拉回路:终点和起点重合的欧拉路径</p>
-<p><strong>定理：</strong><br><img src="/2025/04/17/Graph/欧拉路径和回路.png" alt="alt text"></p>
-<h2 id="图的存储结构"><a href="#图的存储结构" class="headerlink" title="图的存储结构"></a>图的存储结构</h2><p>通常采用两个数组来表示一个图<br>其一用来存储顶点信息；其二用来存储顶点的关联情况，称为邻接矩阵<br>顶点信息：<br><img src="/2025/04/17/Graph/顶点信息.png" alt="alt text"><br>邻接矩阵：<br><img src="/2025/04/17/Graph/无向图的邻接矩阵.png" alt="alt text"><br><img src="/2025/04/17/Graph/有向图的邻接矩阵.png" alt="alt text"><br><img src="/2025/04/17/Graph/有向赋权图的邻接矩阵.png" alt="alt text"></p>
-<p><strong><em>重要特点：无向图的邻接矩阵对称，有向图则不一定</em></strong></p>
-<h3 id="邻接矩阵实现"><a href="#邻接矩阵实现" class="headerlink" title="邻接矩阵实现"></a>邻接矩阵实现</h3><p><img src="/2025/04/17/Graph/邻接矩阵实现.png" alt="alt text"></p>
-<blockquote>
-<p><strong>为什么添加/删除顶点的时间复杂度是$O(n^2)$?</strong><br>邻接矩阵通过 ​n×n 的二维数组 存储顶点间的边关系。当添加一个新顶点时：<br>​需要将原矩阵<strong>从 n×n 扩容到 (n+1)×(n+1)</strong>，即创建一个新的二维数组。<strong>复制原有 n×n 数据到新数组</strong>，并初始化新增行/列（通常用 0 填充表示无边）。这一过程中，​<mark>复制原有数据需要遍历所有 n² 个元素，因此时间复杂度为 O(n²)。</mark></p>
-</blockquote>
-<h3 id="邻接表"><a href="#邻接表" class="headerlink" title="邻接表"></a>邻接表</h3><p><img src="/2025/04/17/Graph/邻接表.png" alt="alt text"></p>
-<p><strong>有向图</strong>每个链表的长度等于顶点的<strong>出度</strong>，总共需要<mark>$(n + e)$</mark>个链表结点<br><strong>无向图</strong>每个链表的长度等于顶点的<strong>度</strong>，总共需要<mark>$(n + 2e)$</mark>个链表结点</p>
-<p>邻接表的实现：<br><img src="/2025/04/17/Graph/邻接表的实现.png" alt="alt text"><br><strong>注意插入边和删除边的时间复杂度不同</strong></p>
-<h3 id="邻接矩阵和邻接表的比较"><a href="#邻接矩阵和邻接表的比较" class="headerlink" title="邻接矩阵和邻接表的比较"></a>邻接矩阵和邻接表的比较</h3><p><img src="/2025/04/17/Graph/邻接矩阵和邻接表的比较.png" alt="alt text"></p>
-<blockquote>
-<p><strong>稠密图</strong>适于采用<strong>邻接矩阵</strong>表示<br>大规模的<strong>稀疏图</strong>$(e &lt;&lt; n^2)$，适于采用<strong>邻接表</strong>表示</p>
-</blockquote>
-<h2 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h2><h3 id="深度优先遍历（DFS）"><a href="#深度优先遍历（DFS）" class="headerlink" title="深度优先遍历（DFS）"></a>深度优先遍历（DFS）</h3><p><strong>代码实现：</strong><br><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="title class_">ElemType</span>&gt;</span><br><span class="line"><span class="type">void</span> Graph&lt;ElemType&gt;::<span class="built_in">DFS</span>(<span class="type">int</span> v)&#123;</span><br><span class="line">    cout &lt;&lt; v &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">    visited[v] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> t = <span class="built_in">FirstAdjVex</span>(v); t != <span class="number">-1</span>; t = <span class="built_in">NextAdjVex</span>(v,t))&#123;</span><br><span class="line">        <span class="keyword">if</span>(visited[t] == <span class="number">0</span>) <span class="built_in">DFS</span>(t);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong><em>稠密图适于在邻接矩阵上进行深度遍历;稀疏图适于在邻接表上进行深度遍历。</em></strong></p>
-<h3 id="广度优先遍历（BFS）"><a href="#广度优先遍历（BFS）" class="headerlink" title="广度优先遍历（BFS）"></a>广度优先遍历（BFS）</h3><p>类似<strong>层序遍历</strong></p>
-<p><img src="/2025/04/17/Graph/广搜1.png" alt="alt text"><br><img src="/2025/04/17/Graph/广搜2.png" alt="alt text"></p>
-<h3 id="算法效率分析"><a href="#算法效率分析" class="headerlink" title="算法效率分析"></a>算法效率分析</h3><p><strong>时间复杂度：</strong><br>用邻接矩阵来表示图时,遍历图中每一个顶点都要从头扫描该顶点所在行，时间复杂度为$O(n)$，总共是$O(n^2)$。用邻接表来表示图时，虽然有$2e$个表结点，<strong>但只需扫描$e$个结点即可完成遍历</strong>，加上访问$n$个头结点的时间，时间复杂度为$O(n+e)$。</p>
-<h2 id="图遍历的应用"><a href="#图遍历的应用" class="headerlink" title="图遍历的应用"></a>图遍历的应用</h2><ol>
-<li>寻找图中从顶点$v$到顶点$w$的简单路径<br>使用DFS，路径删除规则：维护一条路径P依次记录DFS中访问的顶点，<strong>如果某顶点全部邻接点均被访问仍没有到达$w$</strong>，则从路径中删除此顶点;最终到达$w$时，路径中记录的即为从$v$到$w$的一条简单路径</li>
-</ol>
-<p><strong>下图中的1和3满足路径删除规则：</strong><br><img src="/2025/04/17/Graph/DFS1.png" alt="alt text"><br><img src="/2025/04/17/Graph/DFS2.png" alt="alt text"></p>
-<ol>
-<li>无权图中从顶点$v$到顶点$w$的最短路径<br>使用BFS</li>
-</ol>
-<h3 id="遍历与图的连通性"><a href="#遍历与图的连通性" class="headerlink" title="遍历与图的连通性"></a>遍历与图的连通性</h3><p>关节点与桥：</p>
-<p><img src="/2025/04/17/Graph/关节点与桥.png" alt="alt text"></p>
-<p><strong><em>注意：无向连通图的顶点度都为偶数，则该图没有桥</em></strong></p>
-<h2 id="最小生成树"><a href="#最小生成树" class="headerlink" title="最小生成树"></a>最小生成树</h2><p><strong>无向连通图的生成树:包含图中全部n个顶点，但仅有 $n-1$ 条边的连通子图</strong><br>满足以下条件：</p>
-<ul>
-<li>生成树上删除一边则不再连通</li>
-<li>生成树上添加一条边则一定会产生回路</li>
-<li>生成树可以理解为’极小’连通图，且可以不唯<br><img src="/2025/04/17/Graph/最小生成树.png" alt="alt text"></li>
-</ul>
-<p><strong>最小生成树：</strong></p>
-<ul>
-<li><strong>赋权图生成树的权</strong>:组成生成树的 $n-1$ 条边的权之和</li>
-<li><strong>生成树的权不大于其它任何生成树，称为最小生成树</strong></li>
-<li>如果<strong>图中有相等权值的边</strong>，则MST可能不唯一</li>
-</ul>
-<h3 id="Prim算法"><a href="#Prim算法" class="headerlink" title="Prim算法"></a>Prim算法</h3><p><strong>本质上是一种贪心算法，每次选择权值最小的边</strong><br><img src="/2025/04/17/Graph/Prim算法1.png" alt="alt text"><br><img src="/2025/04/17/Graph/Prim算法2.png" alt="alt text"></p>
-<p>对于<strong>邻接矩阵和邻接表来说，时间复杂度都为 $O(n^2)$</strong><br>这是因为：每次迭代需要遍历所有 $n$ 个顶点来寻找最小权重边，找到新顶点后，需要遍历邻接矩阵中该顶点的所有 $n$ 个邻接点来更新权重，总时间 $O(n^2)$</p>
-<blockquote>
-<p><strong>为什么Prim算法得到的一定是MST？</strong></p>
-<p><strong>Prim算法</strong>一定能得到最小生成树（MST）的根本原因在于其设计严格遵循了MST的<strong>两个核心数学性质</strong>，并通过<strong>贪心策略</strong>保证每一步选择的边都安全地属于MST。以下是详细解释：</p>
-<p><strong>​1. 切割定理（Cut Property）的保证</strong><br><mark>Prim算法的核心逻辑是：​每次选择连接”已选顶点集合（MST部分）”与”未选顶点集合”的最小权重边。</mark><br><strong>​切割定理：若将图划分为两个顶点集合（例如已选集合$U$和未选集合$V-U$），则连接这两个集合的最小权重边一定属于MST。</strong><br>​算法行为：每次选出的边，本质上就是当前切割（已选顶点与未选顶点之间的分割）的最小权重边。</p>
-<p><strong>​2. 无环性的维护</strong><br>​顶点增量扩展：算法每次仅将一个新顶点加入已选集合$U$<mark>且该顶点从未属于$U$</mark>。<br>​边连接方式：新加入的边始终连接$U$和$V-U$，<mark>不会在$U$内部形成回路，也不会在$V-U$内部形成回路</mark>。<br>​树形结构保持：已选边集<mark>始终构成一棵树（无环且连通）</mark>，直到覆盖所有顶点。</p>
-<p><strong>​3. 贪心策略的全局最优性</strong><br>​局部最优蕴含全局最优：<strong>通过归纳法可证明，每次选择的局部最优边最终能组合成全局最优解：</strong><br>​初始状态：空树是MST的平凡情况（权值和为0）。<br>​归纳假设：假设前k步已选择的边构成某棵MST的边子集。<br>​递推步骤：根据切割定理，第k+1步选择的边必然属于某棵MST，最终所有顶点加入后，整体构成MST。</p>
-</blockquote>
-<h3 id="Kruskal算法"><a href="#Kruskal算法" class="headerlink" title="Kruskal算法"></a>Kruskal算法</h3><p><strong>也是一种贪心算法，重要特征是放弃环路.<mark>环路的判断采用等价类思想(并查集)</mark>，将已连通的顶点均用其中一个顶点代表</strong></p>
-<p>算法步骤：<br><img src="/2025/04/17/Graph/Kruskal算法.png" alt="alt text"></p>
-<p><strong>算法复杂度为：$O(eloge)$</strong></p>
-<h2 id="最短路径"><a href="#最短路径" class="headerlink" title="最短路径"></a>最短路径</h2><blockquote>
-<p>一些特点：</p>
-<ul>
-<li><strong><em>最短路径存在的<mark>充要条件</mark>：图中不存在负环。</em></strong></li>
-<li><strong><em>正权图中，如果存在最短路径，则一定不包含环</em></strong></li>
-<li><strong><em>最短路径中任意一段也是局部最短路径（整体最优蕴含了局部最优）</em></strong></li>
-</ul>
-</blockquote>
-<h3 id="Dijkstra算法-单源最短路径"><a href="#Dijkstra算法-单源最短路径" class="headerlink" title="Dijkstra算法(单源最短路径)"></a>Dijkstra算法(单源最短路径)</h3><p><mark><strong>算法的时间复杂度为：$O(n^2)$</strong></mark></p>
-<p><img src="/2025/04/17/Graph/Dijkstra.png" alt="alt text"></p>
-<p>图示：<br><img src="/2025/04/17/Graph/D算法1.png" alt="alt text"><br><img src="/2025/04/17/Graph/D算法2.png" alt="alt text"><br><img src="/2025/04/17/Graph/D算法3.png" alt="alt text"></p>
-<h3 id="Floyd算法-全源最短路径"><a href="#Floyd算法-全源最短路径" class="headerlink" title="Floyd算法(全源最短路径)"></a>Floyd算法(全源最短路径)</h3><p><strong>若对每个顶点使用Dijkstra算法，则算法复杂度为$O(n^3)$</strong></p>
-<p><strong>Floyd算法的复杂度也为$O(n^3)$，但是它允许负权边，不允许包含负回路</strong></p>
-<p>算法思想：<br><img src="/2025/04/17/Graph/Floyd算法.png" alt="alt text"></p>
-<p>比如：<br><img src="/2025/04/17/Graph/Floyd算法1.png" alt="alt text"><br><img src="/2025/04/17/Graph/Floyd算法2.png" alt="alt text"></p>
-<p>或者采用逐步加入顶点的思想来理解：<br><img src="/2025/04/17/Graph/F算法3.png" alt="alt text"></p>
-<p><img src="/2025/04/17/Graph/F算法4.png" alt="alt text"></p>
-<p><img src="/2025/04/17/Graph/F算法5.png" alt="alt text"></p>
-<p><img src="/2025/04/17/Graph/F算法6.png" alt="alt text"></p>
-<h3 id="Bellman-Ford算法"><a href="#Bellman-Ford算法" class="headerlink" title="Bellman-Ford算法"></a>Bellman-Ford算法</h3><p><strong>重要思想：边松弛</strong><br><img src="/2025/04/17/Graph/边松弛.png" alt="alt text"></p>
-<p>比如：<br><img src="/2025/04/17/Graph/B算法1.png" alt="alt text"><br><img src="/2025/04/17/Graph/B算法2.png" alt="alt text"><br><img src="/2025/04/17/Graph/B算法3.png" alt="alt text"></p>
-<h3 id="算法对比"><a href="#算法对比" class="headerlink" title="算法对比"></a>算法对比</h3><p><img src="/2025/04/17/Graph/算法对比.png" alt="alt text"></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>栈和队列</title>
-    <url>/2025/03/17/StackAndQueue/</url>
-    <content><![CDATA[<h1 id="栈和队列"><a href="#栈和队列" class="headerlink" title="栈和队列"></a>栈和队列</h1><blockquote>
-<p><strong>栈、队列、双端队列均是线性表的特殊情况（访问受限的线性表）</strong></p>
-<p><img src="/2025/03/17/StackAndQueue/访问受限的线性表.png" alt="alt text"></p>
-</blockquote>
-<h2 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h2><ul>
-<li>允许插入、删除的一端称为<mark>栈顶(top)</mark>，另一端称为<mark>栈底(bottom)</mark></li>
-<li>在栈顶插入元素称为<mark>入栈(push)</mark>，删除元素称为<mark>出栈(pop)</mark></li>
-</ul>
-<h3 id="顺序栈——栈的顺序存储实现"><a href="#顺序栈——栈的顺序存储实现" class="headerlink" title="顺序栈——栈的顺序存储实现"></a>顺序栈——栈的顺序存储实现</h3><p><strong>顺序栈存储空间的处理</strong><br><img src="/2025/03/17/StackAndQueue/顺序栈存储空间的处理.png" alt="alt text"></p>
-<p><strong>顺序栈的特点</strong>：</p>
-<ol>
-<li>顺序栈的入栈和出栈、构造和销毁的<mark>复杂度都是$O(1)$</mark></li>
-<li>可以采用溢出时增容，或者<mark>共享栈</mark>的方式提高空间利用率</li>
-</ol>
-<h3 id="链式栈——栈的链式存储分配实现"><a href="#链式栈——栈的链式存储分配实现" class="headerlink" title="链式栈——栈的链式存储分配实现"></a>链式栈——栈的链式存储分配实现</h3><p><strong>链式栈的特点</strong>：</p>
-<ol>
-<li>链式栈的<mark>入栈和出栈复杂度为$O(1)$</mark>，<mark>构造和销毁的复杂度是$O(n)$<strong>(需要逐个释放/创建)</strong></mark></li>
-<li>栈的长度动态变化，空间利用率高，一般<mark>无需判断溢出</mark></li>
-</ol>
-<h3 id="栈的应用"><a href="#栈的应用" class="headerlink" title="栈的应用"></a>栈的应用</h3><ul>
-<li><p><strong>十进制数到二进制数的转换</strong><br><img src="/2025/03/17/StackAndQueue/十进制转二进制.png" alt="alt text"><br><br></p>
-</li>
-<li><p><strong>算术表达式求值的栈实现</strong></p>
-<p>  中缀表达式实现步骤：</p>
-<ol>
-<li>初始化:结束符‘#’入栈：<code>Sr.Push(‘#’)</code></li>
-<li>如果W是操作数则入栈：<code>Sd.Push(W)</code></li>
-<li>若W为运算符，则有以下几种情况:<ol>
-<li>若W优先级高于Sr栈顶元素则入栈：<code>Sr.Push(W)</code></li>
-<li>若W优先级低于Sr栈顶元素则执行运算操作:<br> <code>Sd.Pop(x1);</code><br> <code>Sd.Pop(x2);</code><br> <code>Sr.Pop(@);</code><br> <code>Sd.Push(x2@X1);</code></li>
-<li>若W等于Sr栈顶元素则弹出Sr栈顶元素</li>
-</ol>
-</li>
-<li><p>Sd即为运算结果<br><br></p>
-<p>中缀转后缀表达式：<br>维护两个栈：运算符(OP)和结果栈(R)</p>
-</li>
-</ol>
-<ul>
-<li>扫描到操作数，R入栈;扫描到’(‘，OP入栈</li>
-<li>扫描到运算符:<br>  当前运算符优先级高于OP栈顶元紊优先级，OP入栈<br>  否则，则OP栈出栈，R栈入栈</li>
-<li>扫描到’)’，OP出栈，到pop出’)’为止。如果pop出的元素不是’(‘或’)’，则将元素压入R<br><img src="/2025/03/17/StackAndQueue/后缀表达式.png" alt="alt text"></li>
-</ul>
-</li>
-</ul>
-<h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><blockquote>
-<p><strong>适用情况：问题可以<mark>收敛</mark></strong></p>
-</blockquote>
-<ul>
-<li><p><strong>阶乘求值</strong><br><img src="/2025/03/17/StackAndQueue/阶乘求值.png" alt="alt text"><br><br><br><br></p>
-</li>
-<li><p><strong>阿克曼函数</strong><br>特点：随着输入值的增加，函数的值<strong>增长得非常快</strong><br>定义如下：<br><img src="/2025/03/17/StackAndQueue/阿克曼函数定义.png" alt="alt text"><br>  递归实现：</p>
-  <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">c</span><span class="params">(<span class="type">int</span> m, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(m == <span class="number">0</span>) <span class="keyword">return</span> n + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(n == <span class="number">0</span> &amp;&amp; m &gt; <span class="number">0</span>) <span class="keyword">return</span> <span class="built_in">c</span>(m - <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">if</span>(m &gt; <span class="number">0</span> &amp;&amp; n &gt; <span class="number">0</span>)<span class="keyword">return</span> <span class="built_in">c</span>(m - <span class="number">1</span>, <span class="built_in">c</span>(m, n - <span class="number">1</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> a, b;</span><br><span class="line">    cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">c</span>(a, b);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><br><br><br></p>
-</li>
-<li><p><strong>斐波那契数列</strong><br>递归定义：<br><img src="/2025/03/17/StackAndQueue/斐波那契定义.png" alt="alt text"><br><br></p>
-<p>  递归实现：<br>  <img src="/2025/03/17/StackAndQueue/斐波那契实现.png" alt="alt text"><br>  F(5)的栈调用情况：<br>  <img src="/2025/03/17/StackAndQueue/斐波那契栈调用.png" alt="alt text"><br><br><br><br></p>
-</li>
-<li><p><strong>最大公约数</strong><br>定义：可以同时除尽两个正整数的最大的正整数<br><img src="/2025/03/17/StackAndQueue/最大公约数.png" alt="alt text"><br><br></p>
-<p>  递归实现：</p>
-  <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">long</span> <span class="title">gcd</span><span class="params">(<span class="type">unsigned</span> <span class="type">long</span> a,<span class="type">unsigned</span> <span class="type">long</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> r = a % b;</span><br><span class="line">    <span class="keyword">if</span>(r != <span class="number">0</span>) <span class="keyword">return</span> <span class="built_in">gcd</span>(b，r);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><br><br><br></p>
-</li>
-<li><p><strong>互递归</strong><br>定义：一种非直接递归，两个函数互相借助对方定义<br>示例：<br><img src="/2025/03/17/StackAndQueue/互递归.png" alt="alt text"><br><br><br><br></p>
-</li>
-<li><p><strong>汉诺塔问题</strong><br>递归步骤：<br><img src="/2025/03/17/StackAndQueue/汉诺塔.png" alt="alt text"><br><br></p>
-<p>  递归实现：<br>  <img src="/2025/03/17/StackAndQueue/汉诺塔实现.png" alt="alt text"><br>  <strong><em>先把 n - 1 个移动到y，然后移动最底下的到z，然后把 n - 1 个从y移动到z</em></strong><br><br></p>
-<p>  复杂度分析：<br>  <img src="/2025/03/17/StackAndQueue/汉诺塔复杂度分析.png" alt="alt text"><br><br><br><br></p>
-</li>
-</ul>
-<h3 id="递归的消去"><a href="#递归的消去" class="headerlink" title="递归的消去"></a>递归的消去</h3><h4 id="尾递归"><a href="#尾递归" class="headerlink" title="尾递归"></a>尾递归</h4><p>定义：函数最后操作时<strong>递归调用或平凡返回</strong>（<mark>返回已经存在的值</mark>）</p>
-<blockquote>
-<p><strong>为什么需要尾递归？</strong><br>对于非尾递归来说，由于最后的返回值需要额外计算，因此<mark>经历了创建栈帧、销毁栈帧的过程，可能导致栈溢出</mark>。</p>
-<p>以计算阶乘的普通递归实现为例:<br><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">factorial</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">       <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">   <span class="keyword">else</span></span><br><span class="line">       <span class="keyword">return</span> n * <span class="built_in">factorial</span>(n - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>当调用<code>factorial(3)</code>时，执行过程如下：</p>
-<p>调用<code>factorial(3)</code>，<mark>创建栈帧A</mark>，保存参数n=3。<br>执行到<code>return n * factorial(n - 1)</code>时，需要先计算<code>factorial(2)</code>的值。</p>
-<p>调用<code>factorial(2)</code>，<mark>创建新的栈帧B</mark>，保存参数n=2。<br>执行到<code>return n * factorial(n - 1)</code>时，需要先计算<code>factorial(1)</code>的值。</p>
-<p>调用<code>factorial(1)</code>，<mark>创建新的栈帧C</mark>，保存参数n=1。<br>执行到<code>return n * factorial(n - 1)</code>时，需要先计算<code>factorial(0)</code>的值。</p>
-<p>调用<code>factorial(0)</code>，<mark>创建新的栈帧D</mark>，保存参数n=0。<br>执行到return 1，返回值1，销毁栈帧D。</p>
-<p>栈帧C继续执行，计算1 <em> 1=1，返回值1，<mark>销毁栈帧C</mark>。<br>栈帧B继续执行，计算2 </em> 1=2，返回值2，<mark>销毁栈帧B</mark>。<br>栈帧A继续执行，计算3 * 2=6，返回值6，<mark>销毁栈帧A</mark>。</p>
-<p><strong><em>在这个过程中，每次递归调用都会创建新的栈帧，栈帧数量随着递归深度增加而增加，可能导致栈溢出，并且每次创建和销毁栈帧都会带来性能开销。</em></strong></p>
-</blockquote>
-<p><br></p>
-<p><strong>尾递归优化的执行过程：</strong><br><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">factorial_tail</span><span class="params">(<span class="type">int</span> n, <span class="type">int</span> acc)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> acc;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">factorial_tail</span>(n - <span class="number">1</span>, n * acc);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>初始调用时，acc的初始值为1。例如，计算<code>factorial_tail(3, 1)</code>的执行过程如下：<br>调用<code>factorial_tail(3, 1)</code>，<mark>创建栈帧A</mark>，保存参数n=3，acc=1。</p>
-<p>执行到<code>return factorial_tail(n - 1, n * acc)</code>时，计算新的参数值n-1=2，n <em> acc=3</em>1=3。<br>调用<code>factorial_tail(2, 3)</code>，<mark>复用栈帧A</mark>，更新参数n=2，acc=3。</p>
-<p>执行到<code>return factorial_tail(n - 1, n * acc)</code>时，计算新的参数值n-1=1，n <em> acc=2</em>3=6。<br>调用<code>factorial_tail(1, 6)</code>，<mark>复用栈帧A</mark>，更新参数n=1，acc=6。</p>
-<p>执行到<code>return factorial_tail(n - 1, n * acc)</code>时，计算新的参数值n-1=0，n <em> acc=1</em>6=6。<br>调用<code>factorial_tail(0, 6)</code>，<mark>复用栈帧A</mark>，更新参数n=0，acc=6。</p>
-<p>执行到<code>return acc</code>，返回值6，<mark>销毁栈帧A</mark>。</p>
-<p><strong><em>在这个过程中，每次递归调用复用当前栈帧，不需要创建新的栈帧，因此栈帧数量始终保持为1，不会导致栈溢出，并且避免了创建和销毁栈帧的性能开销。</em></strong><br><br></p>
-<p><strong>底层原理</strong><br><strong>尾递归优化的关键在于编译器能够识别出尾递归调用，并将其转换为循环操作</strong>。具体来说，当编译器检测到一个函数调用是尾递归时，它会生成代码来复用当前的栈帧，而不是创建新的栈帧。这通常是通过将递归调用的参数更新到当前栈帧的变量中，并跳转到函数的开头重新执行来实现的。<br><br></p>
-<p><strong>常见简单问题的尾递归实现</strong><br><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//TODO...</span></span><br></pre></td></tr></table></figure><br><br><br><br></p>
-<h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2><blockquote>
-<p><strong>定义：限制数据一端插入，另一端删除的特殊线性表</strong></p>
-<ul>
-<li>允许插入的一端称为<mark>队尾(rear)</mark>，允许删除的一端称为<mark>队头(front)</mark></li>
-<li>入队为<mark>Enqueue</mark>，出队为<mark>Dequeue</mark><br><br></li>
-</ul>
-</blockquote>
-<h3 id="顺序队列"><a href="#顺序队列" class="headerlink" title="顺序队列"></a>顺序队列</h3><h4 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h4><p><img src="/2025/03/17/StackAndQueue/顺序队列的存储.png" alt="alt text"><br><br></p>
-<h4 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h4><p><img src="/2025/03/17/StackAndQueue/顺序队列的操作.png" alt="alt text"><br><img src="/2025/03/17/StackAndQueue/顺序队列的操作2.png" alt="alt text"><br><strong>假溢出</strong>：rear已经到达数组末尾，尽管队列中仍有空闲空间（front之前的位置），但由于rear无法继续向后移动，导致假溢出。<br><br></p>
-<h3 id="循环队列——解决假溢出问题"><a href="#循环队列——解决假溢出问题" class="headerlink" title="循环队列——解决假溢出问题"></a>循环队列——解决假溢出问题</h3><blockquote>
-<p><strong><em>顺序数列无法利用队头指针之前的空间，因此假溢出的本质是没有完全利用数组空间。而循环数列通过连成环解决了这一问题。由于首尾相接，因此循环队列需要做的只是找到判空和判满的办法。</em></strong><br><br><br><img src="/2025/03/17/StackAndQueue/循环队列.png" alt="alt text"></p>
-</blockquote>
-<p><br></p>
-<ul>
-<li><p><strong>方法一：留出空位</strong><br><img src="/2025/03/17/StackAndQueue/留出空位.png" alt="alt text"><br>  判断条件：</p>
-<ol>
-<li>队列为空：<strong>front == rear</strong></li>
-<li>队列为满：<strong>front == (rear + 1) % max</strong><br><br></li>
-</ol>
-</li>
-<li><p><strong>其他方法易于理解</strong>：<br><img src="/2025/03/17/StackAndQueue/其他方法.png" alt="alt text"><br><br><br><br></p>
-</li>
-</ul>
-<h3 id="链式队列——链式存储方式"><a href="#链式队列——链式存储方式" class="headerlink" title="链式队列——链式存储方式"></a>链式队列——链式存储方式</h3><p>和链表的逻辑一致，易于理解：<br><img src="/2025/03/17/StackAndQueue/链式队列.png" alt="alt text"></p>
-<h3 id="优先队列"><a href="#优先队列" class="headerlink" title="优先队列"></a>优先队列</h3><p>易于理解：<br><img src="/2025/03/17/StackAndQueue/优先队列.png" alt="alt text"></p>
-<h3 id="队列的应用：杨辉三角"><a href="#队列的应用：杨辉三角" class="headerlink" title="队列的应用：杨辉三角"></a>队列的应用：杨辉三角</h3><p><img src="/2025/03/17/StackAndQueue/杨辉三角.png" alt="alt text"><br><br></p>
-<h4 id="具体实现："><a href="#具体实现：" class="headerlink" title="具体实现："></a>具体实现：</h4><p>先进队一个1</p>
-<blockquote>
-<p>此时队列： 1      （这样我们就得到了杨辉三角的第一行）</p>
-</blockquote>
-<p><br><br><br></p>
-<p>第一步：在队尾<mark>进队一个1</mark></p>
-<blockquote>
-<p>此时队列：1 1</p>
-</blockquote>
-<p><strong>循环0次</strong>（这里相当于没有进行操作）（看不懂就往下看）</p>
-<blockquote>
-<p>此时队列：1 1</p>
-</blockquote>
-<p>在队尾<mark>进队一个1</mark></p>
-<blockquote>
-<p>1 1 1</p>
-</blockquote>
-<p><mark>出队队头的一个1</mark></p>
-<blockquote>
-<p>1 1              （这样我们就得到了杨辉三角的第二行）</p>
-</blockquote>
-<p>（这里看不懂没关系，接着看就懂了）<br><br><br><br></p>
-<p>第二步：在队尾<mark>进队一个1</mark>（与第一步中相同操作）</p>
-<blockquote>
-<p>1 1 1</p>
-</blockquote>
-<p><strong>循环一次：进队队头两个元素的和（1+1=2），即进队2</strong>；</p>
-<blockquote>
-<p>1 1 1 2</p>
-</blockquote>
-<p><strong>再出队队头的一个元素（1）。这两个操作为一次循环</strong>。</p>
-<blockquote>
-<p>1 1 2</p>
-</blockquote>
-<p>在队尾<mark>进队一个1</mark>（与第一步中相同操作）</p>
-<blockquote>
-<p>1 1 2 1</p>
-</blockquote>
-<p><mark>出队队头的一个1</mark></p>
-<blockquote>
-<p>1 2 1            （这样我们就得到了杨辉三角的第三行）</p>
-</blockquote>
-<p><br><br><br></p>
-<p>第三步：</p>
-<p>在队尾<mark>进队一个1</mark>（与第一步中相同操作）</p>
-<blockquote>
-<p>1 2 1 1</p>
-</blockquote>
-<p><strong>循环两次：第一次进队队头两个元素的和（1+2=3），即进队3</strong>；</p>
-<blockquote>
-<p>1 2 1 1 3</p>
-</blockquote>
-<p><strong>再出队队头的一个元素（1）。这两个操作为一次循环</strong>。</p>
-<blockquote>
-<p>2 1 1 3</p>
-</blockquote>
-<p><strong>第二次再进队队头两个元素的和（2+1=3），即进队3</strong>；</p>
-<blockquote>
-<p>2 1 1 3 3</p>
-</blockquote>
-<p><strong>再出队队头的一个元素（2）。这两个操作为第二次循环</strong>。</p>
-<blockquote>
-<p>1 1 3 3</p>
-</blockquote>
-<p>在队尾<mark>进队一个1</mark>（与第一步中相同操作）</p>
-<blockquote>
-<p>1 1 3 3 1</p>
-</blockquote>
-<p><mark>出队队头的一个1</mark></p>
-<blockquote>
-<p>1 3 3 1           （这样我们就得到了杨辉三角的第四行）</p>
-</blockquote>
-<p><br></p>
-<blockquote>
-<p>经过上面的三步操作，不难看出，每一步都分为<mark>三个部分</mark>。即：<strong><em>进1；循环；进1出1</em></strong>。所以我们可以控制重复上述步骤的次数，打印出想要的杨辉三角的层数。（并且可以看出，<strong>第一步循环0次；第二步循环1次；第三步循环2次。即循环次数为步数-1</strong>）</p>
-</blockquote>
-<p><br></p>
-<h3 id="双栈实现队列"><a href="#双栈实现队列" class="headerlink" title="双栈实现队列"></a>双栈实现队列</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//TODO...</span></span><br></pre></td></tr></table></figure>
 ]]></content>
   </entry>
 </search>
