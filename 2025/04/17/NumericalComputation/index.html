@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="manifest" href="/manifest.json">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"tttb0521.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="数据结构与算法——数值计算">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数值计算">
+<meta property="og:url" content="https://tttb0521.github.io/2025/04/17/NumericalComputation/index.html">
+<meta property="og:site_name" content="TTTb">
+<meta property="og:description" content="数据结构与算法——数值计算">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/17/NumericalComputation/%E6%9C%89%E6%95%88%E6%95%B0%E5%AD%97.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/17/NumericalComputation/%E6%9C%89%E6%95%88%E6%95%B0%E5%AD%97%E5%92%8C%E7%9B%B8%E5%AF%B9%E8%AF%AF%E5%B7%AE.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/17/NumericalComputation/%E6%9C%89%E6%95%88%E6%95%B0%E5%AD%97%E4%BE%8B%E9%A2%98.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/17/NumericalComputation/%E8%AF%AF%E5%B7%AE%E6%9D%A5%E6%BA%90.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/17/NumericalComputation/%E6%95%B0%E6%8D%AE%E8%AF%AF%E5%B7%AE%E5%92%8C%E8%AE%A1%E7%AE%97%E8%AF%AF%E5%B7%AE.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/17/NumericalComputation/%E6%88%AA%E6%96%AD%E8%AF%AF%E5%B7%AE.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/17/NumericalComputation/%E8%88%8D%E5%85%A5%E8%AF%AF%E5%B7%AE.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/17/NumericalComputation/%E5%90%91%E5%89%8D%E5%90%91%E5%90%8E%E8%AF%AF%E5%B7%AE%E4%BE%8B%E9%A2%98.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/17/NumericalComputation/%E6%9D%A1%E4%BB%B6%E6%95%B0.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/17/NumericalComputation/%E5%8F%AF%E5%BE%AE%E5%87%BD%E6%95%B0%E6%B1%82%E5%80%BC.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/17/NumericalComputation/%E6%B5%AE%E7%82%B9%E6%95%B0.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/17/NumericalComputation/%E5%8D%95%E7%B2%BE%E5%BA%A6%E5%92%8C%E5%8F%8C%E7%B2%BE%E5%BA%A6.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/17/NumericalComputation/%E5%88%86%E5%B8%83.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/17/NumericalComputation/%E8%88%8D%E5%85%A5%E5%8E%9F%E5%88%99.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/17/NumericalComputation/%E6%9C%BA%E5%99%A8%E7%B2%BE%E5%BA%A6.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/17/NumericalComputation/%E7%89%B9%E6%AE%8A%E5%80%BC.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/17/NumericalComputation/%E6%B5%AE%E7%82%B9%E8%BF%90%E7%AE%97.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/17/NumericalComputation/%E6%B5%AE%E7%82%B9%E8%BF%90%E7%AE%97%E4%BE%8B%E9%A2%98.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/17/NumericalComputation/%E8%BF%90%E7%AE%97%E5%AE%9A%E5%BE%8B%E4%B8%8D%E6%BB%A1%E8%B6%B3.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/17/NumericalComputation/%E6%8A%B5%E6%B6%88.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/17/NumericalComputation/%E6%8A%B5%E6%B6%88%E4%BE%8B%E9%A2%981.png">
+<meta property="og:image" content="https://tttb0521.github.io/2025/04/17/NumericalComputation/%E6%8A%B5%E6%B6%88%E4%BE%8B%E9%A2%982.png">
+<meta property="article:published_time" content="2025-04-16T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-05-22T15:09:13.182Z">
+<meta property="article:author" content="Jeffery Tang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tttb0521.github.io/2025/04/17/NumericalComputation/%E6%9C%89%E6%95%88%E6%95%B0%E5%AD%97.png">
+
+
+<link rel="canonical" href="https://tttb0521.github.io/2025/04/17/NumericalComputation/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://tttb0521.github.io/2025/04/17/NumericalComputation/","path":"2025/04/17/NumericalComputation/","title":"数值计算"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>数值计算 | TTTb</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">TTTb</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">日拱一卒，功不唐捐</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97"><span class="nav-number">1.</span> <span class="nav-text">数值计算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%91%E4%BC%BC%E4%B8%8E%E8%AF%AF%E5%B7%AE"><span class="nav-number">1.1.</span> <span class="nav-text">近似与误差</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AF%E5%B7%AE"><span class="nav-number">1.1.1.</span> <span class="nav-text">误差</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AF%E5%B7%AE%E6%9D%A5%E6%BA%90"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">误差来源</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%BF%90%E7%AE%97"><span class="nav-number">1.1.2.</span> <span class="nav-text">计算机运算</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B5%AE%E7%82%B9%E6%95%B0"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">浮点数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#IEEE%E6%A0%87%E5%87%86%E6%B5%AE%E7%82%B9%E6%95%B0%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.1.2.1.1.</span> <span class="nav-text">IEEE标准浮点数系统</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%AD%A3%E8%A7%84%E5%8C%96"><span class="nav-number">1.1.2.1.2.</span> <span class="nav-text">正规化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%88%8D%E5%85%A5"><span class="nav-number">1.1.2.1.3.</span> <span class="nav-text">舍入</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E7%B2%BE%E5%BA%A6"><span class="nav-number">1.1.2.1.4.</span> <span class="nav-text">机器精度</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E5%80%BC"><span class="nav-number">1.1.2.1.5.</span> <span class="nav-text">特殊值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B5%AE%E7%82%B9%E8%BF%90%E7%AE%97"><span class="nav-number">1.1.2.1.6.</span> <span class="nav-text">浮点运算</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8A%B5%E6%B6%88"><span class="nav-number">1.1.2.1.7.</span> <span class="nav-text">抵消</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Jeffery Tang</p>
+  <div class="site-description" itemprop="description">Welcome to my world!</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://tttb0521.github.io/2025/04/17/NumericalComputation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeffery Tang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TTTb">
+      <meta itemprop="description" content="Welcome to my world!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="数值计算 | TTTb">
+      <meta itemprop="description" content="数据结构与算法——数值计算">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          数值计算
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-04-17 00:00:00" itemprop="dateCreated datePublished" datetime="2025-04-17T00:00:00+08:00">2025-04-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-05-22 23:09:13" itemprop="dateModified" datetime="2025-05-22T23:09:13+08:00">2025-05-22</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">数据结构与算法——数值计算</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="数值计算"><a href="#数值计算" class="headerlink" title="数值计算"></a>数值计算</h1><h2 id="近似与误差"><a href="#近似与误差" class="headerlink" title="近似与误差"></a>近似与误差</h2><h3 id="误差"><a href="#误差" class="headerlink" title="误差"></a>误差</h3><ol>
+<li><p>绝对误差 = 近似值 - 真值</p>
+<ul>
+<li>精确度:近似某个量时有效数字的位数</li>
+<li>精度:表示数的数字个数(不一定都是有效数字)</li>
+</ul>
+</li>
+<li><p>相对误差 = 绝对误差 / 真值(真值 ≠ 0)</p>
+</li>
+<li><p>近似值 = 真值 x (1 + 相对误差)</p>
+</li>
+</ol>
+<p><strong>相对误差限 = 绝对误差限 / 近似值</strong><br>计算过程中误差可能传递、积累或者是对消</p>
+<p><strong>有效数字</strong><br><img src="/2025/04/17/NumericalComputation/有效数字.png" alt="alt text"></p>
+<p><strong>相对误差</strong><br><img src="/2025/04/17/NumericalComputation/有效数字和相对误差.png" alt="alt text"></p>
+<blockquote>
+<p><strong>例题：</strong><br><img src="/2025/04/17/NumericalComputation/有效数字例题.png" alt="alt text"></p>
+</blockquote>
+<h4 id="误差来源"><a href="#误差来源" class="headerlink" title="误差来源"></a>误差来源</h4><p><img src="/2025/04/17/NumericalComputation/误差来源.png" alt="alt text"></p>
+<p><strong>数据误差和计算误差</strong><br>计算误差是在输入有误差的情况下产生的（<strong>因为因为误差是必然的</strong>），数据误差是在算法无误差的情况下产生的<br><img src="/2025/04/17/NumericalComputation/数据误差和计算误差.png" alt="alt text"></p>
+<p><strong>计算误差包括截断误差和舍入误差</strong><br><img src="/2025/04/17/NumericalComputation/截断误差.png" alt="alt text"><br><img src="/2025/04/17/NumericalComputation/舍入误差.png" alt="alt text"></p>
+<p><strong><em>有限次求解的纯代数问题中，舍入误差主导;</em></strong><br><strong><em>涉及积分、导数、非线性等无限求解的问题，截断误差主导</em></strong></p>
+<p><strong>向前误差与向后误差</strong><br>向前误差:<strong>计算值与真值</strong>之间的偏差，通常比较难以估计<br>向后误差:输入数据有多大误差才能产生最终的计算值</p>
+<p>若问题的近似解是其”邻近”问题的精确解<mark>(<strong>向后误差小</strong>)</mark>，则认为近似是好的</p>
+<blockquote>
+<p><strong>例题：</strong><br><img src="/2025/04/17/NumericalComputation/向前向后误差例题.png" alt="alt text"></p>
+</blockquote>
+<p><strong>敏感性和病态性</strong><br><strong>良态/不敏感</strong>: 在假设计算过程完全精确的前提下，如果<strong>输入数据的相对变化对于解的变化影响不大</strong>，就称问题是不敏感或良态的;</p>
+<p><strong>病态/敏感</strong>: 如果<strong>解的相对变化程度远超输入数据的变化</strong>，就称问题是敏感或者病态的</p>
+<p><strong>敏感性定量分析：条件数</strong><br><img src="/2025/04/17/NumericalComputation/条件数.png" alt="alt text"></p>
+<p>对于可微函数求值问题：<br><img src="/2025/04/17/NumericalComputation/可微函数求值.png" alt="alt text"></p>
+<p><strong><em>对良态问题采用稳定的算法才会得到精确的解</em></strong></p>
+<h3 id="计算机运算"><a href="#计算机运算" class="headerlink" title="计算机运算"></a>计算机运算</h3><h4 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h4><p><img src="/2025/04/17/NumericalComputation/浮点数.png" alt="alt text"></p>
+<p>计算机中<strong>符号、指数、尾数</strong>均存储于<strong>定长</strong>的单独域中<br>零可以用<strong>尾数和指数都为零</strong>的浮点数表示<br>IEEE的<strong>单精度(32)与双精度(64)二进制浮点数</strong>应用最为广泛</p>
+<h5 id="IEEE标准浮点数系统"><a href="#IEEE标准浮点数系统" class="headerlink" title="IEEE标准浮点数系统"></a>IEEE标准浮点数系统</h5><p><img src="/2025/04/17/NumericalComputation/单精度和双精度.png" alt="alt text"></p>
+<h5 id="正规化"><a href="#正规化" class="headerlink" title="正规化"></a>正规化</h5><p><strong>首位的限制（β-1种选择）</strong><br>​正规化条件：要求尾数 m 满足<mark> <strong>​1 ≤ m &lt; β​（即小数点后第一个有效数字不能为0）</strong> </mark></p>
+<p>​数学约束：若基数为 β，首位数字 d₀ 的取值范围只能是 ​1, 2, …, β-1​（共 β-1 种选择）</p>
+<blockquote>
+<p><strong>​例子：</strong></p>
+<p>十进制（β=10）：首位可以是 1-9（9种）<br>二进制（β=2）：首位只能是 1（1种，因此二进制正规化浮点数会隐含存储首位）</p>
+</blockquote>
+<p><strong>其余位的自由（β种选择）</strong><br>​精度最大化：除首位的其他 p-1 位允许数字 ​0 到 β-1​（共 β 种选择）</p>
+<p>​原因：</p>
+<p>首位已保证唯一性，后续位的自由度不影响唯一性<br>允许后续位包含 0，可表示更精细的小数（如 1.023 比 1.23 精度更高）</p>
+<blockquote>
+<p><strong>​例子：</strong></p>
+<p>十进制：第二位可以是 0-9（10种）<br>二进制：第二位可以是 0/1（2种）</p>
+</blockquote>
+<p>在正规化浮点系统中，<strong>U</strong> 和 <strong>L</strong> 分别表示 <strong>指数部分（阶码）的允许取值范围的上限和下限</strong>，即：</p>
+<ul>
+<li><strong>L</strong>（Lower Bound）：指数的最小值（最小阶码）</li>
+<li><strong>U</strong>（Upper Bound）：指数的最大值（最大阶码）</li>
+</ul>
+<hr>
+<blockquote>
+<p><strong>为什么是“指数”的上下限？</strong></p>
+<ol>
+<li><p><strong>浮点数总个数公式</strong>：<br>[<br>2(\beta - 1)\beta^{p-1}(U - L + 1) + 1<br>]</p>
+<ul>
+<li><strong>(U - L + 1)</strong> 表示指数可能的取值总数（例如，若 (L=-5), (U=10)，则共有 (10 - (-5) + 1 = 16) 种指数值）。  </li>
+<li>该部分直接影响浮点数的“覆盖范围”，指数范围越大，可表示的数越广。</li>
+</ul>
+</li>
+<li><p><strong>最小正数（UFL）和最大正数（OFL）的公式</strong>：  </p>
+<ul>
+<li><strong>UFL = (\beta^L)</strong>：最小正数由最小指数 (L) 决定（例如，(L=-126) 对应最小正规化数 (2^{-126})）。  </li>
+<li><strong>OFL = (\beta^{U+1}(1 - \beta^{-p}))</strong>：最大正数由最大指数 (U) 和尾数精度 (p) 共同决定（例如，(U=127) 对应 (2^{128}(1 - 2^{-24}))）。</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<hr>
+<p><strong>进一步说明</strong></p>
+<ul>
+<li><p><strong>指数的作用</strong>：<br>浮点数 (x) 可表示为：<br>[<br>x = \pm \left( d_0 + \frac{d_1}{\beta} + \cdots + \frac{d_{p-1}}{\beta^{p-1}} \right) \times \beta^e<br>]<br>其中 (e) 为指数（阶码），取值范围为 (L \leq e \leq U)。</p>
+</li>
+<li><p><strong>二进制特例</strong>：<br><mark>二进制（(\beta=2)）中，尾数首位 (d_0) 固定为 1 ，但指数范围 (L) 和 (U) 仍然独立定义数值的尺度</mark>（如 IEEE 754 单精度浮点数中 (L=-126), (U=127)）。</p>
+</li>
+</ul>
+<p><strong><em>超过OFL，或是小于UFL的数均不能表示；在表示范围内，浮点数并非均匀分布</em></strong><br><img src="/2025/04/17/NumericalComputation/分布.png" alt="alt text"></p>
+<h5 id="舍入"><a href="#舍入" class="headerlink" title="舍入"></a>舍入</h5><p><strong>截断:即向零舍入</strong><br><strong>最近舍入:取与x最接近的浮点数，相等时选取最未存储位为偶数的浮点数</strong><br><img src="/2025/04/17/NumericalComputation/舍入原则.png" alt="alt text"></p>
+<h5 id="机器精度"><a href="#机器精度" class="headerlink" title="机器精度"></a>机器精度</h5><p><img src="/2025/04/17/NumericalComputation/机器精度.png" alt="alt text"></p>
+<p>机器精度由尾数的位数决定，下溢限由指数域的尾数决定，两者的定义不同</p>
+<h5 id="特殊值"><a href="#特殊值" class="headerlink" title="特殊值"></a>特殊值</h5><p><img src="/2025/04/17/NumericalComputation/特殊值.png" alt="alt text"></p>
+<h5 id="浮点运算"><a href="#浮点运算" class="headerlink" title="浮点运算"></a>浮点运算</h5><p>一般的，<strong>浮点数运算结果与对应实数运算结果不同</strong></p>
+<p>当计算结果超出浮点系统范围时，也不能表示(上溢和下溢)，<strong>下溢可以当做零，但上溢往往是严重错误</strong><br><img src="/2025/04/17/NumericalComputation/浮点运算.png" alt="alt text"></p>
+<blockquote>
+<p><strong>例题</strong>：<br><img src="/2025/04/17/NumericalComputation/浮点运算例题.png" alt="alt text"></p>
+</blockquote>
+<p>某些实数域上的运算定律在浮点数集合中不满足<br><img src="/2025/04/17/NumericalComputation/运算定律不满足.png" alt="alt text"></p>
+<p>​右侧计算：$(1+ϵ)+ϵ$<br>$1+ϵ$ 会因 $ϵ&lt;ϵ_{mach}$而被舍入为 1；<br>再与 $ϵ$ 相加时，结果为 $1+ϵ$，仍被舍入为 1。</p>
+<p><strong>核心原因：</strong><br>​舍入规则：当中间结果的小数部分超出尾数精度 $p$ 时，必须舍入。<br>​阈值差异：$2ϵ$ 可能跨越 $ϵ_{mach}$，从而在后续加法中保留；单次 $ϵ$ 因小于 $ϵ_{mach}$被直接丢弃。</p>
+<p>“分配律”违背的原因也类似</p>
+<blockquote>
+<p>总之，​根本限制是<strong>浮点数的有限尾数位数 p 和固定基数 β</strong> 导致：<br>数值表示范围受限；<br>运算中超出精度的部分必须舍入，误差不可逆累积；<br>不同运算顺序可能触发不同次数的舍入，最终结果不同。</p>
+</blockquote>
+<p><strong><em>调和级数在实数域发散浮点数系统中直接运算，调和级数收敛</em></strong></p>
+<h5 id="抵消"><a href="#抵消" class="headerlink" title="抵消"></a>抵消</h5><p><img src="/2025/04/17/NumericalComputation/抵消.png" alt="alt text"></p>
+<blockquote>
+<p><strong>例题</strong>：<br><img src="/2025/04/17/NumericalComputation/抵消例题1.png" alt="alt text"><br><img src="/2025/04/17/NumericalComputation/抵消例题2.png" alt="alt text"></p>
+</blockquote>
+<p><strong><em>总结：通过选择其他公式避免原公式在计算时因为相近的数相减导致的“抵消”现象，可以避免最终的根非常接近</em></strong></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/03/29/TreeAndBinaryTree/" rel="prev" title="树与二叉树">
+                  <i class="fa fa-angle-left"></i> 树与二叉树
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/04/17/Graph/" rel="next" title="图">
+                  图 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Jeffery Tang</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">30k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">27 分钟</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        访客人数：<span id="busuanzi_value_site_uv"></span>人
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        浏览总量：<span id="busuanzi_value_site_pv"></span>次
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
