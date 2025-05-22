@@ -231,113 +231,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>数值计算</title>
-    <url>/2025/04/17/NumericalComputation/</url>
-    <content><![CDATA[<h1 id="数值计算"><a href="#数值计算" class="headerlink" title="数值计算"></a>数值计算</h1><h2 id="近似与误差"><a href="#近似与误差" class="headerlink" title="近似与误差"></a>近似与误差</h2><h3 id="误差"><a href="#误差" class="headerlink" title="误差"></a>误差</h3><ol>
-<li><p>绝对误差 = 近似值 - 真值</p>
-<ul>
-<li>精确度:近似某个量时有效数字的位数</li>
-<li>精度:表示数的数字个数(不一定都是有效数字)</li>
-</ul>
-</li>
-<li><p>相对误差 = 绝对误差 / 真值(真值 ≠ 0)</p>
-</li>
-<li><p>近似值 = 真值 x (1 + 相对误差)</p>
-</li>
-</ol>
-<p><strong>相对误差限 = 绝对误差限 / 近似值</strong><br>计算过程中误差可能传递、积累或者是对消</p>
-<p><strong>有效数字</strong><br><img src="/2025/04/17/NumericalComputation/有效数字.png" alt="alt text"></p>
-<p><strong>相对误差</strong><br><img src="/2025/04/17/NumericalComputation/有效数字和相对误差.png" alt="alt text"></p>
-<blockquote>
-<p><strong>例题：</strong><br><img src="/2025/04/17/NumericalComputation/有效数字例题.png" alt="alt text"></p>
-</blockquote>
-<h4 id="误差来源"><a href="#误差来源" class="headerlink" title="误差来源"></a>误差来源</h4><p><img src="/2025/04/17/NumericalComputation/误差来源.png" alt="alt text"></p>
-<p><strong>数据误差和计算误差</strong><br>计算误差是在输入有误差的情况下产生的（<strong>因为因为误差是必然的</strong>），数据误差是在算法无误差的情况下产生的<br><img src="/2025/04/17/NumericalComputation/数据误差和计算误差.png" alt="alt text"></p>
-<p><strong>计算误差包括截断误差和舍入误差</strong><br><img src="/2025/04/17/NumericalComputation/截断误差.png" alt="alt text"><br><img src="/2025/04/17/NumericalComputation/舍入误差.png" alt="alt text"></p>
-<p><strong><em>有限次求解的纯代数问题中，舍入误差主导;</em></strong><br><strong><em>涉及积分、导数、非线性等无限求解的问题，截断误差主导</em></strong></p>
-<p><strong>向前误差与向后误差</strong><br>向前误差:<strong>计算值与真值</strong>之间的偏差，通常比较难以估计<br>向后误差:输入数据有多大误差才能产生最终的计算值</p>
-<p>若问题的近似解是其”邻近”问题的精确解<mark>(<strong>向后误差小</strong>)</mark>，则认为近似是好的</p>
-<blockquote>
-<p><strong>例题：</strong><br><img src="/2025/04/17/NumericalComputation/向前向后误差例题.png" alt="alt text"></p>
-</blockquote>
-<p><strong>敏感性和病态性</strong><br><strong>良态/不敏感</strong>: 在假设计算过程完全精确的前提下，如果<strong>输入数据的相对变化对于解的变化影响不大</strong>，就称问题是不敏感或良态的;</p>
-<p><strong>病态/敏感</strong>: 如果<strong>解的相对变化程度远超输入数据的变化</strong>，就称问题是敏感或者病态的</p>
-<p><strong>敏感性定量分析：条件数</strong><br><img src="/2025/04/17/NumericalComputation/条件数.png" alt="alt text"></p>
-<p>对于可微函数求值问题：<br><img src="/2025/04/17/NumericalComputation/可微函数求值.png" alt="alt text"></p>
-<p><strong><em>对良态问题采用稳定的算法才会得到精确的解</em></strong></p>
-<h3 id="计算机运算"><a href="#计算机运算" class="headerlink" title="计算机运算"></a>计算机运算</h3><h4 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h4><p><img src="/2025/04/17/NumericalComputation/浮点数.png" alt="alt text"></p>
-<p>计算机中<strong>符号、指数、尾数</strong>均存储于<strong>定长</strong>的单独域中<br>零可以用<strong>尾数和指数都为零</strong>的浮点数表示<br>IEEE的<strong>单精度(32)与双精度(64)二进制浮点数</strong>应用最为广泛</p>
-<h5 id="IEEE标准浮点数系统"><a href="#IEEE标准浮点数系统" class="headerlink" title="IEEE标准浮点数系统"></a>IEEE标准浮点数系统</h5><p><img src="/2025/04/17/NumericalComputation/单精度和双精度.png" alt="alt text"></p>
-<h5 id="正规化"><a href="#正规化" class="headerlink" title="正规化"></a>正规化</h5><p><strong>首位的限制（β-1种选择）</strong><br>​正规化条件：要求尾数 m 满足<mark> <strong>​1 ≤ m &lt; β​（即小数点后第一个有效数字不能为0）</strong> </mark></p>
-<p>​数学约束：若基数为 β，首位数字 d₀ 的取值范围只能是 ​1, 2, …, β-1​（共 β-1 种选择）</p>
-<blockquote>
-<p><strong>​例子：</strong></p>
-<p>十进制（β=10）：首位可以是 1-9（9种）<br>二进制（β=2）：首位只能是 1（1种，因此二进制正规化浮点数会隐含存储首位）</p>
-</blockquote>
-<p><strong>其余位的自由（β种选择）</strong><br>​精度最大化：除首位的其他 p-1 位允许数字 ​0 到 β-1​（共 β 种选择）</p>
-<p>​原因：</p>
-<p>首位已保证唯一性，后续位的自由度不影响唯一性<br>允许后续位包含 0，可表示更精细的小数（如 1.023 比 1.23 精度更高）</p>
-<blockquote>
-<p><strong>​例子：</strong></p>
-<p>十进制：第二位可以是 0-9（10种）<br>二进制：第二位可以是 0/1（2种）</p>
-</blockquote>
-<p>在正规化浮点系统中，<strong>U</strong> 和 <strong>L</strong> 分别表示 <strong>指数部分（阶码）的允许取值范围的上限和下限</strong>，即：</p>
-<ul>
-<li><strong>L</strong>（Lower Bound）：指数的最小值（最小阶码）</li>
-<li><strong>U</strong>（Upper Bound）：指数的最大值（最大阶码）</li>
-</ul>
-<hr>
-<blockquote>
-<p><strong>为什么是“指数”的上下限？</strong></p>
-<ol>
-<li><p><strong>浮点数总个数公式</strong>：<br>[<br>2(\beta - 1)\beta^{p-1}(U - L + 1) + 1<br>]</p>
-<ul>
-<li><strong>(U - L + 1)</strong> 表示指数可能的取值总数（例如，若 (L=-5), (U=10)，则共有 (10 - (-5) + 1 = 16) 种指数值）。  </li>
-<li>该部分直接影响浮点数的“覆盖范围”，指数范围越大，可表示的数越广。</li>
-</ul>
-</li>
-<li><p><strong>最小正数（UFL）和最大正数（OFL）的公式</strong>：  </p>
-<ul>
-<li><strong>UFL = (\beta^L)</strong>：最小正数由最小指数 (L) 决定（例如，(L=-126) 对应最小正规化数 (2^{-126})）。  </li>
-<li><strong>OFL = (\beta^{U+1}(1 - \beta^{-p}))</strong>：最大正数由最大指数 (U) 和尾数精度 (p) 共同决定（例如，(U=127) 对应 (2^{128}(1 - 2^{-24}))）。</li>
-</ul>
-</li>
-</ol>
-</blockquote>
-<hr>
-<p><strong>进一步说明</strong></p>
-<ul>
-<li><p><strong>指数的作用</strong>：<br>浮点数 (x) 可表示为：<br>[<br>x = \pm \left( d_0 + \frac{d_1}{\beta} + \cdots + \frac{d_{p-1}}{\beta^{p-1}} \right) \times \beta^e<br>]<br>其中 (e) 为指数（阶码），取值范围为 (L \leq e \leq U)。</p>
-</li>
-<li><p><strong>二进制特例</strong>：<br><mark>二进制（(\beta=2)）中，尾数首位 (d_0) 固定为 1 ，但指数范围 (L) 和 (U) 仍然独立定义数值的尺度</mark>（如 IEEE 754 单精度浮点数中 (L=-126), (U=127)）。</p>
-</li>
-</ul>
-<p><strong><em>超过OFL，或是小于UFL的数均不能表示；在表示范围内，浮点数并非均匀分布</em></strong><br><img src="/2025/04/17/NumericalComputation/分布.png" alt="alt text"></p>
-<h5 id="舍入"><a href="#舍入" class="headerlink" title="舍入"></a>舍入</h5><p><strong>截断:即向零舍入</strong><br><strong>最近舍入:取与x最接近的浮点数，相等时选取最未存储位为偶数的浮点数</strong><br><img src="/2025/04/17/NumericalComputation/舍入原则.png" alt="alt text"></p>
-<h5 id="机器精度"><a href="#机器精度" class="headerlink" title="机器精度"></a>机器精度</h5><p><img src="/2025/04/17/NumericalComputation/机器精度.png" alt="alt text"></p>
-<p>机器精度由尾数的位数决定，下溢限由指数域的尾数决定，两者的定义不同</p>
-<h5 id="特殊值"><a href="#特殊值" class="headerlink" title="特殊值"></a>特殊值</h5><p><img src="/2025/04/17/NumericalComputation/特殊值.png" alt="alt text"></p>
-<h5 id="浮点运算"><a href="#浮点运算" class="headerlink" title="浮点运算"></a>浮点运算</h5><p>一般的，<strong>浮点数运算结果与对应实数运算结果不同</strong></p>
-<p>当计算结果超出浮点系统范围时，也不能表示(上溢和下溢)，<strong>下溢可以当做零，但上溢往往是严重错误</strong><br><img src="/2025/04/17/NumericalComputation/浮点运算.png" alt="alt text"></p>
-<blockquote>
-<p><strong>例题</strong>：<br><img src="/2025/04/17/NumericalComputation/浮点运算例题.png" alt="alt text"></p>
-</blockquote>
-<p>某些实数域上的运算定律在浮点数集合中不满足<br><img src="/2025/04/17/NumericalComputation/运算定律不满足.png" alt="alt text"></p>
-<p>​右侧计算：$(1+ϵ)+ϵ$<br>$1+ϵ$ 会因 $ϵ&lt;ϵ_{mach}$而被舍入为 1；<br>再与 $ϵ$ 相加时，结果为 $1+ϵ$，仍被舍入为 1。</p>
-<p><strong>核心原因：</strong><br>​舍入规则：当中间结果的小数部分超出尾数精度 $p$ 时，必须舍入。<br>​阈值差异：$2ϵ$ 可能跨越 $ϵ_{mach}$，从而在后续加法中保留；单次 $ϵ$ 因小于 $ϵ_{mach}$被直接丢弃。</p>
-<p>“分配律”违背的原因也类似</p>
-<blockquote>
-<p>总之，​根本限制是<strong>浮点数的有限尾数位数 p 和固定基数 β</strong> 导致：<br>数值表示范围受限；<br>运算中超出精度的部分必须舍入，误差不可逆累积；<br>不同运算顺序可能触发不同次数的舍入，最终结果不同。</p>
-</blockquote>
-<p><strong><em>调和级数在实数域发散浮点数系统中直接运算，调和级数收敛</em></strong></p>
-<h5 id="抵消"><a href="#抵消" class="headerlink" title="抵消"></a>抵消</h5><p><img src="/2025/04/17/NumericalComputation/抵消.png" alt="alt text"></p>
-<blockquote>
-<p><strong>例题</strong>：<br><img src="/2025/04/17/NumericalComputation/抵消例题1.png" alt="alt text"><br><img src="/2025/04/17/NumericalComputation/抵消例题2.png" alt="alt text"></p>
-</blockquote>
-<p><strong><em>总结：通过选择其他公式避免原公式在计算时因为相近的数相减导致的“抵消”现象，可以避免最终的根非常接近</em></strong></p>
-]]></content>
-  </entry>
-  <entry>
     <title>计算机网络</title>
     <url>/2025/05/08/Network/</url>
     <content><![CDATA[<h1 id="计算机网络复习"><a href="#计算机网络复习" class="headerlink" title="计算机网络复习"></a>计算机网络复习</h1><p><strong>定义</strong>：多种通用的、可编程硬件互连，支持多种应用<br><img src="/2025/05/08/Network/1.png" alt="alt text"></p>
@@ -973,201 +866,110 @@
 ]]></content>
   </entry>
   <entry>
-    <title>栈和队列</title>
-    <url>/2025/03/17/StackAndQueue/</url>
-    <content><![CDATA[<h1 id="栈和队列"><a href="#栈和队列" class="headerlink" title="栈和队列"></a>栈和队列</h1><blockquote>
-<p><strong>栈、队列、双端队列均是线性表的特殊情况（访问受限的线性表）</strong></p>
-<p><img src="/2025/03/17/StackAndQueue/访问受限的线性表.png" alt="alt text"></p>
-</blockquote>
-<h2 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h2><ul>
-<li>允许插入、删除的一端称为<mark>栈顶(top)</mark>，另一端称为<mark>栈底(bottom)</mark></li>
-<li>在栈顶插入元素称为<mark>入栈(push)</mark>，删除元素称为<mark>出栈(pop)</mark></li>
-</ul>
-<h3 id="顺序栈——栈的顺序存储实现"><a href="#顺序栈——栈的顺序存储实现" class="headerlink" title="顺序栈——栈的顺序存储实现"></a>顺序栈——栈的顺序存储实现</h3><p><strong>顺序栈存储空间的处理</strong><br><img src="/2025/03/17/StackAndQueue/顺序栈存储空间的处理.png" alt="alt text"></p>
-<p><strong>顺序栈的特点</strong>：</p>
-<ol>
-<li>顺序栈的入栈和出栈、构造和销毁的<mark>复杂度都是$O(1)$</mark></li>
-<li>可以采用溢出时增容，或者<mark>共享栈</mark>的方式提高空间利用率</li>
-</ol>
-<h3 id="链式栈——栈的链式存储分配实现"><a href="#链式栈——栈的链式存储分配实现" class="headerlink" title="链式栈——栈的链式存储分配实现"></a>链式栈——栈的链式存储分配实现</h3><p><strong>链式栈的特点</strong>：</p>
-<ol>
-<li>链式栈的<mark>入栈和出栈复杂度为$O(1)$</mark>，<mark>构造和销毁的复杂度是$O(n)$<strong>(需要逐个释放/创建)</strong></mark></li>
-<li>栈的长度动态变化，空间利用率高，一般<mark>无需判断溢出</mark></li>
-</ol>
-<h3 id="栈的应用"><a href="#栈的应用" class="headerlink" title="栈的应用"></a>栈的应用</h3><ul>
-<li><p><strong>十进制数到二进制数的转换</strong><br><img src="/2025/03/17/StackAndQueue/十进制转二进制.png" alt="alt text"><br><br></p>
-</li>
-<li><p><strong>算术表达式求值的栈实现</strong></p>
-<p>  中缀表达式实现步骤：</p>
-<ol>
-<li>初始化:结束符‘#’入栈：<code>Sr.Push(‘#’)</code></li>
-<li>如果W是操作数则入栈：<code>Sd.Push(W)</code></li>
-<li>若W为运算符，则有以下几种情况:<ol>
-<li>若W优先级高于Sr栈顶元素则入栈：<code>Sr.Push(W)</code></li>
-<li>若W优先级低于Sr栈顶元素则执行运算操作:<br> <code>Sd.Pop(x1);</code><br> <code>Sd.Pop(x2);</code><br> <code>Sr.Pop(@);</code><br> <code>Sd.Push(x2@X1);</code></li>
-<li>若W等于Sr栈顶元素则弹出Sr栈顶元素</li>
-</ol>
-</li>
-<li><p>Sd即为运算结果<br><br></p>
-<p>中缀转后缀表达式：<br>维护两个栈：运算符(OP)和结果栈(R)</p>
-</li>
-</ol>
+    <title>数值计算</title>
+    <url>/2025/05/22/NumericalComputation/</url>
+    <content><![CDATA[<h1 id="数值计算"><a href="#数值计算" class="headerlink" title="数值计算"></a>数值计算</h1><h2 id="近似与误差"><a href="#近似与误差" class="headerlink" title="近似与误差"></a>近似与误差</h2><h3 id="误差"><a href="#误差" class="headerlink" title="误差"></a>误差</h3><ol>
+<li><p>绝对误差 = 近似值 - 真值</p>
 <ul>
-<li>扫描到操作数，R入栈;扫描到’(‘，OP入栈</li>
-<li>扫描到运算符:<br>  当前运算符优先级高于OP栈顶元紊优先级，OP入栈<br>  否则，则OP栈出栈，R栈入栈</li>
-<li>扫描到’)’，OP出栈，到pop出’)’为止。如果pop出的元素不是’(‘或’)’，则将元素压入R<br><img src="/2025/03/17/StackAndQueue/后缀表达式.png" alt="alt text"></li>
+<li>精确度:近似某个量时有效数字的位数</li>
+<li>精度:表示数的数字个数(不一定都是有效数字)</li>
 </ul>
 </li>
-</ul>
-<h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><blockquote>
-<p><strong>适用情况：问题可以<mark>收敛</mark></strong></p>
-</blockquote>
-<ul>
-<li><p><strong>阶乘求值</strong><br><img src="/2025/03/17/StackAndQueue/阶乘求值.png" alt="alt text"><br><br><br><br></p>
+<li><p>相对误差 = 绝对误差 / 真值(真值 ≠ 0)</p>
 </li>
-<li><p><strong>阿克曼函数</strong><br>特点：随着输入值的增加，函数的值<strong>增长得非常快</strong><br>定义如下：<br><img src="/2025/03/17/StackAndQueue/阿克曼函数定义.png" alt="alt text"><br>  递归实现：</p>
-  <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">c</span><span class="params">(<span class="type">int</span> m, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(m == <span class="number">0</span>) <span class="keyword">return</span> n + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(n == <span class="number">0</span> &amp;&amp; m &gt; <span class="number">0</span>) <span class="keyword">return</span> <span class="built_in">c</span>(m - <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">if</span>(m &gt; <span class="number">0</span> &amp;&amp; n &gt; <span class="number">0</span>)<span class="keyword">return</span> <span class="built_in">c</span>(m - <span class="number">1</span>, <span class="built_in">c</span>(m, n - <span class="number">1</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> a, b;</span><br><span class="line">    cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">c</span>(a, b);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><br><br><br></p>
+<li><p>近似值 = 真值 x (1 + 相对误差)</p>
 </li>
-<li><p><strong>斐波那契数列</strong><br>递归定义：<br><img src="/2025/03/17/StackAndQueue/斐波那契定义.png" alt="alt text"><br><br></p>
-<p>  递归实现：<br>  <img src="/2025/03/17/StackAndQueue/斐波那契实现.png" alt="alt text"><br>  F(5)的栈调用情况：<br>  <img src="/2025/03/17/StackAndQueue/斐波那契栈调用.png" alt="alt text"><br><br><br><br></p>
-</li>
-<li><p><strong>最大公约数</strong><br>定义：可以同时除尽两个正整数的最大的正整数<br><img src="/2025/03/17/StackAndQueue/最大公约数.png" alt="alt text"><br><br></p>
-<p>  递归实现：</p>
-  <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">long</span> <span class="title">gcd</span><span class="params">(<span class="type">unsigned</span> <span class="type">long</span> a,<span class="type">unsigned</span> <span class="type">long</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> r = a % b;</span><br><span class="line">    <span class="keyword">if</span>(r != <span class="number">0</span>) <span class="keyword">return</span> <span class="built_in">gcd</span>(b，r);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><br><br><br></p>
-</li>
-<li><p><strong>互递归</strong><br>定义：一种非直接递归，两个函数互相借助对方定义<br>示例：<br><img src="/2025/03/17/StackAndQueue/互递归.png" alt="alt text"><br><br><br><br></p>
-</li>
-<li><p><strong>汉诺塔问题</strong><br>递归步骤：<br><img src="/2025/03/17/StackAndQueue/汉诺塔.png" alt="alt text"><br><br></p>
-<p>  递归实现：<br>  <img src="/2025/03/17/StackAndQueue/汉诺塔实现.png" alt="alt text"><br>  <strong><em>先把 n - 1 个移动到y，然后移动最底下的到z，然后把 n - 1 个从y移动到z</em></strong><br><br></p>
-<p>  复杂度分析：<br>  <img src="/2025/03/17/StackAndQueue/汉诺塔复杂度分析.png" alt="alt text"><br><br><br><br></p>
-</li>
-</ul>
-<h3 id="递归的消去"><a href="#递归的消去" class="headerlink" title="递归的消去"></a>递归的消去</h3><h4 id="尾递归"><a href="#尾递归" class="headerlink" title="尾递归"></a>尾递归</h4><p>定义：函数最后操作时<strong>递归调用或平凡返回</strong>（<mark>返回已经存在的值</mark>）</p>
-<blockquote>
-<p><strong>为什么需要尾递归？</strong><br>对于非尾递归来说，由于最后的返回值需要额外计算，因此<mark>经历了创建栈帧、销毁栈帧的过程，可能导致栈溢出</mark>。</p>
-<p>以计算阶乘的普通递归实现为例:<br><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">factorial</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">       <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">   <span class="keyword">else</span></span><br><span class="line">       <span class="keyword">return</span> n * <span class="built_in">factorial</span>(n - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>当调用<code>factorial(3)</code>时，执行过程如下：</p>
-<p>调用<code>factorial(3)</code>，<mark>创建栈帧A</mark>，保存参数n=3。<br>执行到<code>return n * factorial(n - 1)</code>时，需要先计算<code>factorial(2)</code>的值。</p>
-<p>调用<code>factorial(2)</code>，<mark>创建新的栈帧B</mark>，保存参数n=2。<br>执行到<code>return n * factorial(n - 1)</code>时，需要先计算<code>factorial(1)</code>的值。</p>
-<p>调用<code>factorial(1)</code>，<mark>创建新的栈帧C</mark>，保存参数n=1。<br>执行到<code>return n * factorial(n - 1)</code>时，需要先计算<code>factorial(0)</code>的值。</p>
-<p>调用<code>factorial(0)</code>，<mark>创建新的栈帧D</mark>，保存参数n=0。<br>执行到return 1，返回值1，销毁栈帧D。</p>
-<p>栈帧C继续执行，计算1 <em> 1=1，返回值1，<mark>销毁栈帧C</mark>。<br>栈帧B继续执行，计算2 </em> 1=2，返回值2，<mark>销毁栈帧B</mark>。<br>栈帧A继续执行，计算3 * 2=6，返回值6，<mark>销毁栈帧A</mark>。</p>
-<p><strong><em>在这个过程中，每次递归调用都会创建新的栈帧，栈帧数量随着递归深度增加而增加，可能导致栈溢出，并且每次创建和销毁栈帧都会带来性能开销。</em></strong></p>
-</blockquote>
-<p><br></p>
-<p><strong>尾递归优化的执行过程：</strong><br><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">factorial_tail</span><span class="params">(<span class="type">int</span> n, <span class="type">int</span> acc)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> acc;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">factorial_tail</span>(n - <span class="number">1</span>, n * acc);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>初始调用时，acc的初始值为1。例如，计算<code>factorial_tail(3, 1)</code>的执行过程如下：<br>调用<code>factorial_tail(3, 1)</code>，<mark>创建栈帧A</mark>，保存参数n=3，acc=1。</p>
-<p>执行到<code>return factorial_tail(n - 1, n * acc)</code>时，计算新的参数值n-1=2，$n<em>acc=3</em>1=3$。<br>调用<code>factorial_tail(2, 3)</code>，<mark>复用栈帧A</mark>，更新参数n=2，acc=3。</p>
-<p>执行到<code>return factorial_tail(n - 1, n * acc)</code>时，计算新的参数值n-1=1，$n<em>acc=2</em>3=6$。<br>调用<code>factorial_tail(1, 6)</code>，<mark>复用栈帧A</mark>，更新参数n=1，acc=6。</p>
-<p>执行到<code>return factorial_tail(n - 1, n * acc)</code>时，计算新的参数值n-1=0，$n<em>acc=1</em>6=6$。<br>调用<code>factorial_tail(0, 6)</code>，<mark>复用栈帧A</mark>，更新参数n=0，acc=6。</p>
-<p>执行到<code>return acc</code>，返回值6，<mark>销毁栈帧A</mark>。</p>
-<p><strong><em>在这个过程中，每次递归调用复用当前栈帧，不需要创建新的栈帧，因此栈帧数量始终保持为1，不会导致栈溢出，并且避免了创建和销毁栈帧的性能开销。</em></strong><br><br></p>
-<p><strong>底层原理</strong><br><strong>尾递归优化的关键在于编译器能够识别出尾递归调用，并将其转换为循环操作</strong>。具体来说，当编译器检测到一个函数调用是尾递归时，它会生成代码来复用当前的栈帧，而不是创建新的栈帧。这通常是通过将递归调用的参数更新到当前栈帧的变量中，并跳转到函数的开头重新执行来实现的。<br><br></p>
-<p><strong>常见简单问题的尾递归实现</strong><br><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//TODO...</span></span><br></pre></td></tr></table></figure><br><br><br><br></p>
-<h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2><blockquote>
-<p><strong>定义：限制数据一端插入，另一端删除的特殊线性表</strong></p>
-<ul>
-<li>允许插入的一端称为<mark>队尾(rear)</mark>，允许删除的一端称为<mark>队头(front)</mark></li>
-<li>入队为<mark>Enqueue</mark>，出队为<mark>Dequeue</mark><br><br></li>
-</ul>
-</blockquote>
-<h3 id="顺序队列"><a href="#顺序队列" class="headerlink" title="顺序队列"></a>顺序队列</h3><h4 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h4><p><img src="/2025/03/17/StackAndQueue/顺序队列的存储.png" alt="alt text"><br><br></p>
-<h4 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h4><p><img src="/2025/03/17/StackAndQueue/顺序队列的操作.png" alt="alt text"><br><img src="/2025/03/17/StackAndQueue/顺序队列的操作2.png" alt="alt text"><br><strong>假溢出</strong>：rear已经到达数组末尾，尽管队列中仍有空闲空间（front之前的位置），但由于rear无法继续向后移动，导致假溢出。<br><br></p>
-<h3 id="循环队列——解决假溢出问题"><a href="#循环队列——解决假溢出问题" class="headerlink" title="循环队列——解决假溢出问题"></a>循环队列——解决假溢出问题</h3><blockquote>
-<p><strong><em>顺序数列无法利用队头指针之前的空间，因此假溢出的本质是没有完全利用数组空间。而循环数列通过连成环解决了这一问题。由于首尾相接，因此循环队列需要做的只是找到判空和判满的办法。</em></strong><br><br><br><img src="/2025/03/17/StackAndQueue/循环队列.png" alt="alt text"></p>
-</blockquote>
-<p><br></p>
-<ul>
-<li><p><strong>方法一：留出空位</strong><br><img src="/2025/03/17/StackAndQueue/留出空位.png" alt="alt text"><br>  判断条件：</p>
-<ol>
-<li>队列为空：<strong>front == rear</strong></li>
-<li>队列为满：<strong>front == (rear + 1) % max</strong><br><br></li>
 </ol>
+<p><strong>相对误差限 = 绝对误差限 / 近似值</strong><br>计算过程中误差可能传递、积累或者是对消</p>
+<p><strong>有效数字</strong><br><img src="/2025/05/22/NumericalComputation/有效数字.png" alt="alt text"></p>
+<p><strong>相对误差</strong><br><img src="/2025/05/22/NumericalComputation/有效数字和相对误差.png" alt="alt text"></p>
+<blockquote>
+<p><strong>例题：</strong><br><img src="/2025/05/22/NumericalComputation/有效数字例题.png" alt="alt text"></p>
+</blockquote>
+<h4 id="误差来源"><a href="#误差来源" class="headerlink" title="误差来源"></a>误差来源</h4><p><img src="/2025/05/22/NumericalComputation/误差来源.png" alt="alt text"></p>
+<p><strong>数据误差和计算误差</strong><br>计算误差是在输入有误差的情况下产生的（<strong>因为因为误差是必然的</strong>），数据误差是在算法无误差的情况下产生的<br><img src="/2025/05/22/NumericalComputation/数据误差和计算误差.png" alt="alt text"></p>
+<p><strong>计算误差包括截断误差和舍入误差</strong><br><img src="/2025/05/22/NumericalComputation/截断误差.png" alt="alt text"><br><img src="/2025/05/22/NumericalComputation/舍入误差.png" alt="alt text"></p>
+<p><strong><em>有限次求解的纯代数问题中，舍入误差主导;</em></strong><br><strong><em>涉及积分、导数、非线性等无限求解的问题，截断误差主导</em></strong></p>
+<p><strong>向前误差与向后误差</strong><br>向前误差:<strong>计算值与真值</strong>之间的偏差，通常比较难以估计<br>向后误差:输入数据有多大误差才能产生最终的计算值</p>
+<p>若问题的近似解是其”邻近”问题的精确解<mark>(<strong>向后误差小</strong>)</mark>，则认为近似是好的</p>
+<blockquote>
+<p><strong>例题：</strong><br><img src="/2025/05/22/NumericalComputation/向前向后误差例题.png" alt="alt text"></p>
+</blockquote>
+<p><strong>敏感性和病态性</strong><br><strong>良态/不敏感</strong>: 在假设计算过程完全精确的前提下，如果<strong>输入数据的相对变化对于解的变化影响不大</strong>，就称问题是不敏感或良态的;</p>
+<p><strong>病态/敏感</strong>: 如果<strong>解的相对变化程度远超输入数据的变化</strong>，就称问题是敏感或者病态的</p>
+<p><strong>敏感性定量分析：条件数</strong><br><img src="/2025/05/22/NumericalComputation/条件数.png" alt="alt text"></p>
+<p>对于可微函数求值问题：<br><img src="/2025/05/22/NumericalComputation/可微函数求值.png" alt="alt text"></p>
+<p><strong><em>对良态问题采用稳定的算法才会得到精确的解</em></strong></p>
+<h3 id="计算机运算"><a href="#计算机运算" class="headerlink" title="计算机运算"></a>计算机运算</h3><h4 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h4><p><img src="/2025/05/22/NumericalComputation/浮点数.png" alt="alt text"></p>
+<p>计算机中<strong>符号、指数、尾数</strong>均存储于<strong>定长</strong>的单独域中<br>零可以用<strong>尾数和指数都为零</strong>的浮点数表示<br>IEEE的<strong>单精度(32)与双精度(64)二进制浮点数</strong>应用最为广泛</p>
+<h5 id="IEEE标准浮点数系统"><a href="#IEEE标准浮点数系统" class="headerlink" title="IEEE标准浮点数系统"></a>IEEE标准浮点数系统</h5><p><img src="/2025/05/22/NumericalComputation/单精度和双精度.png" alt="alt text"></p>
+<h5 id="正规化"><a href="#正规化" class="headerlink" title="正规化"></a>正规化</h5><p><strong>首位的限制（β-1种选择）</strong><br>​正规化条件：要求尾数 m 满足<mark> <strong>​1 ≤ m &lt; β​（即小数点后第一个有效数字不能为0）</strong> </mark></p>
+<p>​数学约束：若基数为 β，首位数字 d₀ 的取值范围只能是 ​1, 2, …, β-1​（共 β-1 种选择）</p>
+<blockquote>
+<p><strong>​例子：</strong></p>
+<p>十进制（β=10）：首位可以是 1-9（9种）<br>二进制（β=2）：首位只能是 1（1种，因此二进制正规化浮点数会隐含存储首位）</p>
+</blockquote>
+<p><strong>其余位的自由（β种选择）</strong><br>​精度最大化：除首位的其他 p-1 位允许数字 ​0 到 β-1​（共 β 种选择）</p>
+<p>​原因：</p>
+<p>首位已保证唯一性，后续位的自由度不影响唯一性<br>允许后续位包含 0，可表示更精细的小数（如 1.023 比 1.23 精度更高）</p>
+<blockquote>
+<p><strong>​例子：</strong></p>
+<p>十进制：第二位可以是 0-9（10种）<br>二进制：第二位可以是 0/1（2种）</p>
+</blockquote>
+<p>在正规化浮点系统中，<strong>U</strong> 和 <strong>L</strong> 分别表示 <strong>指数部分（阶码）的允许取值范围的上限和下限</strong>，即：</p>
+<ul>
+<li><strong>L</strong>（Lower Bound）：指数的最小值（最小阶码）</li>
+<li><strong>U</strong>（Upper Bound）：指数的最大值（最大阶码）</li>
+</ul>
+<hr>
+<blockquote>
+<p><strong>为什么是“指数”的上下限？</strong></p>
+<ol>
+<li><p><strong>浮点数总个数公式</strong>：<br>[<br>2(\beta - 1)\beta^{p-1}(U - L + 1) + 1<br>]</p>
+<ul>
+<li><strong>(U - L + 1)</strong> 表示指数可能的取值总数（例如，若 (L=-5), (U=10)，则共有 (10 - (-5) + 1 = 16) 种指数值）。  </li>
+<li>该部分直接影响浮点数的“覆盖范围”，指数范围越大，可表示的数越广。</li>
+</ul>
 </li>
-<li><p><strong>其他方法易于理解</strong>：<br><img src="/2025/03/17/StackAndQueue/其他方法.png" alt="alt text"><br><br><br><br></p>
+<li><p><strong>最小正数（UFL）和最大正数（OFL）的公式</strong>：  </p>
+<ul>
+<li><strong>UFL = (\beta^L)</strong>：最小正数由最小指数 (L) 决定（例如，(L=-126) 对应最小正规化数 (2^{-126})）。  </li>
+<li><strong>OFL = (\beta^{U+1}(1 - \beta^{-p}))</strong>：最大正数由最大指数 (U) 和尾数精度 (p) 共同决定（例如，(U=127) 对应 (2^{128}(1 - 2^{-24}))）。</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<hr>
+<p><strong>进一步说明</strong></p>
+<ul>
+<li><p><strong>指数的作用</strong>：<br>浮点数 (x) 可表示为：<br>[<br>x = \pm \left( d_0 + \frac{d_1}{\beta} + \cdots + \frac{d_{p-1}}{\beta^{p-1}} \right) \times \beta^e<br>]<br>其中 (e) 为指数（阶码），取值范围为 (L \leq e \leq U)。</p>
+</li>
+<li><p><strong>二进制特例</strong>：<br><mark>二进制（(\beta=2)）中，尾数首位 (d_0) 固定为 1 ，但指数范围 (L) 和 (U) 仍然独立定义数值的尺度</mark>（如 IEEE 754 单精度浮点数中 (L=-126), (U=127)）。</p>
 </li>
 </ul>
-<h3 id="链式队列——链式存储方式"><a href="#链式队列——链式存储方式" class="headerlink" title="链式队列——链式存储方式"></a>链式队列——链式存储方式</h3><p>和链表的逻辑一致，易于理解：<br><img src="/2025/03/17/StackAndQueue/链式队列.png" alt="alt text"></p>
-<h3 id="优先队列"><a href="#优先队列" class="headerlink" title="优先队列"></a>优先队列</h3><p>易于理解：<br><img src="/2025/03/17/StackAndQueue/优先队列.png" alt="alt text"></p>
-<h3 id="队列的应用：杨辉三角"><a href="#队列的应用：杨辉三角" class="headerlink" title="队列的应用：杨辉三角"></a>队列的应用：杨辉三角</h3><p><img src="/2025/03/17/StackAndQueue/杨辉三角.png" alt="alt text"><br><br></p>
-<h4 id="具体实现："><a href="#具体实现：" class="headerlink" title="具体实现："></a>具体实现：</h4><p>先进队一个1</p>
+<p><strong><em>超过OFL，或是小于UFL的数均不能表示；在表示范围内，浮点数并非均匀分布</em></strong><br><img src="/2025/05/22/NumericalComputation/分布.png" alt="alt text"></p>
+<h5 id="舍入"><a href="#舍入" class="headerlink" title="舍入"></a>舍入</h5><p><strong>截断:即向零舍入</strong><br><strong>最近舍入:取与x最接近的浮点数，相等时选取最未存储位为偶数的浮点数</strong><br><img src="/2025/05/22/NumericalComputation/舍入原则.png" alt="alt text"></p>
+<h5 id="机器精度"><a href="#机器精度" class="headerlink" title="机器精度"></a>机器精度</h5><p><img src="/2025/05/22/NumericalComputation/机器精度.png" alt="alt text"></p>
+<p>机器精度由尾数的位数决定，下溢限由指数域的尾数决定，两者的定义不同</p>
+<h5 id="特殊值"><a href="#特殊值" class="headerlink" title="特殊值"></a>特殊值</h5><p><img src="/2025/05/22/NumericalComputation/特殊值.png" alt="alt text"></p>
+<h5 id="浮点运算"><a href="#浮点运算" class="headerlink" title="浮点运算"></a>浮点运算</h5><p>一般的，<strong>浮点数运算结果与对应实数运算结果不同</strong></p>
+<p>当计算结果超出浮点系统范围时，也不能表示(上溢和下溢)，<strong>下溢可以当做零，但上溢往往是严重错误</strong><br><img src="/2025/05/22/NumericalComputation/浮点运算.png" alt="alt text"></p>
 <blockquote>
-<p>此时队列： 1      （这样我们就得到了杨辉三角的第一行）</p>
+<p><strong>例题</strong>：<br><img src="/2025/05/22/NumericalComputation/浮点运算例题.png" alt="alt text"></p>
 </blockquote>
-<p><br></p>
-<p>第一步：在队尾<mark>进队一个1</mark></p>
+<p>某些实数域上的运算定律在浮点数集合中不满足<br><img src="/2025/05/22/NumericalComputation/运算定律不满足.png" alt="alt text"></p>
+<p>​右侧计算：$(1+ϵ)+ϵ$<br>$1+ϵ$ 会因 $ϵ&lt;ϵ_{mach}$而被舍入为 1；<br>再与 $ϵ$ 相加时，结果为 $1+ϵ$，仍被舍入为 1。</p>
+<p><strong>核心原因：</strong><br>​舍入规则：当中间结果的小数部分超出尾数精度 $p$ 时，必须舍入。<br>​阈值差异：$2ϵ$ 可能跨越 $ϵ_{mach}$，从而在后续加法中保留；单次 $ϵ$ 因小于 $ϵ_{mach}$被直接丢弃。</p>
+<p>“分配律”违背的原因也类似</p>
 <blockquote>
-<p>此时队列：1 1</p>
+<p>总之，​根本限制是<strong>浮点数的有限尾数位数 p 和固定基数 β</strong> 导致：<br>数值表示范围受限；<br>运算中超出精度的部分必须舍入，误差不可逆累积；<br>不同运算顺序可能触发不同次数的舍入，最终结果不同。</p>
 </blockquote>
-<p><strong>循环0次</strong>（这里相当于没有进行操作）（看不懂就往下看）</p>
+<p><strong><em>调和级数在实数域发散浮点数系统中直接运算，调和级数收敛</em></strong></p>
+<h5 id="抵消"><a href="#抵消" class="headerlink" title="抵消"></a>抵消</h5><p><img src="/2025/05/22/NumericalComputation/抵消.png" alt="alt text"></p>
 <blockquote>
-<p>此时队列：1 1</p>
+<p><strong>例题</strong>：<br><img src="/2025/05/22/NumericalComputation/抵消例题1.png" alt="alt text"><br><img src="/2025/05/22/NumericalComputation/抵消例题2.png" alt="alt text"></p>
 </blockquote>
-<p>在队尾<mark>进队一个1</mark></p>
-<blockquote>
-<p>1 1 1</p>
-</blockquote>
-<p><mark>出队队头的一个1</mark></p>
-<blockquote>
-<p>1 1              （这样我们就得到了杨辉三角的第二行）</p>
-</blockquote>
-<p>（这里看不懂没关系，接着看就懂了）<br><br><br><br></p>
-<p>第二步：在队尾<mark>进队一个1</mark>（与第一步中相同操作）</p>
-<blockquote>
-<p>1 1 1</p>
-</blockquote>
-<p><strong>循环一次：进队队头两个元素的和（1+1=2），即进队2</strong>；</p>
-<blockquote>
-<p>1 1 1 2</p>
-</blockquote>
-<p><strong>再出队队头的一个元素（1）。这两个操作为一次循环</strong>。</p>
-<blockquote>
-<p>1 1 2</p>
-</blockquote>
-<p>在队尾<mark>进队一个1</mark>（与第一步中相同操作）</p>
-<blockquote>
-<p>1 1 2 1</p>
-</blockquote>
-<p><mark>出队队头的一个1</mark></p>
-<blockquote>
-<p>1 2 1            （这样我们就得到了杨辉三角的第三行）</p>
-</blockquote>
-<p><br><br><br></p>
-<p>第三步：</p>
-<p>在队尾<mark>进队一个1</mark>（与第一步中相同操作）</p>
-<blockquote>
-<p>1 2 1 1</p>
-</blockquote>
-<p><strong>循环两次：第一次进队队头两个元素的和（1+2=3），即进队3</strong>；</p>
-<blockquote>
-<p>1 2 1 1 3</p>
-</blockquote>
-<p><strong>再出队队头的一个元素（1）。这两个操作为一次循环</strong>。</p>
-<blockquote>
-<p>2 1 1 3</p>
-</blockquote>
-<p><strong>第二次再进队队头两个元素的和（2+1=3），即进队3</strong>；</p>
-<blockquote>
-<p>2 1 1 3 3</p>
-</blockquote>
-<p><strong>再出队队头的一个元素（2）。这两个操作为第二次循环</strong>。</p>
-<blockquote>
-<p>1 1 3 3</p>
-</blockquote>
-<p>在队尾<mark>进队一个1</mark>（与第一步中相同操作）</p>
-<blockquote>
-<p>1 1 3 3 1</p>
-</blockquote>
-<p><mark>出队队头的一个1</mark></p>
-<blockquote>
-<p>1 3 3 1           （这样我们就得到了杨辉三角的第四行）</p>
-</blockquote>
-<p><br></p>
-<blockquote>
-<p>经过上面的三步操作，不难看出，每一步都分为<mark>三个部分</mark>。即：<strong><em>进1；循环；进1出1</em></strong>。所以我们可以控制重复上述步骤的次数，打印出想要的杨辉三角的层数。（并且可以看出，<strong>第一步循环0次；第二步循环1次；第三步循环2次。即循环次数为步数-1</strong>）</p>
-</blockquote>
-<p><br></p>
-<h3 id="双栈实现队列"><a href="#双栈实现队列" class="headerlink" title="双栈实现队列"></a>双栈实现队列</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//TODO...</span></span><br></pre></td></tr></table></figure>
+<p><strong><em>总结：通过选择其他公式避免原公式在计算时因为相近的数相减导致的“抵消”现象，可以避免最终的根非常接近</em></strong></p>
 ]]></content>
   </entry>
   <entry>
@@ -1418,6 +1220,204 @@
 <li>红黑树的<strong>平均统计性能优于AVL树</strong>，实际应用中更多选择使用红黑树</li>
 </ul>
 </blockquote>
+]]></content>
+  </entry>
+  <entry>
+    <title>栈和队列</title>
+    <url>/2025/03/17/StackAndQueue/</url>
+    <content><![CDATA[<h1 id="栈和队列"><a href="#栈和队列" class="headerlink" title="栈和队列"></a>栈和队列</h1><blockquote>
+<p><strong>栈、队列、双端队列均是线性表的特殊情况（访问受限的线性表）</strong></p>
+<p><img src="/2025/03/17/StackAndQueue/访问受限的线性表.png" alt="alt text"></p>
+</blockquote>
+<h2 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h2><ul>
+<li>允许插入、删除的一端称为<mark>栈顶(top)</mark>，另一端称为<mark>栈底(bottom)</mark></li>
+<li>在栈顶插入元素称为<mark>入栈(push)</mark>，删除元素称为<mark>出栈(pop)</mark></li>
+</ul>
+<h3 id="顺序栈——栈的顺序存储实现"><a href="#顺序栈——栈的顺序存储实现" class="headerlink" title="顺序栈——栈的顺序存储实现"></a>顺序栈——栈的顺序存储实现</h3><p><strong>顺序栈存储空间的处理</strong><br><img src="/2025/03/17/StackAndQueue/顺序栈存储空间的处理.png" alt="alt text"></p>
+<p><strong>顺序栈的特点</strong>：</p>
+<ol>
+<li>顺序栈的入栈和出栈、构造和销毁的<mark>复杂度都是$O(1)$</mark></li>
+<li>可以采用溢出时增容，或者<mark>共享栈</mark>的方式提高空间利用率</li>
+</ol>
+<h3 id="链式栈——栈的链式存储分配实现"><a href="#链式栈——栈的链式存储分配实现" class="headerlink" title="链式栈——栈的链式存储分配实现"></a>链式栈——栈的链式存储分配实现</h3><p><strong>链式栈的特点</strong>：</p>
+<ol>
+<li>链式栈的<mark>入栈和出栈复杂度为$O(1)$</mark>，<mark>构造和销毁的复杂度是$O(n)$<strong>(需要逐个释放/创建)</strong></mark></li>
+<li>栈的长度动态变化，空间利用率高，一般<mark>无需判断溢出</mark></li>
+</ol>
+<h3 id="栈的应用"><a href="#栈的应用" class="headerlink" title="栈的应用"></a>栈的应用</h3><ul>
+<li><p><strong>十进制数到二进制数的转换</strong><br><img src="/2025/03/17/StackAndQueue/十进制转二进制.png" alt="alt text"><br><br></p>
+</li>
+<li><p><strong>算术表达式求值的栈实现</strong></p>
+<p>  中缀表达式实现步骤：</p>
+<ol>
+<li>初始化:结束符‘#’入栈：<code>Sr.Push(‘#’)</code></li>
+<li>如果W是操作数则入栈：<code>Sd.Push(W)</code></li>
+<li>若W为运算符，则有以下几种情况:<ol>
+<li>若W优先级高于Sr栈顶元素则入栈：<code>Sr.Push(W)</code></li>
+<li>若W优先级低于Sr栈顶元素则执行运算操作:<br> <code>Sd.Pop(x1);</code><br> <code>Sd.Pop(x2);</code><br> <code>Sr.Pop(@);</code><br> <code>Sd.Push(x2@X1);</code></li>
+<li>若W等于Sr栈顶元素则弹出Sr栈顶元素</li>
+</ol>
+</li>
+<li><p>Sd即为运算结果<br><br></p>
+<p>中缀转后缀表达式：<br>维护两个栈：运算符(OP)和结果栈(R)</p>
+</li>
+</ol>
+<ul>
+<li>扫描到操作数，R入栈;扫描到’(‘，OP入栈</li>
+<li>扫描到运算符:<br>  当前运算符优先级高于OP栈顶元紊优先级，OP入栈<br>  否则，则OP栈出栈，R栈入栈</li>
+<li>扫描到’)’，OP出栈，到pop出’)’为止。如果pop出的元素不是’(‘或’)’，则将元素压入R<br><img src="/2025/03/17/StackAndQueue/后缀表达式.png" alt="alt text"></li>
+</ul>
+</li>
+</ul>
+<h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><blockquote>
+<p><strong>适用情况：问题可以<mark>收敛</mark></strong></p>
+</blockquote>
+<ul>
+<li><p><strong>阶乘求值</strong><br><img src="/2025/03/17/StackAndQueue/阶乘求值.png" alt="alt text"><br><br><br><br></p>
+</li>
+<li><p><strong>阿克曼函数</strong><br>特点：随着输入值的增加，函数的值<strong>增长得非常快</strong><br>定义如下：<br><img src="/2025/03/17/StackAndQueue/阿克曼函数定义.png" alt="alt text"><br>  递归实现：</p>
+  <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">c</span><span class="params">(<span class="type">int</span> m, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(m == <span class="number">0</span>) <span class="keyword">return</span> n + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(n == <span class="number">0</span> &amp;&amp; m &gt; <span class="number">0</span>) <span class="keyword">return</span> <span class="built_in">c</span>(m - <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">if</span>(m &gt; <span class="number">0</span> &amp;&amp; n &gt; <span class="number">0</span>)<span class="keyword">return</span> <span class="built_in">c</span>(m - <span class="number">1</span>, <span class="built_in">c</span>(m, n - <span class="number">1</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> a, b;</span><br><span class="line">    cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">c</span>(a, b);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br><br><br></p>
+</li>
+<li><p><strong>斐波那契数列</strong><br>递归定义：<br><img src="/2025/03/17/StackAndQueue/斐波那契定义.png" alt="alt text"><br><br></p>
+<p>  递归实现：<br>  <img src="/2025/03/17/StackAndQueue/斐波那契实现.png" alt="alt text"><br>  F(5)的栈调用情况：<br>  <img src="/2025/03/17/StackAndQueue/斐波那契栈调用.png" alt="alt text"><br><br><br><br></p>
+</li>
+<li><p><strong>最大公约数</strong><br>定义：可以同时除尽两个正整数的最大的正整数<br><img src="/2025/03/17/StackAndQueue/最大公约数.png" alt="alt text"><br><br></p>
+<p>  递归实现：</p>
+  <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">long</span> <span class="title">gcd</span><span class="params">(<span class="type">unsigned</span> <span class="type">long</span> a,<span class="type">unsigned</span> <span class="type">long</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> r = a % b;</span><br><span class="line">    <span class="keyword">if</span>(r != <span class="number">0</span>) <span class="keyword">return</span> <span class="built_in">gcd</span>(b，r);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br><br><br></p>
+</li>
+<li><p><strong>互递归</strong><br>定义：一种非直接递归，两个函数互相借助对方定义<br>示例：<br><img src="/2025/03/17/StackAndQueue/互递归.png" alt="alt text"><br><br><br><br></p>
+</li>
+<li><p><strong>汉诺塔问题</strong><br>递归步骤：<br><img src="/2025/03/17/StackAndQueue/汉诺塔.png" alt="alt text"><br><br></p>
+<p>  递归实现：<br>  <img src="/2025/03/17/StackAndQueue/汉诺塔实现.png" alt="alt text"><br>  <strong><em>先把 n - 1 个移动到y，然后移动最底下的到z，然后把 n - 1 个从y移动到z</em></strong><br><br></p>
+<p>  复杂度分析：<br>  <img src="/2025/03/17/StackAndQueue/汉诺塔复杂度分析.png" alt="alt text"><br><br><br><br></p>
+</li>
+</ul>
+<h3 id="递归的消去"><a href="#递归的消去" class="headerlink" title="递归的消去"></a>递归的消去</h3><h4 id="尾递归"><a href="#尾递归" class="headerlink" title="尾递归"></a>尾递归</h4><p>定义：函数最后操作时<strong>递归调用或平凡返回</strong>（<mark>返回已经存在的值</mark>）</p>
+<blockquote>
+<p><strong>为什么需要尾递归？</strong><br>对于非尾递归来说，由于最后的返回值需要额外计算，因此<mark>经历了创建栈帧、销毁栈帧的过程，可能导致栈溢出</mark>。</p>
+<p>以计算阶乘的普通递归实现为例:<br><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">factorial</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">       <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">   <span class="keyword">else</span></span><br><span class="line">       <span class="keyword">return</span> n * <span class="built_in">factorial</span>(n - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>当调用<code>factorial(3)</code>时，执行过程如下：</p>
+<p>调用<code>factorial(3)</code>，<mark>创建栈帧A</mark>，保存参数n=3。<br>执行到<code>return n * factorial(n - 1)</code>时，需要先计算<code>factorial(2)</code>的值。</p>
+<p>调用<code>factorial(2)</code>，<mark>创建新的栈帧B</mark>，保存参数n=2。<br>执行到<code>return n * factorial(n - 1)</code>时，需要先计算<code>factorial(1)</code>的值。</p>
+<p>调用<code>factorial(1)</code>，<mark>创建新的栈帧C</mark>，保存参数n=1。<br>执行到<code>return n * factorial(n - 1)</code>时，需要先计算<code>factorial(0)</code>的值。</p>
+<p>调用<code>factorial(0)</code>，<mark>创建新的栈帧D</mark>，保存参数n=0。<br>执行到return 1，返回值1，销毁栈帧D。</p>
+<p>栈帧C继续执行，计算1 <em> 1=1，返回值1，<mark>销毁栈帧C</mark>。<br>栈帧B继续执行，计算2 </em> 1=2，返回值2，<mark>销毁栈帧B</mark>。<br>栈帧A继续执行，计算3 * 2=6，返回值6，<mark>销毁栈帧A</mark>。</p>
+<p><strong><em>在这个过程中，每次递归调用都会创建新的栈帧，栈帧数量随着递归深度增加而增加，可能导致栈溢出，并且每次创建和销毁栈帧都会带来性能开销。</em></strong></p>
+</blockquote>
+<p><br></p>
+<p><strong>尾递归优化的执行过程：</strong><br><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">factorial_tail</span><span class="params">(<span class="type">int</span> n, <span class="type">int</span> acc)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> acc;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">factorial_tail</span>(n - <span class="number">1</span>, n * acc);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>初始调用时，acc的初始值为1。例如，计算<code>factorial_tail(3, 1)</code>的执行过程如下：<br>调用<code>factorial_tail(3, 1)</code>，<mark>创建栈帧A</mark>，保存参数n=3，acc=1。</p>
+<p>执行到<code>return factorial_tail(n - 1, n * acc)</code>时，计算新的参数值n-1=2，$n<em>acc=3</em>1=3$。<br>调用<code>factorial_tail(2, 3)</code>，<mark>复用栈帧A</mark>，更新参数n=2，acc=3。</p>
+<p>执行到<code>return factorial_tail(n - 1, n * acc)</code>时，计算新的参数值n-1=1，$n<em>acc=2</em>3=6$。<br>调用<code>factorial_tail(1, 6)</code>，<mark>复用栈帧A</mark>，更新参数n=1，acc=6。</p>
+<p>执行到<code>return factorial_tail(n - 1, n * acc)</code>时，计算新的参数值n-1=0，$n<em>acc=1</em>6=6$。<br>调用<code>factorial_tail(0, 6)</code>，<mark>复用栈帧A</mark>，更新参数n=0，acc=6。</p>
+<p>执行到<code>return acc</code>，返回值6，<mark>销毁栈帧A</mark>。</p>
+<p><strong><em>在这个过程中，每次递归调用复用当前栈帧，不需要创建新的栈帧，因此栈帧数量始终保持为1，不会导致栈溢出，并且避免了创建和销毁栈帧的性能开销。</em></strong><br><br></p>
+<p><strong>底层原理</strong><br><strong>尾递归优化的关键在于编译器能够识别出尾递归调用，并将其转换为循环操作</strong>。具体来说，当编译器检测到一个函数调用是尾递归时，它会生成代码来复用当前的栈帧，而不是创建新的栈帧。这通常是通过将递归调用的参数更新到当前栈帧的变量中，并跳转到函数的开头重新执行来实现的。<br><br></p>
+<p><strong>常见简单问题的尾递归实现</strong><br><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//TODO...</span></span><br></pre></td></tr></table></figure><br><br><br><br></p>
+<h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2><blockquote>
+<p><strong>定义：限制数据一端插入，另一端删除的特殊线性表</strong></p>
+<ul>
+<li>允许插入的一端称为<mark>队尾(rear)</mark>，允许删除的一端称为<mark>队头(front)</mark></li>
+<li>入队为<mark>Enqueue</mark>，出队为<mark>Dequeue</mark><br><br></li>
+</ul>
+</blockquote>
+<h3 id="顺序队列"><a href="#顺序队列" class="headerlink" title="顺序队列"></a>顺序队列</h3><h4 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h4><p><img src="/2025/03/17/StackAndQueue/顺序队列的存储.png" alt="alt text"><br><br></p>
+<h4 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h4><p><img src="/2025/03/17/StackAndQueue/顺序队列的操作.png" alt="alt text"><br><img src="/2025/03/17/StackAndQueue/顺序队列的操作2.png" alt="alt text"><br><strong>假溢出</strong>：rear已经到达数组末尾，尽管队列中仍有空闲空间（front之前的位置），但由于rear无法继续向后移动，导致假溢出。<br><br></p>
+<h3 id="循环队列——解决假溢出问题"><a href="#循环队列——解决假溢出问题" class="headerlink" title="循环队列——解决假溢出问题"></a>循环队列——解决假溢出问题</h3><blockquote>
+<p><strong><em>顺序数列无法利用队头指针之前的空间，因此假溢出的本质是没有完全利用数组空间。而循环数列通过连成环解决了这一问题。由于首尾相接，因此循环队列需要做的只是找到判空和判满的办法。</em></strong><br><br><br><img src="/2025/03/17/StackAndQueue/循环队列.png" alt="alt text"></p>
+</blockquote>
+<p><br></p>
+<ul>
+<li><p><strong>方法一：留出空位</strong><br><img src="/2025/03/17/StackAndQueue/留出空位.png" alt="alt text"><br>  判断条件：</p>
+<ol>
+<li>队列为空：<strong>front == rear</strong></li>
+<li>队列为满：<strong>front == (rear + 1) % max</strong><br><br></li>
+</ol>
+</li>
+<li><p><strong>其他方法易于理解</strong>：<br><img src="/2025/03/17/StackAndQueue/其他方法.png" alt="alt text"><br><br><br><br></p>
+</li>
+</ul>
+<h3 id="链式队列——链式存储方式"><a href="#链式队列——链式存储方式" class="headerlink" title="链式队列——链式存储方式"></a>链式队列——链式存储方式</h3><p>和链表的逻辑一致，易于理解：<br><img src="/2025/03/17/StackAndQueue/链式队列.png" alt="alt text"></p>
+<h3 id="优先队列"><a href="#优先队列" class="headerlink" title="优先队列"></a>优先队列</h3><p>易于理解：<br><img src="/2025/03/17/StackAndQueue/优先队列.png" alt="alt text"></p>
+<h3 id="队列的应用：杨辉三角"><a href="#队列的应用：杨辉三角" class="headerlink" title="队列的应用：杨辉三角"></a>队列的应用：杨辉三角</h3><p><img src="/2025/03/17/StackAndQueue/杨辉三角.png" alt="alt text"><br><br></p>
+<h4 id="具体实现："><a href="#具体实现：" class="headerlink" title="具体实现："></a>具体实现：</h4><p>先进队一个1</p>
+<blockquote>
+<p>此时队列： 1      （这样我们就得到了杨辉三角的第一行）</p>
+</blockquote>
+<p><br></p>
+<p>第一步：在队尾<mark>进队一个1</mark></p>
+<blockquote>
+<p>此时队列：1 1</p>
+</blockquote>
+<p><strong>循环0次</strong>（这里相当于没有进行操作）（看不懂就往下看）</p>
+<blockquote>
+<p>此时队列：1 1</p>
+</blockquote>
+<p>在队尾<mark>进队一个1</mark></p>
+<blockquote>
+<p>1 1 1</p>
+</blockquote>
+<p><mark>出队队头的一个1</mark></p>
+<blockquote>
+<p>1 1              （这样我们就得到了杨辉三角的第二行）</p>
+</blockquote>
+<p>（这里看不懂没关系，接着看就懂了）<br><br><br><br></p>
+<p>第二步：在队尾<mark>进队一个1</mark>（与第一步中相同操作）</p>
+<blockquote>
+<p>1 1 1</p>
+</blockquote>
+<p><strong>循环一次：进队队头两个元素的和（1+1=2），即进队2</strong>；</p>
+<blockquote>
+<p>1 1 1 2</p>
+</blockquote>
+<p><strong>再出队队头的一个元素（1）。这两个操作为一次循环</strong>。</p>
+<blockquote>
+<p>1 1 2</p>
+</blockquote>
+<p>在队尾<mark>进队一个1</mark>（与第一步中相同操作）</p>
+<blockquote>
+<p>1 1 2 1</p>
+</blockquote>
+<p><mark>出队队头的一个1</mark></p>
+<blockquote>
+<p>1 2 1            （这样我们就得到了杨辉三角的第三行）</p>
+</blockquote>
+<p><br><br><br></p>
+<p>第三步：</p>
+<p>在队尾<mark>进队一个1</mark>（与第一步中相同操作）</p>
+<blockquote>
+<p>1 2 1 1</p>
+</blockquote>
+<p><strong>循环两次：第一次进队队头两个元素的和（1+2=3），即进队3</strong>；</p>
+<blockquote>
+<p>1 2 1 1 3</p>
+</blockquote>
+<p><strong>再出队队头的一个元素（1）。这两个操作为一次循环</strong>。</p>
+<blockquote>
+<p>2 1 1 3</p>
+</blockquote>
+<p><strong>第二次再进队队头两个元素的和（2+1=3），即进队3</strong>；</p>
+<blockquote>
+<p>2 1 1 3 3</p>
+</blockquote>
+<p><strong>再出队队头的一个元素（2）。这两个操作为第二次循环</strong>。</p>
+<blockquote>
+<p>1 1 3 3</p>
+</blockquote>
+<p>在队尾<mark>进队一个1</mark>（与第一步中相同操作）</p>
+<blockquote>
+<p>1 1 3 3 1</p>
+</blockquote>
+<p><mark>出队队头的一个1</mark></p>
+<blockquote>
+<p>1 3 3 1           （这样我们就得到了杨辉三角的第四行）</p>
+</blockquote>
+<p><br></p>
+<blockquote>
+<p>经过上面的三步操作，不难看出，每一步都分为<mark>三个部分</mark>。即：<strong><em>进1；循环；进1出1</em></strong>。所以我们可以控制重复上述步骤的次数，打印出想要的杨辉三角的层数。（并且可以看出，<strong>第一步循环0次；第二步循环1次；第三步循环2次。即循环次数为步数-1</strong>）</p>
+</blockquote>
+<p><br></p>
+<h3 id="双栈实现队列"><a href="#双栈实现队列" class="headerlink" title="双栈实现队列"></a>双栈实现队列</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//TODO...</span></span><br></pre></td></tr></table></figure>
 ]]></content>
   </entry>
 </search>
